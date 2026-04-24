@@ -68,7 +68,16 @@
       "Bash(grep -E --line-buffered \"タスク|サンプル数|学習:|Top-1|時間:|LogReg|k-NN|サマリー|NG|OK|Traceback|Error|保存|ConvergenceWarning|読み込み完了|特徴量:|\\\\\\\\[|===|---|%\")",
       "PowerShell(Stop-Process *)",
       "Bash(git init *)",
-      "Bash(git add *)"
+      "Bash(git add *)",
+      "Bash(grep -i \"data/\\\\|\\\\.env$\")",
+      "Bash(grep -E \"^A  data/|^A  \\\\.env$\")",
+      "Bash(awk '{print $4}')",
+      "Bash(xargs -I {} stat -c \"%s {}\" \"{}\")",
+      "Bash(git commit -m ' *)",
+      "Bash(git remote *)",
+      "Bash(git push *)",
+      "Bash(PYTHONIOENCODING=utf-8 python phase6_router_features.py)",
+      "Bash(PYTHONIOENCODING=utf-8 python phase6_adaptive_router.py)"
     ]
   }
 }

@@ -1,0 +1,251 @@
+{
+  "video_names": [
+    "124-black_headed_gull.mp4",
+    "142-mallard.mp4",
+    "171-black_winged_stilt.mp4",
+    "130-eurasian_magpie.mp4",
+    "064-northern_shoveler.mp4",
+    "024-black_headed_gull.mp4",
+    "009-yellow_legged_gull.mp4",
+    "177-eurasian_magpie.mp4",
+    "052-eurasian_moorhen.mp4",
+    "154-northern_shoveler.mp4",
+    "150-squacco_heron.mp4",
+    "165-glossy_ibis.mp4",
+    "019-eurasian_coot.mp4",
+    "003-squacco_heron.mp4",
+    "057-eurasian_moorhen.mp4",
+    "092-little_ringed_plover.mp4",
+    "021-little_ringed_plover.mp4",
+    "167-white_wagtail.mp4",
+    "178-white_wagtail.mp4",
+    "082-yellow_legged_gull.mp4",
+    "121-eurasian_moorhen.mp4",
+    "108-eurasian_coot.mp4",
+    "042-mallard.mp4",
+    "073-black_winged_stilt.mp4",
+    "174-eurasian_coot.mp4",
+    "027-gadwall.mp4",
+    "029-gadwall.mp4"
+  ],
+  "best_methods": [
+    "majority",
+    "majority",
+    "majority",
+    "majority",
+    "majority",
+    "majority",
+    "majority",
+    "majority",
+    "majority",
+    "majority",
+    "majority",
+    "majority",
+    "majority",
+    "majority",
+    "majority",
+    "majority",
+    "majority",
+    "majority",
+    "majority",
+    "majority",
+    "majority",
+    "majority",
+    "majority",
+    "majority",
+    "majority",
+    "majority",
+    "majority"
+  ],
+  "method_results": [
+    {
+      "majority": 1,
+      "frame_avg": 1,
+      "conf_weighted": 1,
+      "yolo_weighted": 1,
+      "sliding_window": 1
+    },
+    {
+      "majority": 1,
+      "frame_avg": 0,
+      "conf_weighted": 0,
+      "yolo_weighted": 1,
+      "sliding_window": 1
+    },
+    {
+      "majority": 1,
+      "frame_avg": 1,
+      "conf_weighted": 1,
+      "yolo_weighted": 1,
+      "sliding_window": 1
+    },
+    {
+      "majority": 1,
+      "frame_avg": 1,
+      "conf_weighted": 1,
+      "yolo_weighted": 1,
+      "sliding_window": 1
+    },
+    {
+      "majority": 1,
+      "frame_avg": 1,
+      "conf_weighted": 1,
+      "yolo_weighted": 1,
+      "sliding_window": 1
+    },
+    {
+      "majority": 1,
+      "frame_avg": 1,
+      "conf_weighted": 1,
+      "yolo_weighted": 1,
+      "sliding_window": 1
+    },
+    {
+      "majority": 1,
+      "frame_avg": 1,
+      "conf_weighted": 1,
+      "yolo_weighted": 1,
+      "sliding_window": 1
+    },
+    {
+      "majority": 1,
+      "frame_avg": 1,
+      "conf_weighted": 1,
+      "yolo_weighted": 1,
+      "sliding_window": 1
+    },
+    {
+      "majority": 1,
+      "frame_avg": 1,
+      "conf_weighted": 1,
+      "yolo_weighted": 1,
+      "sliding_window": 1
+    },
+    {
+      "majority": 1,
+      "frame_avg": 1,
+      "conf_weighted": 1,
+      "yolo_weighted": 1,
+      "sliding_window": 1
+    },
+    {
+      "majority": 1,
+      "frame_avg": 1,
+      "conf_weighted": 1,
+      "yolo_weighted": 1,
+      "sliding_window": 1
+    },
+    {
+      "majority": 1,
+      "frame_avg": 1,
+      "conf_weighted": 1,
+      "yolo_weighted": 1,
+      "sliding_window": 1
+    },
+    {
+      "majority": 1,
+      "frame_avg": 1,
+      "conf_weighted": 1,
+      "yolo_weighted": 1,
+      "sliding_window": 1
+    },
+    {
+      "majority": 1,
+      "frame_avg": 1,
+      "conf_weighted": 1,
+      "yolo_weighted": 1,
+      "sliding_window": 1
+    },
+    {
+      "majority": 1,
+      "frame_avg": 1,
+      "conf_weighted": 1,
+      "yolo_weighted": 1,
+      "sliding_window": 1
+    },
+    {
+      "majority": 1,
+      "frame_avg": 1,
+      "conf_weighted": 1,
+      "yolo_weighted": 1,
+      "sliding_window": 1
+    },
+    {
+      "majority": 1,
+      "frame_avg": 1,
+      "conf_weighted": 1,
+      "yolo_weighted": 1,
+      "sliding_window": 1
+    },
+    {
+      "majority": 1,
+      "frame_avg": 1,
+      "conf_weighted": 1,
+      "yolo_weighted": 1,
+      "sliding_window": 1
+    },
+    {
+      "majority": 1,
+      "frame_avg": 1,
+      "conf_weighted": 1,
+      "yolo_weighted": 1,
+      "sliding_window": 1
+    },
+    {
+      "majority": 1,
+      "frame_avg": 1,
+      "conf_weighted": 1,
+      "yolo_weighted": 1,
+      "sliding_window": 1
+    },
+    {
+      "majority": 1,
+      "frame_avg": 1,
+      "conf_weighted": 1,
+      "yolo_weighted": 1,
+      "sliding_window": 1
+    },
+    {
+      "majority": 1,
+      "frame_avg": 1,
+      "conf_weighted": 1,
+      "yolo_weighted": 1,
+      "sliding_window": 1
+    },
+    {
+      "majority": 1,
+      "frame_avg": 1,
+      "conf_weighted": 1,
+      "yolo_weighted": 1,
+      "sliding_window": 1
+    },
+    {
+      "majority": 1,
+      "frame_avg": 1,
+      "conf_weighted": 1,
+      "yolo_weighted": 1,
+      "sliding_window": 1
+    },
+    {
+      "majority": 1,
+      "frame_avg": 1,
+      "conf_weighted": 1,
+      "yolo_weighted": 1,
+      "sliding_window": 1
+    },
+    {
+      "majority": 1,
+      "frame_avg": 1,
+      "conf_weighted": 1,
+      "yolo_weighted": 1,
+      "sliding_window": 1
+    },
+    {
+      "majority": 1,
+      "frame_avg": 1,
+      "conf_weighted": 1,
+      "yolo_weighted": 1,
+      "sliding_window": 1
+    }
+  ]
+}

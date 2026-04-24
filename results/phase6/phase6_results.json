@@ -1,0 +1,160 @@
+{
+  "wetlandbirds": {
+    "fixed_majority": {
+      "accuracy": 1.0,
+      "macro_f1": 1.0
+    },
+    "fixed_frame_avg": {
+      "accuracy": 0.9629629629629629,
+      "macro_f1": 0.958974358974359
+    },
+    "fixed_conf_weighted": {
+      "accuracy": 0.9629629629629629,
+      "macro_f1": 0.958974358974359
+    },
+    "fixed_yolo_weighted": {
+      "accuracy": 1.0,
+      "macro_f1": 1.0
+    },
+    "fixed_sliding_window": {
+      "accuracy": 1.0,
+      "macro_f1": 1.0
+    },
+    "adaptive_logistic": {
+      "accuracy": 1.0,
+      "macro_f1": 1.0,
+      "router_train_acc_mean": 1.0,
+      "chosen_methods_distribution": {
+        "majority": 27
+      }
+    },
+    "adaptive_random_forest": {
+      "accuracy": 1.0,
+      "macro_f1": 1.0,
+      "router_train_acc_mean": 1.0,
+      "chosen_methods_distribution": {
+        "majority": 27
+      }
+    },
+    "hybrid_router": {
+      "accuracy": 1.0,
+      "macro_f1": 1.0,
+      "router_train_acc_mean": 1.0,
+      "chosen_methods_distribution": {
+        "majority": 27
+      }
+    },
+    "heuristic_router": {
+      "accuracy": 0.9629629629629629,
+      "macro_f1": 0.958974358974359,
+      "chosen_methods_distribution": {
+        "majority": 23,
+        "frame_avg": 4
+      }
+    }
+  },
+  "vb100": {
+    "fixed_majority": {
+      "accuracy": 0.8692579505300353,
+      "macro_f1": 0.8432777777777778
+    },
+    "fixed_frame_avg": {
+      "accuracy": 0.8692579505300353,
+      "macro_f1": 0.8436904761904762
+    },
+    "fixed_conf_weighted": {
+      "accuracy": 0.8692579505300353,
+      "macro_f1": 0.845515873015873
+    },
+    "fixed_yolo_weighted": {
+      "accuracy": 0.8692579505300353,
+      "macro_f1": 0.8482857142857142
+    },
+    "fixed_sliding_window": {
+      "accuracy": 0.8692579505300353,
+      "macro_f1": 0.8438492063492065
+    },
+    "adaptive_logistic": {
+      "accuracy": 0.8692579505300353,
+      "macro_f1": 0.8435952380952381,
+      "router_train_acc_mean": 0.9098865541304433,
+      "chosen_methods_distribution": {
+        "majority": 259,
+        "frame_avg": 23,
+        "conf_weighted": 1
+      }
+    },
+    "adaptive_random_forest": {
+      "accuracy": 0.8692579505300353,
+      "macro_f1": 0.8435952380952381,
+      "router_train_acc_mean": 0.981451015554949,
+      "chosen_methods_distribution": {
+        "majority": 265,
+        "frame_avg": 18
+      },
+      "feature_importances": [
+        0.04834507983248004,
+        0.041785405555314,
+        0.05195812896037168,
+        0.0488724479470806,
+        0.07206133616892241,
+        0.04311453031032228,
+        0.039527615071932885,
+        0.09084174435490958,
+        0.09171292456876569,
+        0.07513543887110656,
+        0.0462985449230303,
+        0.07471921920444885,
+        0.06679076275621305,
+        0.040734424887911604,
+        0.05917993598178943,
+        0.018452672428080116,
+        0.04458851009635258,
+        0.017513146572053377,
+        0.028368131508915078,
+        0.0
+      ]
+    },
+    "hybrid_router": {
+      "accuracy": 0.8692579505300353,
+      "macro_f1": 0.8435952380952381,
+      "router_train_acc_mean": 0.981451015554949,
+      "chosen_methods_distribution": {
+        "majority": 254,
+        "frame_avg": 29
+      },
+      "feature_importances": [
+        0.04834507983248004,
+        0.041785405555314,
+        0.05195812896037168,
+        0.0488724479470806,
+        0.07206133616892241,
+        0.04311453031032228,
+        0.039527615071932885,
+        0.09084174435490958,
+        0.09171292456876569,
+        0.07513543887110656,
+        0.0462985449230303,
+        0.07471921920444885,
+        0.06679076275621305,
+        0.040734424887911604,
+        0.05917993598178943,
+        0.018452672428080116,
+        0.04458851009635258,
+        0.017513146572053377,
+        0.028368131508915078,
+        0.0
+      ]
+    },
+    "heuristic_router": {
+      "accuracy": 0.8692579505300353,
+      "macro_f1": 0.845515873015873,
+      "chosen_methods_distribution": {
+        "majority": 194,
+        "frame_avg": 69,
+        "conf_weighted": 8,
+        "yolo_weighted": 12
+      }
+    }
+  }
+}
