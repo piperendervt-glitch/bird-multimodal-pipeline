@@ -1,0 +1,142 @@
+{
+  "majority_vote": {
+    "description": "多数決",
+    "accuracy": 0.8692579505300353,
+    "macro_f1": 0.8432777777777778,
+    "n_correct": 246,
+    "n_total": 283
+  },
+  "confidence_weighted": {
+    "description": "確信度加重投票",
+    "accuracy": 0.8692579505300353,
+    "macro_f1": 0.8436904761904762,
+    "n_correct": 246,
+    "n_total": 283
+  },
+  "exponential_decay": {
+    "description": "指数減衰 (decay=0.8)",
+    "accuracy": 0.8480565371024735,
+    "macro_f1": 0.8309682539682539,
+    "n_correct": 240,
+    "n_total": 283
+  },
+  "sliding_window_3": {
+    "description": "スライディング窓 (size=3)",
+    "accuracy": 0.8657243816254417,
+    "macro_f1": 0.840325396825397,
+    "n_correct": 245,
+    "n_total": 283
+  },
+  "sliding_window_5": {
+    "description": "スライディング窓 (size=5)",
+    "accuracy": 0.8692579505300353,
+    "macro_f1": 0.8438492063492065,
+    "n_correct": 246,
+    "n_total": 283
+  },
+  "temporal_gate": {
+    "description": "時間 Gate (CAGL 類似)",
+    "accuracy": 0.833922261484099,
+    "macro_f1": 0.8108174603174604,
+    "n_correct": 236,
+    "n_total": 283
+  },
+  "yolo_weighted": {
+    "description": "YOLO 確信度加重",
+    "accuracy": 0.8692579505300353,
+    "macro_f1": 0.8482857142857142,
+    "n_correct": 246,
+    "n_total": 283
+  },
+  "frame_avg_baseline": {
+    "description": "[ベースライン] フレーム平均 + LogReg (Phase 4b 方式)",
+    "accuracy": 0.8904593639575972,
+    "macro_f1": 0.8823037518037519,
+    "n_correct": 252,
+    "n_total": 283
+  },
+  "vb100_prior_work": {
+    "description": "先行研究 VB100 (YOLO+ResNet-50+多数決)",
+    "accuracy": 0.84
+  },
+  "best_method": {
+    "name": "frame_avg",
+    "description": "[ベースライン] フレーム平均",
+    "accuracy": 0.8904593639575972
+  },
+  "wetland_comparison": {
+    "フレーム平均": {
+      "wetlandbirds": 0.9629629629629629,
+      "vb100": 0.8904593639575972
+    },
+    "多数決": {
+      "wetlandbirds": 1.0,
+      "vb100": 0.8692579505300353
+    },
+    "確信度加重投票": {
+      "wetlandbirds": 0.9629629629629629,
+      "vb100": 0.8692579505300353
+    },
+    "指数減衰 (decay=0.8)": {
+      "wetlandbirds": 0.9259259259259259,
+      "vb100": 0.8480565371024735
+    },
+    "スライディング窓 (size=3)": {
+      "wetlandbirds": 1.0,
+      "vb100": 0.8657243816254417
+    },
+    "スライディング窓 (size=5)": {
+      "wetlandbirds": 1.0,
+      "vb100": 0.8692579505300353
+    },
+    "時間 Gate (CAGL 類似)": {
+      "wetlandbirds": 0.9259259259259259,
+      "vb100": 0.833922261484099
+    },
+    "YOLO 確信度加重": {
+      "wetlandbirds": 1.0,
+      "vb100": 0.8692579505300353
+    }
+  },
+  "worst_species_top5": [
+    {
+      "species": "Hairy_Hermit",
+      "accuracy": 0.0,
+      "n_correct": 0,
+      "n_total": 2
+    },
+    {
+      "species": "White-rumped_Sandpiper",
+      "accuracy": 0.0,
+      "n_correct": 0,
+      "n_total": 2
+    },
+    {
+      "species": "Hudsonian_Godwit",
+      "accuracy": 0.0,
+      "n_correct": 0,
+      "n_total": 1
+    },
+    {
+      "species": "Pink-footed_Shearwater",
+      "accuracy": 0.0,
+      "n_correct": 0,
+      "n_total": 1
+    },
+    {
+      "species": "Double-crested_Cormorant",
+      "accuracy": 0.3333333333333333,
+      "n_correct": 1,
+      "n_total": 3
+    }
+  ],
+  "data_summary": {
+    "n_classes": 100,
+    "n_train_videos": 1133,
+    "n_test_videos": 283,
+    "n_train_frames": 37424,
+    "n_test_frames": 9594,
+    "train_accuracy_frame_level": 0.9973011970927746,
+    "train_accuracy_video_level": 1.0
+  }
+}

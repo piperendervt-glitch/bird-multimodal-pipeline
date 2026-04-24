@@ -1,0 +1,24 @@
+# データセット（合計 40GB、GitHub にはプッシュしない）
+data/
+
+# 大きな中間ファイル
+results/bird_phase4b/crops/
+results/bird_phase4b/audio/
+results/vb100_phase5e/crops/
+results/vb100_phase5e/frame_results.json
+results/vb100_phase5e/frame_predictions.json
+
+# zip ファイル
+*.zip
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+
+# 環境変数
+.env
+
+# OS
+.DS_Store
+Thumbs.db

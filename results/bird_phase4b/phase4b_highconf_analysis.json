@@ -1,0 +1,112 @@
+{
+  "high_conf_videos": [
+    {
+      "video_name": "077-black_winged_stilt.mp4",
+      "species": "black_winged_stilt",
+      "mean_max_confidence": 0.9247021675109863
+    },
+    {
+      "video_name": "171-black_winged_stilt.mp4",
+      "species": "black_winged_stilt",
+      "mean_max_confidence": 0.8969966127322271
+    },
+    {
+      "video_name": "072-black_winged_stilt.mp4",
+      "species": "black_winged_stilt",
+      "mean_max_confidence": 0.8601725190877915
+    },
+    {
+      "video_name": "071-black_winged_stilt.mp4",
+      "species": "black_winged_stilt",
+      "mean_max_confidence": 0.8357091844081879
+    },
+    {
+      "video_name": "073-black_winged_stilt.mp4",
+      "species": "black_winged_stilt",
+      "mean_max_confidence": 0.8111943636428226
+    },
+    {
+      "video_name": "101-eurasian_coot.mp4",
+      "species": "eurasian_coot",
+      "mean_max_confidence": 0.7827786997271081
+    },
+    {
+      "video_name": "172-black_headed_gull.mp4",
+      "species": "black_headed_gull",
+      "mean_max_confidence": 0.768739444159326
+    },
+    {
+      "video_name": "025-black_headed_gull.mp4",
+      "species": "black_headed_gull",
+      "mean_max_confidence": 0.7490737654946067
+    },
+    {
+      "video_name": "076-black_winged_stilt.mp4",
+      "species": "black_winged_stilt",
+      "mean_max_confidence": 0.6785798706114292
+    },
+    {
+      "video_name": "008-yellow_legged_gull.mp4",
+      "species": "yellow_legged_gull",
+      "mean_max_confidence": 0.6576486287469213
+    },
+    {
+      "video_name": "150-squacco_heron.mp4",
+      "species": "squacco_heron",
+      "mean_max_confidence": 0.6208011032348233
+    },
+    {
+      "video_name": "042-mallard.mp4",
+      "species": "mallard",
+      "mean_max_confidence": 0.5821104450641494
+    },
+    {
+      "video_name": "056-eurasian_moorhen.mp4",
+      "species": "eurasian_moorhen",
+      "mean_max_confidence": 0.5714458660739992
+    },
+    {
+      "video_name": "168-white_wagtail.mp4",
+      "species": "white_wagtail",
+      "mean_max_confidence": 0.5509368252186548
+    },
+    {
+      "video_name": "124-black_headed_gull.mp4",
+      "species": "black_headed_gull",
+      "mean_max_confidence": 0.5472932233741241
+    },
+    {
+      "video_name": "006-yellow_legged_gull.mp4",
+      "species": "yellow_legged_gull",
+      "mean_max_confidence": 0.5358876152472063
+    },
+    {
+      "video_name": "162-glossy_ibis.mp4",
+      "species": "glossy_ibis",
+      "mean_max_confidence": 0.5279432732865892
+    },
+    {
+      "video_name": "148-squacco_heron.mp4",
+      "species": "squacco_heron",
+      "mean_max_confidence": 0.5127497450448573
+    },
+    {
+      "video_name": "047-glossy_ibis.mp4",
+      "species": "glossy_ibis",
+      "mean_max_confidence": 0.5095311240293086
+    }
+  ],
+  "n_high_conf": 19,
+  "n_high_conf_in_test": 5,
+  "species_distribution": {
+    "black_winged_stilt": 6,
+    "eurasian_coot": 1,
+    "black_headed_gull": 3,
+    "yellow_legged_gull": 2,
+    "squacco_heron": 2,
+    "mallard": 1,
+    "eurasian_moorhen": 1,
+    "white_wagtail": 1,
+    "glossy_ibis": 2
+  }
+}

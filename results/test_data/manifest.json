@@ -1,0 +1,82 @@
+{
+  "generated_at": "2026-04-20T10:16:21.197537+00:00",
+  "n_trials": 50,
+  "n_samples": 5000,
+  "n_topologies": 5,
+  "n_labels": 2,
+  "shared_noise_rate": 0.05,
+  "topo_accuracy": [
+    [
+      0.9,
+      0.55
+    ],
+    [
+      0.55,
+      0.92
+    ],
+    [
+      0.72,
+      0.68
+    ],
+    [
+      0.8,
+      0.6
+    ],
+    [
+      0.58,
+      0.85
+    ]
+  ],
+  "files": {
+    "trial_000.npz": "sha256:82e601eda0a160851a8e80e22480eaa8727827b4d076cbc54b4b8950909fd1ac",
+    "trial_001.npz": "sha256:00734be79052c24908baa35395f842c2a48a1657bce1205428111d5d5e06bbb1",
+    "trial_002.npz": "sha256:6874f07d0d9fee6ae884ed715b7c4dae57f8722bfdedb4d1a6f88d61b4215bf9",
+    "trial_003.npz": "sha256:fe73fcaec0e419923d3e5b7814ded85dc7181b4d4cc1b85731f1d214d788529f",
+    "trial_004.npz": "sha256:d56292143195a96471bdf67a0f0ced322dd63fe3755874be1665ae9efc282b40",
+    "trial_005.npz": "sha256:aa0f3d55700a18a63c4d7fca54f0874d4320c44f1be4321c08038e9166124f32",
+    "trial_006.npz": "sha256:4d308d23e6b8cd16722fe7da7165b6917d93508bc123e5448dcee14b01e2d1f9",
+    "trial_007.npz": "sha256:eb95d0f9a5896eb9c554520076eaa372c877cb88000265963927d71b97b2b207",
+    "trial_008.npz": "sha256:eb9821dfbe035b20cc1eab073e7f7ba816a3de02409f3ce205b1c1cd61d69e06",
+    "trial_009.npz": "sha256:bf7f8a80de589ca34a839af0863cfb3121bef0e0b604b23795dc86f7bfa548af",
+    "trial_010.npz": "sha256:2085d519e0230c995c763b093c1c8af5e513a04d25682c365ec96e4b5cfc6e01",
+    "trial_011.npz": "sha256:334ef87c97c68bdc47eef6ac36b99f8d6864f94a39a72d617557e7866b92bc77",
+    "trial_012.npz": "sha256:34456368a8025789c884febc345250c2476e90799df7b692de700901353ca4c3",
+    "trial_013.npz": "sha256:5f0b193a80368d3a03e659346255d8f9e6ac7df855067a3bf25c162e3bcfaa82",
+    "trial_014.npz": "sha256:01773e65ff16413fd4bed1dc11d6bd609924cf4f07a47e16a3f105821cce4ec5",
+    "trial_015.npz": "sha256:cc855f3658f88ad1a48945fbe1e2236cd8afbc8cfacb7cdbe0f1aaed5a20fdcb",
+    "trial_016.npz": "sha256:933a469e9544948f760db1b2ecb7ccb6ca5b91a3ae74feea0fbc7f34eac19293",
+    "trial_017.npz": "sha256:4bffbfd35115af899e787fe4131e9f5a381f8703ff0106e70dc9181911f4d38f",
+    "trial_018.npz": "sha256:4310e2290709dcf409a3bbcb7b1d45e8ba21ecd23deda5b22750569c52bec69f",
+    "trial_019.npz": "sha256:dfa493f048dd2156a4018313964a913396f40e0c47ac8f6d2534c60da7b572c6",
+    "trial_020.npz": "sha256:73afbb45645997302fc56a4ffd6a7e61b96b5b9e4cb4570297b332a801be7ec0",
+    "trial_021.npz": "sha256:be26b88fb9e931924b768f1c2581579212b40d384d4b02b6664371a996e66ed7",
+    "trial_022.npz": "sha256:099e31073f069980c6b941fca9585fc3e2d1aa688ca528aa6c35dddde31ed002",
+    "trial_023.npz": "sha256:03c7ab8cb5910c61a125402ddd4bd4faa97fbddf0871aacbc198ca0511edf5cd",
+    "trial_024.npz": "sha256:3f60f18b414707dbb60d48f29e28d61d26ad91d378315c79dd7f53e6602e14c9",
+    "trial_025.npz": "sha256:db56980702bd55e233d1d5bce68dd6fb85079b2b3fd1e2cb3f609484b26e78ff",
+    "trial_026.npz": "sha256:56e91f62485958e54bbe3511200918cfeed9c70cab74899df18f2304ad9fcc7e",
+    "trial_027.npz": "sha256:ebc89d63d1b43f86d1edff82308d53a0ea7983f0f3d72cc5fc62a3f79bbfcf13",
+    "trial_028.npz": "sha256:e79b42dc01d148cf62f54db2c6b4436f7bd1b57adb4b54e12cd59eb2a30ecefe",
+    "trial_029.npz": "sha256:858131f9575225afbee2a879fdbbf78b371ea726557f631ac04d7c4e918c4ac5",
+    "trial_030.npz": "sha256:f56f810dc82c70496c30e9f9d442fe78100c28ecba8b91acf0290e1c55093154",
+    "trial_031.npz": "sha256:03c2e0ea654f98942b418e5abd01f1ae62d69786e85fbe3c7a1eedb4e7fa4811",
+    "trial_032.npz": "sha256:d2e9bd864eb7e8bb78a941b867ecbffe6b2a96a76db32ada4f0188c60a68da50",
+    "trial_033.npz": "sha256:1f27fbbdac9f151299c04f4fc85e38bd3c8df30a4a5bb91fcfd0dc48edfe0a41",
+    "trial_034.npz": "sha256:a4a400b732d0bed4c55b5076f3a1944dc0b2d4cab919552c317d8ec7c6dd5372",
+    "trial_035.npz": "sha256:10092293f8c14b3ecc67dba249b6b1ae2eee337c4d8e010368d79b6de0ebe374",
+    "trial_036.npz": "sha256:8aaf330ab8604d844658e8d138bb54901619cfa55b265b27fb3ddfbf89cb3aea",
+    "trial_037.npz": "sha256:4b6acc6556c80d1ccec26b56ecbc506d7a9b49144353c5d046949108730a0bf4",
+    "trial_038.npz": "sha256:5ab6596c03a799dab8e7f48fa2ca0847f708e80899ccda4b25d37fab5d0fd004",
+    "trial_039.npz": "sha256:697b1ce23623aedad38b485cd16c438aa68d70d97032f40aface8e7db93169d4",
+    "trial_040.npz": "sha256:6fa9487e31987319fee981dbc4ff34665498505238516743f1f571afa81259f6",
+    "trial_041.npz": "sha256:6f1322a6470e4b2c44122813b9c69ac263a45b969190ba0842fbead99800b638",
+    "trial_042.npz": "sha256:4484cef7a15e3f7e17c9491d0c1364f9be06cfec3f43e65572f1f252a1986f8f",
+    "trial_043.npz": "sha256:193b162e946b4a8c7ab5925e44a94006fd920f58df7668f45831998647203a3f",
+    "trial_044.npz": "sha256:931828f375a94468dac689a98675cfe53e967e9b6aede63a0a38d635d62f3c1c",
+    "trial_045.npz": "sha256:72ed095b5100d0f2c7f8e506916cc2573e07f949ada5c4412504aeda2908217f",
+    "trial_046.npz": "sha256:3c47f15f604b3ee7c7a6a6182905355d31aa092061d9c05c40264f05cd4d5d12",
+    "trial_047.npz": "sha256:131824e1b3970c7d80d06d8ae6ee10eec812b20f0568f6da7d2644b93cf5bbaa",
+    "trial_048.npz": "sha256:4213b9558fcdcc9840467b91b9e13c30d33d9abb567cc12c2aac275f162fd69d",
+    "trial_049.npz": "sha256:eebda22c68e5fab45ffee49a3b91785e3b696e34fa173a1d0516fe798023f714"
+  }
+}

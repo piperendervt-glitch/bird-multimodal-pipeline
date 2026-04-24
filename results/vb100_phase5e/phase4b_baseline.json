@@ -1,0 +1,15 @@
+{
+  "description": "動画特徴量平均 + LogReg (Phase 4b 方式)",
+  "accuracy": 0.8904593639575972,
+  "macro_f1": 0.8823037518037519,
+  "n_correct": 252,
+  "n_total": 283,
+  "train_accuracy_frame_level": 0.9973011970927746,
+  "train_accuracy_video_level": 1.0,
+  "n_train_videos": 1133,
+  "n_test_videos": 283,
+  "n_train_frames": 37424,
+  "n_test_frames": 9594,
+  "seed": 42,
+  "train_ratio": 0.8
+}

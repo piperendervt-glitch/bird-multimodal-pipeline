@@ -1,0 +1,84 @@
+Using cache found in C:\Users\pipe_render/.cache\torch\hub\facebookresearch_dinov2_main
+C:\Users\pipe_render/.cache\torch\hub\facebookresearch_dinov2_main\dinov2\layers\swiglu_ffn.py:51: UserWarning: xFormers is not available (SwiGLU)
+  warnings.warn("xFormers is not available (SwiGLU)")
+C:\Users\pipe_render/.cache\torch\hub\facebookresearch_dinov2_main\dinov2\layers\attention.py:33: UserWarning: xFormers is not available (Attention)
+  warnings.warn("xFormers is not available (Attention)")
+C:\Users\pipe_render/.cache\torch\hub\facebookresearch_dinov2_main\dinov2\layers\block.py:40: UserWarning: xFormers is not available (Block)
+  warnings.warn("xFormers is not available (Block)")
+=== Phase 4a-B: 切り抜き + DINOv2 特徴抽出 ===
+検出結果: 11788 件読み込み
+DINOv2 読み込み中...
+
+--- train (5994 枚) ---
+  YOLO フォールバック (元画像使用): 110 枚
+  元画像の特徴抽出中...
+    640/5994 バッチ処理済
+    1280/5994 バッチ処理済
+    1920/5994 バッチ処理済
+    2560/5994 バッチ処理済
+    3200/5994 バッチ処理済
+    3840/5994 バッチ処理済
+    4480/5994 バッチ処理済
+    5120/5994 バッチ処理済
+    5760/5994 バッチ処理済
+  完了: 18.2 秒, shape=(5994, 384)
+  YOLO 切り抜きの特徴抽出中...
+    640/5994 バッチ処理済
+    1280/5994 バッチ処理済
+    1920/5994 バッチ処理済
+    2560/5994 バッチ処理済
+    3200/5994 バッチ処理済
+    3840/5994 バッチ処理済
+    4480/5994 バッチ処理済
+    5120/5994 バッチ処理済
+    5760/5994 バッチ処理済
+  完了: 16.5 秒, shape=(5994, 384)
+  正解 bbox 切り抜きの特徴抽出中...
+    640/5994 バッチ処理済
+    1280/5994 バッチ処理済
+    1920/5994 バッチ処理済
+    2560/5994 バッチ処理済
+    3200/5994 バッチ処理済
+    3840/5994 バッチ処理済
+    4480/5994 バッチ処理済
+    5120/5994 バッチ処理済
+    5760/5994 バッチ処理済
+  完了: 16.6 秒, shape=(5994, 384)
+  保存: ..\results\bird_phase4a\features_train.npz
+
+--- test (5794 枚) ---
+  YOLO フォールバック (元画像使用): 114 枚
+  元画像の特徴抽出中...
+    640/5794 バッチ処理済
+    1280/5794 バッチ処理済
+    1920/5794 バッチ処理済
+    2560/5794 バッチ処理済
+    3200/5794 バッチ処理済
+    3840/5794 バッチ処理済
+    4480/5794 バッチ処理済
+    5120/5794 バッチ処理済
+    5760/5794 バッチ処理済
+  完了: 20.7 秒, shape=(5794, 384)
+  YOLO 切り抜きの特徴抽出中...
+    640/5794 バッチ処理済
+    1280/5794 バッチ処理済
+    1920/5794 バッチ処理済
+    2560/5794 バッチ処理済
+    3200/5794 バッチ処理済
+    3840/5794 バッチ処理済
+    4480/5794 バッチ処理済
+    5120/5794 バッチ処理済
+    5760/5794 バッチ処理済
+  完了: 19.1 秒, shape=(5794, 384)
+  正解 bbox 切り抜きの特徴抽出中...
+    640/5794 バッチ処理済
+    1280/5794 バッチ処理済
+    1920/5794 バッチ処理済
+    2560/5794 バッチ処理済
+    3200/5794 バッチ処理済
+    3840/5794 バッチ処理済
+    4480/5794 バッチ処理済
+    5120/5794 バッチ処理済
+    5760/5794 バッチ処理済
+  完了: 19.2 秒, shape=(5794, 384)
+  保存: ..\results\bird_phase4a\features_test.npz

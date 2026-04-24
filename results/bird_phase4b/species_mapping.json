@@ -1,0 +1,33 @@
+{
+  "species_to_id": {
+    "black_headed_gull": 0,
+    "black_winged_stilt": 1,
+    "eurasian_coot": 2,
+    "eurasian_magpie": 3,
+    "eurasian_moorhen": 4,
+    "gadwall": 5,
+    "glossy_ibis": 6,
+    "little_ringed_plover": 7,
+    "mallard": 8,
+    "northern_shoveler": 9,
+    "squacco_heron": 10,
+    "white_wagtail": 11,
+    "yellow_legged_gull": 12
+  },
+  "id_to_species": {
+    "0": "black_headed_gull",
+    "1": "black_winged_stilt",
+    "2": "eurasian_coot",
+    "3": "eurasian_magpie",
+    "4": "eurasian_moorhen",
+    "5": "gadwall",
+    "6": "glossy_ibis",
+    "7": "little_ringed_plover",
+    "8": "mallard",
+    "9": "northern_shoveler",
+    "10": "squacco_heron",
+    "11": "white_wagtail",
+    "12": "yellow_legged_gull"
+  },
+  "n_classes": 13
+}

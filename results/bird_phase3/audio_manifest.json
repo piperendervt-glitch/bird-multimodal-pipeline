@@ -1,0 +1,998 @@
+{
+  "58": {
+    "species_name": "California Gull",
+    "n_recordings": 17,
+    "recordings": [
+      {
+        "path": "..\\data\\xeno-canto\\class_058\\XC571013.mp3",
+        "xc_id": "571013",
+        "species": "California Gull",
+        "country": "United States",
+        "quality": "A",
+        "length": "0:44"
+      },
+      {
+        "path": "..\\data\\xeno-canto\\class_058\\XC484554.mp3",
+        "xc_id": "484554",
+        "species": "California Gull",
+        "country": "United States",
+        "quality": "A",
+        "length": "0:29"
+      },
+      {
+        "path": "..\\data\\xeno-canto\\class_058\\XC362781.mp3",
+        "xc_id": "362781",
+        "species": "California Gull",
+        "country": "United States",
+        "quality": "A",
+        "length": "0:08"
+      },
+      {
+        "path": "..\\data\\xeno-canto\\class_058\\XC189398.mp3",
+        "xc_id": "189398",
+        "species": "California Gull",
+        "country": "United States",
+        "quality": "A",
+        "length": "0:29"
+      },
+      {
+        "path": "..\\data\\xeno-canto\\class_058\\XC189397.mp3",
+        "xc_id": "189397",
+        "species": "California Gull",
+        "country": "United States",
+        "quality": "A",
+        "length": "0:09"
+      },
+      {
+        "path": "..\\data\\xeno-canto\\class_058\\XC189396.mp3",
+        "xc_id": "189396",
+        "species": "California Gull",
+        "country": "United States",
+        "quality": "A",
+        "length": "0:13"
+      },
+      {
+        "path": "..\\data\\xeno-canto\\class_058\\XC189395.mp3",
+        "xc_id": "189395",
+        "species": "California Gull",
+        "country": "United States",
+        "quality": "A",
+        "length": "0:17"
+      },
+      {
+        "path": "..\\data\\xeno-canto\\class_058\\XC161046.mp3",
+        "xc_id": "161046",
+        "species": "California Gull",
+        "country": "United States",
+        "quality": "A",
+        "length": "0:21"
+      },
+      {
+        "path": "..\\data\\xeno-canto\\class_058\\XC109694.mp3",
+        "xc_id": "109694",
+        "species": "California Gull",
+        "country": "United States",
+        "quality": "A",
+        "length": "0:41"
+      },
+      {
+        "path": "..\\data\\xeno-canto\\class_058\\XC14086.mp3",
+        "xc_id": "14086",
+        "species": "California Gull",
+        "country": "United States",
+        "quality": "A",
+        "length": "0:22"
+      },
+      {
+        "path": "..\\data\\xeno-canto\\class_058\\XC572577.mp3",
+        "xc_id": "572577",
+        "species": "California Gull",
+        "country": "United States",
+        "quality": "B",
+        "length": "0:11"
+      },
+      {
+        "path": "..\\data\\xeno-canto\\class_058\\XC488170.mp3",
+        "xc_id": "488170",
+        "species": "California Gull",
+        "country": "United States",
+        "quality": "B",
+        "length": "0:09"
+      },
+      {
+        "path": "..\\data\\xeno-canto\\class_058\\XC485498.mp3",
+        "xc_id": "485498",
+        "species": "California Gull",
+        "country": "United States",
+        "quality": "B",
+        "length": "0:08"
+      },
+      {
+        "path": "..\\data\\xeno-canto\\class_058\\XC362782.mp3",
+        "xc_id": "362782",
+        "species": "California Gull",
+        "country": "United States",
+        "quality": "B",
+        "length": "0:08"
+      },
+      {
+        "path": "..\\data\\xeno-canto\\class_058\\XC362650.mp3",
+        "xc_id": "362650",
+        "species": "California Gull",
+        "country": "United States",
+        "quality": "B",
+        "length": "0:14"
+      },
+      {
+        "path": "..\\data\\xeno-canto\\class_058\\XC362507.mp3",
+        "xc_id": "362507",
+        "species": "California Gull",
+        "country": "United States",
+        "quality": "B",
+        "length": "0:38"
+      },
+      {
+        "path": "..\\data\\xeno-canto\\class_058\\XC362505.mp3",
+        "xc_id": "362505",
+        "species": "California Gull",
+        "country": "United States",
+        "quality": "B",
+        "length": "0:05"
+      }
+    ]
+  },
+  "143": {
+    "species_name": "Common Tern",
+    "n_recordings": 20,
+    "recordings": [
+      {
+        "path": "..\\data\\xeno-canto\\class_143\\XC1100073.mp3",
+        "xc_id": "1100073",
+        "species": "Common Tern",
+        "country": "Estonia",
+        "quality": "A",
+        "length": "0:06"
+      },
+      {
+        "path": "..\\data\\xeno-canto\\class_143\\XC1079363.mp3",
+        "xc_id": "1079363",
+        "species": "Common Tern",
+        "country": "Sweden",
+        "quality": "A",
+        "length": "0:43"
+      },
+      {
+        "path": "..\\data\\xeno-canto\\class_143\\XC1031384.mp3",
+        "xc_id": "1031384",
+        "species": "Common Tern",
+        "country": "Sweden",
+        "quality": "A",
+        "length": "0:55"
+      },
+      {
+        "path": "..\\data\\xeno-canto\\class_143\\XC1027923.mp3",
+        "xc_id": "1027923",
+        "species": "Common Tern",
+        "country": "Mongolia",
+        "quality": "A",
+        "length": "0:15"
+      },
+      {
+        "path": "..\\data\\xeno-canto\\class_143\\XC1027920.mp3",
+        "xc_id": "1027920",
+        "species": "Common Tern",
+        "country": "Mongolia",
+        "quality": "A",
+        "length": "0:47"
+      },
+      {
+        "path": "..\\data\\xeno-canto\\class_143\\XC1024551.mp3",
+        "xc_id": "1024551",
+        "species": "Common Tern",
+        "country": "Estonia",
+        "quality": "A",
+        "length": "0:34"
+      },
+      {
+        "path": "..\\data\\xeno-canto\\class_143\\XC1017133.mp3",
+        "xc_id": "1017133",
+        "species": "Common Tern",
+        "country": "United Kingdom",
+        "quality": "A",
+        "length": "0:30"
+      },
+      {
+        "path": "..\\data\\xeno-canto\\class_143\\XC1016924.mp3",
+        "xc_id": "1016924",
+        "species": "Common Tern",
+        "country": "Sweden",
+        "quality": "A",
+        "length": "0:21"
+      },
+      {
+        "path": "..\\data\\xeno-canto\\class_143\\XC1013610.mp3",
+        "xc_id": "1013610",
+        "species": "Common Tern",
+        "country": "Ireland",
+        "quality": "A",
+        "length": "0:47"
+      },
+      {
+        "path": "..\\data\\xeno-canto\\class_143\\XC1013607.mp3",
+        "xc_id": "1013607",
+        "species": "Common Tern",
+        "country": "Ireland",
+        "quality": "A",
+        "length": "0:13"
+      },
+      {
+        "path": "..\\data\\xeno-canto\\class_143\\XC1012902.mp3",
+        "xc_id": "1012902",
+        "species": "Common Tern",
+        "country": "Ireland",
+        "quality": "A",
+        "length": "0:08"
+      },
+      {
+        "path": "..\\data\\xeno-canto\\class_143\\XC1012435.mp3",
+        "xc_id": "1012435",
+        "species": "Common Tern",
+        "country": "Ireland",
+        "quality": "A",
+        "length": "0:18"
+      },
+      {
+        "path": "..\\data\\xeno-canto\\class_143\\XC1011615.mp3",
+        "xc_id": "1011615",
+        "species": "Common Tern",
+        "country": "Mongolia",
+        "quality": "A",
+        "length": "0:09"
+      },
+      {
+        "path": "..\\data\\xeno-canto\\class_143\\XC1011599.mp3",
+        "xc_id": "1011599",
+        "species": "Common Tern",
+        "country": "Sweden",
+        "quality": "A",
+        "length": "0:17"
+      },
+      {
+        "path": "..\\data\\xeno-canto\\class_143\\XC1002309.mp3",
+        "xc_id": "1002309",
+        "species": "Common Tern",
+        "country": "Mongolia",
+        "quality": "A",
+        "length": "0:11"
+      },
+      {
+        "path": "..\\data\\xeno-canto\\class_143\\XC924728.mp3",
+        "xc_id": "924728",
+        "species": "Common Tern",
+        "country": "United States",
+        "quality": "A",
+        "length": "0:47"
+      },
+      {
+        "path": "..\\data\\xeno-canto\\class_143\\XC920553.mp3",
+        "xc_id": "920553",
+        "species": "Common Tern",
+        "country": "Ireland",
+        "quality": "A",
+        "length": "0:37"
+      },
+      {
+        "path": "..\\data\\xeno-canto\\class_143\\XC906138.mp3",
+        "xc_id": "906138",
+        "species": "Common Tern",
+        "country": "Sweden",
+        "quality": "A",
+        "length": "0:58"
+      },
+      {
+        "path": "..\\data\\xeno-canto\\class_143\\XC880694.mp3",
+        "xc_id": "880694",
+        "species": "Common Tern",
+        "country": "France",
+        "quality": "A",
+        "length": "0:07"
+      },
+      {
+        "path": "..\\data\\xeno-canto\\class_143\\XC840627.mp3",
+        "xc_id": "840627",
+        "species": "Common Tern",
+        "country": "China",
+        "quality": "A",
+        "length": "0:37"
+      }
+    ]
+  },
+  "49": {
+    "species_name": "Eared Grebe",
+    "matched_name": "Black-necked Grebe",
+    "n_recordings": 20,
+    "recordings": [
+      {
+        "path": "..\\data\\xeno-canto\\class_049\\XC1084603.mp3",
+        "xc_id": "1084603",
+        "species": "Black-necked Grebe",
+        "country": "France",
+        "quality": "A",
+        "length": "0:13"
+      },
+      {
+        "path": "..\\data\\xeno-canto\\class_049\\XC989584.mp3",
+        "xc_id": "989584",
+        "species": "Black-necked Grebe",
+        "country": "France",
+        "quality": "A",
+        "length": "0:12"
+      },
+      {
+        "path": "..\\data\\xeno-canto\\class_049\\XC989583.mp3",
+        "xc_id": "989583",
+        "species": "Black-necked Grebe",
+        "country": "France",
+        "quality": "A",
+        "length": "0:45"
+      },
+      {
+        "path": "..\\data\\xeno-canto\\class_049\\XC989580.mp3",
+        "xc_id": "989580",
+        "species": "Black-necked Grebe",
+        "country": "France",
+        "quality": "A",
+        "length": "0:11"
+      },
+      {
+        "path": "..\\data\\xeno-canto\\class_049\\XC989576.mp3",
+        "xc_id": "989576",
+        "species": "Black-necked Grebe",
+        "country": "France",
+        "quality": "A",
+        "length": "0:46"
+      },
+      {
+        "path": "..\\data\\xeno-canto\\class_049\\XC989575.mp3",
+        "xc_id": "989575",
+        "species": "Black-necked Grebe",
+        "country": "France",
+        "quality": "A",
+        "length": "0:15"
+      },
+      {
+        "path": "..\\data\\xeno-canto\\class_049\\XC940200.mp3",
+        "xc_id": "940200",
+        "species": "Black-necked Grebe",
+        "country": "China",
+        "quality": "A",
+        "length": "0:05"
+      },
+      {
+        "path": "..\\data\\xeno-canto\\class_049\\XC896456.mp3",
+        "xc_id": "896456",
+        "species": "Black-necked Grebe",
+        "country": "Belgium",
+        "quality": "A",
+        "length": "0:17"
+      },
+      {
+        "path": "..\\data\\xeno-canto\\class_049\\XC600633.mp3",
+        "xc_id": "600633",
+        "species": "Black-necked Grebe",
+        "country": "Sweden",
+        "quality": "A",
+        "length": "0:06"
+      },
+      {
+        "path": "..\\data\\xeno-canto\\class_049\\XC600631.mp3",
+        "xc_id": "600631",
+        "species": "Black-necked Grebe",
+        "country": "Sweden",
+        "quality": "A",
+        "length": "0:17"
+      },
+      {
+        "path": "..\\data\\xeno-canto\\class_049\\XC600630.mp3",
+        "xc_id": "600630",
+        "species": "Black-necked Grebe",
+        "country": "Sweden",
+        "quality": "A",
+        "length": "0:17"
+      },
+      {
+        "path": "..\\data\\xeno-canto\\class_049\\XC600629.mp3",
+        "xc_id": "600629",
+        "species": "Black-necked Grebe",
+        "country": "Sweden",
+        "quality": "A",
+        "length": "0:45"
+      },
+      {
+        "path": "..\\data\\xeno-canto\\class_049\\XC600628.mp3",
+        "xc_id": "600628",
+        "species": "Black-necked Grebe",
+        "country": "Sweden",
+        "quality": "A",
+        "length": "0:15"
+      },
+      {
+        "path": "..\\data\\xeno-canto\\class_049\\XC590654.mp3",
+        "xc_id": "590654",
+        "species": "Black-necked Grebe",
+        "country": "United Kingdom",
+        "quality": "A",
+        "length": "0:09"
+      },
+      {
+        "path": "..\\data\\xeno-canto\\class_049\\XC590653.mp3",
+        "xc_id": "590653",
+        "species": "Black-necked Grebe",
+        "country": "United Kingdom",
+        "quality": "A",
+        "length": "0:07"
+      },
+      {
+        "path": "..\\data\\xeno-canto\\class_049\\XC590652.mp3",
+        "xc_id": "590652",
+        "species": "Black-necked Grebe",
+        "country": "United Kingdom",
+        "quality": "A",
+        "length": "0:13"
+      },
+      {
+        "path": "..\\data\\xeno-canto\\class_049\\XC573051.mp3",
+        "xc_id": "573051",
+        "species": "Black-necked Grebe",
+        "country": "Belgium",
+        "quality": "A",
+        "length": "0:15"
+      },
+      {
+        "path": "..\\data\\xeno-canto\\class_049\\XC573050.mp3",
+        "xc_id": "573050",
+        "species": "Black-necked Grebe",
+        "country": "Belgium",
+        "quality": "A",
+        "length": "0:08"
+      },
+      {
+        "path": "..\\data\\xeno-canto\\class_049\\XC481370.mp3",
+        "xc_id": "481370",
+        "species": "Black-necked Grebe",
+        "country": "Netherlands",
+        "quality": "A",
+        "length": "0:18"
+      },
+      {
+        "path": "..\\data\\xeno-canto\\class_049\\XC480233.mp3",
+        "xc_id": "480233",
+        "species": "Black-necked Grebe",
+        "country": "Belgium",
+        "quality": "A",
+        "length": "0:07"
+      }
+    ]
+  },
+  "186": {
+    "species_name": "American Three toed Woodpecker",
+    "matched_name": "American Three-toed Woodpecker",
+    "n_recordings": 20,
+    "recordings": [
+      {
+        "path": "..\\data\\xeno-canto\\class_186\\XC665516.mp3",
+        "xc_id": "665516",
+        "species": "American Three-toed Woodpecker",
+        "country": "United States",
+        "quality": "A",
+        "length": "0:18"
+      },
+      {
+        "path": "..\\data\\xeno-canto\\class_186\\XC613386.mp3",
+        "xc_id": "613386",
+        "species": "American Three-toed Woodpecker",
+        "country": "Canada",
+        "quality": "A",
+        "length": "0:21"
+      },
+      {
+        "path": "..\\data\\xeno-canto\\class_186\\XC505980.mp3",
+        "xc_id": "505980",
+        "species": "American Three-toed Woodpecker",
+        "country": "United States",
+        "quality": "A",
+        "length": "0:29"
+      },
+      {
+        "path": "..\\data\\xeno-canto\\class_186\\XC438517.mp3",
+        "xc_id": "438517",
+        "species": "American Three-toed Woodpecker",
+        "country": "United States",
+        "quality": "A",
+        "length": "0:23"
+      },
+      {
+        "path": "..\\data\\xeno-canto\\class_186\\XC417054.mp3",
+        "xc_id": "417054",
+        "species": "American Three-toed Woodpecker",
+        "country": "Canada",
+        "quality": "A",
+        "length": "0:56"
+      },
+      {
+        "path": "..\\data\\xeno-canto\\class_186\\XC406909.mp3",
+        "xc_id": "406909",
+        "species": "American Three-toed Woodpecker",
+        "country": "United States",
+        "quality": "A",
+        "length": "0:22"
+      },
+      {
+        "path": "..\\data\\xeno-canto\\class_186\\XC362024.mp3",
+        "xc_id": "362024",
+        "species": "American Three-toed Woodpecker",
+        "country": "United States",
+        "quality": "A",
+        "length": "0:30"
+      },
+      {
+        "path": "..\\data\\xeno-canto\\class_186\\XC362021.mp3",
+        "xc_id": "362021",
+        "species": "American Three-toed Woodpecker",
+        "country": "United States",
+        "quality": "A",
+        "length": "0:28"
+      },
+      {
+        "path": "..\\data\\xeno-canto\\class_186\\XC362020.mp3",
+        "xc_id": "362020",
+        "species": "American Three-toed Woodpecker",
+        "country": "United States",
+        "quality": "A",
+        "length": "0:33"
+      },
+      {
+        "path": "..\\data\\xeno-canto\\class_186\\XC353921.mp3",
+        "xc_id": "353921",
+        "species": "American Three-toed Woodpecker",
+        "country": "United States",
+        "quality": "A",
+        "length": "0:41"
+      },
+      {
+        "path": "..\\data\\xeno-canto\\class_186\\XC311846.mp3",
+        "xc_id": "311846",
+        "species": "American Three-toed Woodpecker",
+        "country": "United States",
+        "quality": "A",
+        "length": "0:21"
+      },
+      {
+        "path": "..\\data\\xeno-canto\\class_186\\XC195796.mp3",
+        "xc_id": "195796",
+        "species": "American Three-toed Woodpecker",
+        "country": "Canada",
+        "quality": "A",
+        "length": "0:17"
+      },
+      {
+        "path": "..\\data\\xeno-canto\\class_186\\XC102878.mp3",
+        "xc_id": "102878",
+        "species": "American Three-toed Woodpecker",
+        "country": "United States",
+        "quality": "A",
+        "length": "0:13"
+      },
+      {
+        "path": "..\\data\\xeno-canto\\class_186\\XC102874.mp3",
+        "xc_id": "102874",
+        "species": "American Three-toed Woodpecker",
+        "country": "United States",
+        "quality": "A",
+        "length": "0:30"
+      },
+      {
+        "path": "..\\data\\xeno-canto\\class_186\\XC102872.mp3",
+        "xc_id": "102872",
+        "species": "American Three-toed Woodpecker",
+        "country": "United States",
+        "quality": "A",
+        "length": "0:33"
+      },
+      {
+        "path": "..\\data\\xeno-canto\\class_186\\XC102871.mp3",
+        "xc_id": "102871",
+        "species": "American Three-toed Woodpecker",
+        "country": "United States",
+        "quality": "A",
+        "length": "0:37"
+      },
+      {
+        "path": "..\\data\\xeno-canto\\class_186\\XC79321.mp3",
+        "xc_id": "79321",
+        "species": "American Three-toed Woodpecker",
+        "country": "United States",
+        "quality": "A",
+        "length": "0:21"
+      },
+      {
+        "path": "..\\data\\xeno-canto\\class_186\\XC79281.mp3",
+        "xc_id": "79281",
+        "species": "American Three-toed Woodpecker",
+        "country": "United States",
+        "quality": "A",
+        "length": "0:30"
+      },
+      {
+        "path": "..\\data\\xeno-canto\\class_186\\XC77785.mp3",
+        "xc_id": "77785",
+        "species": "American Three-toed Woodpecker",
+        "country": "United States",
+        "quality": "A",
+        "length": "0:47"
+      },
+      {
+        "path": "..\\data\\xeno-canto\\class_186\\XC15172.mp3",
+        "xc_id": "15172",
+        "species": "American Three-toed Woodpecker",
+        "country": "United States",
+        "quality": "A",
+        "length": "0:52"
+      }
+    ]
+  },
+  "187": {
+    "species_name": "Pileated Woodpecker",
+    "n_recordings": 20,
+    "recordings": [
+      {
+        "path": "..\\data\\xeno-canto\\class_187\\XC1086864.mp3",
+        "xc_id": "1086864",
+        "species": "Pileated Woodpecker",
+        "country": "United States",
+        "quality": "A",
+        "length": "0:08"
+      },
+      {
+        "path": "..\\data\\xeno-canto\\class_187\\XC1029787.mp3",
+        "xc_id": "1029787",
+        "species": "Pileated Woodpecker",
+        "country": "United States",
+        "quality": "A",
+        "length": "0:42"
+      },
+      {
+        "path": "..\\data\\xeno-canto\\class_187\\XC1012561.mp3",
+        "xc_id": "1012561",
+        "species": "Pileated Woodpecker",
+        "country": "Canada",
+        "quality": "A",
+        "length": "0:07"
+      },
+      {
+        "path": "..\\data\\xeno-canto\\class_187\\XC858546.mp3",
+        "xc_id": "858546",
+        "species": "Pileated Woodpecker",
+        "country": "Canada",
+        "quality": "A",
+        "length": "0:05"
+      },
+      {
+        "path": "..\\data\\xeno-canto\\class_187\\XC828370.mp3",
+        "xc_id": "828370",
+        "species": "Pileated Woodpecker",
+        "country": "United States",
+        "quality": "A",
+        "length": "0:48"
+      },
+      {
+        "path": "..\\data\\xeno-canto\\class_187\\XC797066.mp3",
+        "xc_id": "797066",
+        "species": "Pileated Woodpecker",
+        "country": "United States",
+        "quality": "A",
+        "length": "0:35"
+      },
+      {
+        "path": "..\\data\\xeno-canto\\class_187\\XC714469.mp3",
+        "xc_id": "714469",
+        "species": "Pileated Woodpecker",
+        "country": "United States",
+        "quality": "A",
+        "length": "0:20"
+      },
+      {
+        "path": "..\\data\\xeno-canto\\class_187\\XC703903.mp3",
+        "xc_id": "703903",
+        "species": "Pileated Woodpecker",
+        "country": "Canada",
+        "quality": "A",
+        "length": "0:06"
+      },
+      {
+        "path": "..\\data\\xeno-canto\\class_187\\XC649554.mp3",
+        "xc_id": "649554",
+        "species": "Pileated Woodpecker",
+        "country": "United States",
+        "quality": "A",
+        "length": "0:20"
+      },
+      {
+        "path": "..\\data\\xeno-canto\\class_187\\XC634533.mp3",
+        "xc_id": "634533",
+        "species": "Pileated Woodpecker",
+        "country": "Canada",
+        "quality": "A",
+        "length": "0:05"
+      },
+      {
+        "path": "..\\data\\xeno-canto\\class_187\\XC612664.mp3",
+        "xc_id": "612664",
+        "species": "Pileated Woodpecker",
+        "country": "Canada",
+        "quality": "A",
+        "length": "0:46"
+      },
+      {
+        "path": "..\\data\\xeno-canto\\class_187\\XC599834.mp3",
+        "xc_id": "599834",
+        "species": "Pileated Woodpecker",
+        "country": "United States",
+        "quality": "A",
+        "length": "0:18"
+      },
+      {
+        "path": "..\\data\\xeno-canto\\class_187\\XC597671.mp3",
+        "xc_id": "597671",
+        "species": "Pileated Woodpecker",
+        "country": "Canada",
+        "quality": "A",
+        "length": "0:52"
+      },
+      {
+        "path": "..\\data\\xeno-canto\\class_187\\XC582550.mp3",
+        "xc_id": "582550",
+        "species": "Pileated Woodpecker",
+        "country": "United States",
+        "quality": "A",
+        "length": "0:05"
+      },
+      {
+        "path": "..\\data\\xeno-canto\\class_187\\XC570955.mp3",
+        "xc_id": "570955",
+        "species": "Pileated Woodpecker",
+        "country": "United States",
+        "quality": "A",
+        "length": "0:12"
+      },
+      {
+        "path": "..\\data\\xeno-canto\\class_187\\XC569933.mp3",
+        "xc_id": "569933",
+        "species": "Pileated Woodpecker",
+        "country": "United States",
+        "quality": "A",
+        "length": "0:35"
+      },
+      {
+        "path": "..\\data\\xeno-canto\\class_187\\XC569932.mp3",
+        "xc_id": "569932",
+        "species": "Pileated Woodpecker",
+        "country": "United States",
+        "quality": "A",
+        "length": "0:16"
+      },
+      {
+        "path": "..\\data\\xeno-canto\\class_187\\XC569931.mp3",
+        "xc_id": "569931",
+        "species": "Pileated Woodpecker",
+        "country": "United States",
+        "quality": "A",
+        "length": "0:08"
+      },
+      {
+        "path": "..\\data\\xeno-canto\\class_187\\XC568132.mp3",
+        "xc_id": "568132",
+        "species": "Pileated Woodpecker",
+        "country": "United States",
+        "quality": "A",
+        "length": "0:35"
+      },
+      {
+        "path": "..\\data\\xeno-canto\\class_187\\XC567906.mp3",
+        "xc_id": "567906",
+        "species": "Pileated Woodpecker",
+        "country": "United States",
+        "quality": "A",
+        "length": "0:13"
+      }
+    ]
+  },
+  "negative": {
+    "species_name": "negative",
+    "species_list": [
+      "House Sparrow",
+      "European Robin",
+      "Common Blackbird",
+      "Great Tit",
+      "Blue Jay"
+    ],
+    "n_recordings": 25,
+    "recordings": [
+      {
+        "path": "..\\data\\xeno-canto\\negative\\XC1100192.mp3",
+        "species": "House Sparrow",
+        "xc_id": "1100192",
+        "quality": "A",
+        "length": "0:33"
+      },
+      {
+        "path": "..\\data\\xeno-canto\\negative\\XC1098330.mp3",
+        "species": "House Sparrow",
+        "xc_id": "1098330",
+        "quality": "A",
+        "length": "0:24"
+      },
+      {
+        "path": "..\\data\\xeno-canto\\negative\\XC1092252.mp3",
+        "species": "House Sparrow",
+        "xc_id": "1092252",
+        "quality": "A",
+        "length": "1:00"
+      },
+      {
+        "path": "..\\data\\xeno-canto\\negative\\XC1092250.mp3",
+        "species": "House Sparrow",
+        "xc_id": "1092250",
+        "quality": "A",
+        "length": "0:19"
+      },
+      {
+        "path": "..\\data\\xeno-canto\\negative\\XC1089317.mp3",
+        "species": "House Sparrow",
+        "xc_id": "1089317",
+        "quality": "A",
+        "length": "0:55"
+      },
+      {
+        "path": "..\\data\\xeno-canto\\negative\\XC1099323.mp3",
+        "species": "European Robin",
+        "xc_id": "1099323",
+        "quality": "A",
+        "length": "0:38"
+      },
+      {
+        "path": "..\\data\\xeno-canto\\negative\\XC1096004.mp3",
+        "species": "European Robin",
+        "xc_id": "1096004",
+        "quality": "A",
+        "length": "0:37"
+      },
+      {
+        "path": "..\\data\\xeno-canto\\negative\\XC1094683.mp3",
+        "species": "European Robin",
+        "xc_id": "1094683",
+        "quality": "A",
+        "length": "0:53"
+      },
+      {
+        "path": "..\\data\\xeno-canto\\negative\\XC1092189.mp3",
+        "species": "European Robin",
+        "xc_id": "1092189",
+        "quality": "A",
+        "length": "0:58"
+      },
+      {
+        "path": "..\\data\\xeno-canto\\negative\\XC1089386.mp3",
+        "species": "European Robin",
+        "xc_id": "1089386",
+        "quality": "A",
+        "length": "0:51"
+      },
+      {
+        "path": "..\\data\\xeno-canto\\negative\\XC1101696.mp3",
+        "species": "Common Blackbird",
+        "xc_id": "1101696",
+        "quality": "A",
+        "length": "0:48"
+      },
+      {
+        "path": "..\\data\\xeno-canto\\negative\\XC1099330.mp3",
+        "species": "Common Blackbird",
+        "xc_id": "1099330",
+        "quality": "A",
+        "length": "0:40"
+      },
+      {
+        "path": "..\\data\\xeno-canto\\negative\\XC1094672.mp3",
+        "species": "Common Blackbird",
+        "xc_id": "1094672",
+        "quality": "A",
+        "length": "0:11"
+      },
+      {
+        "path": "..\\data\\xeno-canto\\negative\\XC1087507.mp3",
+        "species": "Common Blackbird",
+        "xc_id": "1087507",
+        "quality": "A",
+        "length": "0:58"
+      },
+      {
+        "path": "..\\data\\xeno-canto\\negative\\XC1085867.mp3",
+        "species": "Common Blackbird",
+        "xc_id": "1085867",
+        "quality": "A",
+        "length": "0:12"
+      },
+      {
+        "path": "..\\data\\xeno-canto\\negative\\XC1101490.mp3",
+        "species": "Great Tit",
+        "xc_id": "1101490",
+        "quality": "A",
+        "length": "0:41"
+      },
+      {
+        "path": "..\\data\\xeno-canto\\negative\\XC1101489.mp3",
+        "species": "Great Tit",
+        "xc_id": "1101489",
+        "quality": "A",
+        "length": "0:47"
+      },
+      {
+        "path": "..\\data\\xeno-canto\\negative\\XC1101435.mp3",
+        "species": "Great Tit",
+        "xc_id": "1101435",
+        "quality": "A",
+        "length": "0:57"
+      },
+      {
+        "path": "..\\data\\xeno-canto\\negative\\XC1100198.mp3",
+        "species": "Great Tit",
+        "xc_id": "1100198",
+        "quality": "A",
+        "length": "0:29"
+      },
+      {
+        "path": "..\\data\\xeno-canto\\negative\\XC1099053.mp3",
+        "species": "Great Tit",
+        "xc_id": "1099053",
+        "quality": "A",
+        "length": "0:13"
+      },
+      {
+        "path": "..\\data\\xeno-canto\\negative\\XC1046664.mp3",
+        "species": "Blue Jay",
+        "xc_id": "1046664",
+        "quality": "A",
+        "length": "0:12"
+      },
+      {
+        "path": "..\\data\\xeno-canto\\negative\\XC1020596.mp3",
+        "species": "Blue Jay",
+        "xc_id": "1020596",
+        "quality": "A",
+        "length": "0:46"
+      },
+      {
+        "path": "..\\data\\xeno-canto\\negative\\XC1013391.mp3",
+        "species": "Blue Jay",
+        "xc_id": "1013391",
+        "quality": "A",
+        "length": "0:47"
+      },
+      {
+        "path": "..\\data\\xeno-canto\\negative\\XC1013390.mp3",
+        "species": "Blue Jay",
+        "xc_id": "1013390",
+        "quality": "A",
+        "length": "0:06"
+      },
+      {
+        "path": "..\\data\\xeno-canto\\negative\\XC1012557.mp3",
+        "species": "Blue Jay",
+        "xc_id": "1012557",
+        "quality": "A",
+        "length": "0:37"
+      }
+    ]
+  }
+}

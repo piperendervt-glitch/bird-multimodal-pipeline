@@ -1,0 +1,42 @@
+WARNING Ultralytics settings reset to default values. This may be due to a possible problem with your settings or a recent ultralytics package update. 
+View Ultralytics Settings with 'yolo settings' or at 'C:\Users\pipe_render\AppData\Roaming\Ultralytics\settings.json'
+Update Settings with 'yolo settings key=value', i.e. 'yolo settings runs_dir=path/to/dir'. For help see https://docs.ultralytics.com/quickstart/#ultralytics-settings.
+=== Phase 4a-A: YOLO 鳥検出 ===
+
+YOLOv8n を読み込み中...
+[KDownloading https://github.com/ultralytics/assets/releases/download/v8.4.0/yolov8n.pt to 'yolov8n.pt': 100% ━━━━━━━━━━━━ 6.2MB 79.8MB/s 0.1s
+COCO bird クラス ID: 14
+
+全 11788 枚を処理中...
+  1000/11788 (111.0 枚/秒) 検出率: 97.9%
+  2000/11788 (117.7 枚/秒) 検出率: 98.7%
+  3000/11788 (119.7 枚/秒) 検出率: 98.6%
+  4000/11788 (120.8 枚/秒) 検出率: 98.6%
+  5000/11788 (121.7 枚/秒) 検出率: 98.5%
+  6000/11788 (122.2 枚/秒) 検出率: 98.2%
+  7000/11788 (122.7 枚/秒) 検出率: 98.0%
+  8000/11788 (123.1 枚/秒) 検出率: 98.1%
+  9000/11788 (123.3 枚/秒) 検出率: 98.2%
+  10000/11788 (123.5 枚/秒) 検出率: 98.3%
+  11000/11788 (123.8 枚/秒) 検出率: 98.3%
+
+=== 検出結果サマリー ===
+処理枚数: 11788
+処理時間: 95.1 秒 (123.90 枚/秒)
+鳥検出率: 11570/11788 = 98.15%
+平均 IoU (検出できた画像のみ): 0.8756
+IoU > 0.5 の割合: 11411/11788 (96.80%)
+IoU > 0.7 の割合: 10686/11788 (90.65%)
+
+未検出画像: 218 枚
+  例（先頭 5 枚）:
+    img_id=20: ..\data\cub200\CUB_200_2011\images\001.Black_footed_Albatross/Black_Footed_Albatross_0067_170.jpg
+    img_id=23: ..\data\cub200\CUB_200_2011\images\001.Black_footed_Albatross/Black_Footed_Albatross_0056_796078.jpg
+    img_id=37: ..\data\cub200\CUB_200_2011\images\001.Black_footed_Albatross/Black_Footed_Albatross_0041_796108.jpg
+    img_id=55: ..\data\cub200\CUB_200_2011\images\001.Black_footed_Albatross/Black_Footed_Albatross_0007_796138.jpg
+    img_id=109: ..\data\cub200\CUB_200_2011\images\002.Laysan_Albatross/Laysan_Albatross_0068_726.jpg
+
+保存: ..\results\bird_phase4a\detection_results.json
+
+--- 失敗条件の判定 ---
+  OK: 検出率 98.15% >= 80%

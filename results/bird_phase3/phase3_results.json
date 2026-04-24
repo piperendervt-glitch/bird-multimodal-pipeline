@@ -1,0 +1,342 @@
+{
+  "per_species": {
+    "California Gull": {
+      "DINOv2_LogReg": {
+        "f1": 0.897153605015674,
+        "f1_std": 0.07196869108942872,
+        "precision": 0.8750226244343893,
+        "precision_std": 0.09797373843193694,
+        "recall": 0.9333333333333332,
+        "recall_std": 0.09718253158075502,
+        "accuracy": 0.9638888888888889,
+        "accuracy_std": 0.02576005137637696,
+        "auc_roc": 0.9844444444444445,
+        "auc_roc_std": 0.01524997470145646
+      },
+      "DINOv2_MLP": {
+        "f1": 0.9045257883878574,
+        "f1_std": 0.04456431122880864,
+        "precision": 0.8286489980607629,
+        "precision_std": 0.07270879902383497,
+        "recall": 1.0,
+        "recall_std": 0.0,
+        "accuracy": 0.9638888888888889,
+        "accuracy_std": 0.0188398055086813,
+        "auc_roc": 0.9888888888888889,
+        "auc_roc_std": 0.012880025688188476
+      },
+      "BirdNET_LogReg": {
+        "f1": 0.4280166880616174,
+        "f1_std": 0.07668059307653398,
+        "precision": 0.31331564986737404,
+        "precision_std": 0.04986720469523715,
+        "recall": 0.6833333333333333,
+        "recall_std": 0.16158932858054428,
+        "accuracy": 0.7,
+        "accuracy_std": 0.03578916312979204,
+        "auc_roc": 0.7916666666666667,
+        "auc_roc_std": 0.05287272161860049
+      },
+      "DINOv2+BirdNET_LogReg": {
+        "f1": 0.9020523584361666,
+        "f1_std": 0.04445782789926173,
+        "precision": 0.8532643826761473,
+        "precision_std": 0.09309505780461685,
+        "recall": 0.9666666666666666,
+        "recall_std": 0.04082482904638632,
+        "accuracy": 0.9638888888888889,
+        "accuracy_std": 0.0188398055086813,
+        "auc_roc": 0.9880555555555555,
+        "auc_roc_std": 0.01190238071423807
+      },
+      "DINOv2+BirdNET_MLP": {
+        "f1": 0.9045257883878574,
+        "f1_std": 0.04456431122880864,
+        "precision": 0.8286489980607629,
+        "precision_std": 0.07270879902383497,
+        "recall": 1.0,
+        "recall_std": 0.0,
+        "accuracy": 0.9638888888888889,
+        "accuracy_std": 0.0188398055086813,
+        "auc_roc": 0.9894444444444443,
+        "auc_roc_std": 0.009237938415731032
+      }
+    },
+    "Common Tern": {
+      "DINOv2_LogReg": {
+        "f1": 0.9408215892053973,
+        "f1_std": 0.05883273527499276,
+        "precision": 0.9104072398190045,
+        "precision_std": 0.1078936480556655,
+        "recall": 0.9833333333333334,
+        "recall_std": 0.03333333333333335,
+        "accuracy": 0.9777777777777779,
+        "accuracy_std": 0.02421610524189263,
+        "auc_roc": 0.9966666666666667,
+        "auc_roc_std": 0.00417591566065918
+      },
+      "DINOv2_MLP": {
+        "f1": 0.9388387096774193,
+        "f1_std": 0.0842437373582101,
+        "precision": 0.8955465587044534,
+        "precision_std": 0.13639339027707828,
+        "recall": 1.0,
+        "recall_std": 0.0,
+        "accuracy": 0.975,
+        "accuracy_std": 0.036641405439647,
+        "auc_roc": 0.9963888888888889,
+        "auc_roc_std": 0.004444444444444459
+      },
+      "BirdNET_LogReg": {
+        "f1": 0.4494397455259622,
+        "f1_std": 0.0737165711108008,
+        "precision": 0.32205830552465703,
+        "precision_std": 0.056633697275582665,
+        "recall": 0.75,
+        "recall_std": 0.1178511301977579,
+        "accuracy": 0.6916666666666667,
+        "accuracy_std": 0.053719665571704774,
+        "auc_roc": 0.8194444444444443,
+        "auc_roc_std": 0.046688156427698906
+      },
+      "DINOv2+BirdNET_LogReg": {
+        "f1": 0.9488215892053973,
+        "f1_std": 0.06343615146468945,
+        "precision": 0.9257918552036198,
+        "precision_std": 0.11391936297586087,
+        "recall": 0.9833333333333334,
+        "recall_std": 0.03333333333333335,
+        "accuracy": 0.9805555555555557,
+        "accuracy_std": 0.02576005137637695,
+        "auc_roc": 0.9972222222222221,
+        "auc_roc_std": 0.0038289024311361996
+      },
+      "DINOv2+BirdNET_MLP": {
+        "f1": 0.944,
+        "f1_std": 0.0741889479639656,
+        "precision": 0.9025641025641026,
+        "precision_std": 0.12286306205857377,
+        "recall": 1.0,
+        "recall_std": 0.0,
+        "accuracy": 0.9777777777777779,
+        "accuracy_std": 0.0311804782231162,
+        "auc_roc": 0.9961111111111112,
+        "auc_roc_std": 0.005076574134026982
+      }
+    },
+    "Eared Grebe": {
+      "DINOv2_LogReg": {
+        "f1": 0.9452307692307693,
+        "f1_std": 0.018088539639014196,
+        "precision": 0.8967032967032967,
+        "precision_std": 0.0323009636410969,
+        "recall": 1.0,
+        "recall_std": 0.0,
+        "accuracy": 0.9805555555555557,
+        "accuracy_std": 0.0068041381743977475,
+        "auc_roc": 0.9966666666666667,
+        "auc_roc_std": 0.004444444444444467
+      },
+      "DINOv2_MLP": {
+        "f1": 0.9167863247863248,
+        "f1_std": 0.026469223027824063,
+        "precision": 0.8474725274725274,
+        "precision_std": 0.045629676562148495,
+        "recall": 1.0,
+        "recall_std": 0.0,
+        "accuracy": 0.9694444444444444,
+        "accuracy_std": 0.010393492741038724,
+        "auc_roc": 0.9958333333333333,
+        "auc_roc_std": 0.004392052305789421
+      },
+      "BirdNET_LogReg": {
+        "f1": 0.6255330634278002,
+        "f1_std": 0.058018348625057115,
+        "precision": 0.47137866963953917,
+        "precision_std": 0.07446602656620406,
+        "recall": 0.95,
+        "recall_std": 0.04082482904638632,
+        "accuracy": 0.8055555555555556,
+        "accuracy_std": 0.04730385101646221,
+        "auc_roc": 0.9552777777777777,
+        "auc_roc_std": 0.026518686633028074
+      },
+      "DINOv2+BirdNET_LogReg": {
+        "f1": 0.976,
+        "f1_std": 0.01959591794226544,
+        "precision": 0.9538461538461538,
+        "precision_std": 0.03768445758127964,
+        "recall": 1.0,
+        "recall_std": 0.0,
+        "accuracy": 0.9916666666666668,
+        "accuracy_std": 0.006804138174397693,
+        "auc_roc": 0.9997222222222222,
+        "auc_roc_std": 0.0005555555555555981
+      },
+      "DINOv2+BirdNET_MLP": {
+        "f1": 0.92417094017094,
+        "f1_std": 0.03180655974860939,
+        "precision": 0.8606593406593406,
+        "precision_std": 0.05506974861842928,
+        "recall": 1.0,
+        "recall_std": 0.0,
+        "accuracy": 0.9722222222222223,
+        "accuracy_std": 0.012422599874998838,
+        "auc_roc": 0.9994444444444444,
+        "auc_roc_std": 0.0006804138174398237
+      }
+    },
+    "American Three toed Woodpecker": {
+      "DINOv2_LogReg": {
+        "f1": 0.9704761904761904,
+        "f1_std": 0.03977259622442114,
+        "precision": 0.9618181818181817,
+        "precision_std": 0.04685126809718228,
+        "recall": 0.9800000000000001,
+        "recall_std": 0.03999999999999999,
+        "accuracy": 0.99,
+        "accuracy_std": 0.013333333333333336,
+        "auc_roc": 0.9992000000000001,
+        "auc_roc_std": 0.0016000000000000012
+      },
+      "DINOv2_MLP": {
+        "f1": 0.9541125541125541,
+        "f1_std": 0.040664999362138125,
+        "precision": 0.9151515151515153,
+        "precision_std": 0.07459717348540101,
+        "recall": 1.0,
+        "recall_std": 0.0,
+        "accuracy": 0.9833333333333334,
+        "accuracy_std": 0.014907119849998594,
+        "auc_roc": 0.9992000000000001,
+        "auc_roc_std": 0.0016000000000000012
+      },
+      "BirdNET_LogReg": {
+        "f1": 0.6263096562317919,
+        "f1_std": 0.028463740186177405,
+        "precision": 0.4810703228659884,
+        "precision_std": 0.03334807607253429,
+        "recall": 0.9,
+        "recall_std": 0.0,
+        "accuracy": 0.82,
+        "accuracy_std": 0.022110831935702666,
+        "auc_roc": 0.9108,
+        "auc_roc_std": 0.041445868310363544
+      },
+      "DINOv2+BirdNET_LogReg": {
+        "f1": 0.980952380952381,
+        "f1_std": 0.023328473740792197,
+        "precision": 0.9636363636363636,
+        "precision_std": 0.04453617714151235,
+        "recall": 1.0,
+        "recall_std": 0.0,
+        "accuracy": 0.9933333333333334,
+        "accuracy_std": 0.008164965809277286,
+        "auc_roc": 0.9992000000000001,
+        "auc_roc_std": 0.0016000000000000012
+      },
+      "DINOv2+BirdNET_MLP": {
+        "f1": 0.9541125541125541,
+        "f1_std": 0.040664999362138125,
+        "precision": 0.9151515151515153,
+        "precision_std": 0.07459717348540101,
+        "recall": 1.0,
+        "recall_std": 0.0,
+        "accuracy": 0.9833333333333334,
+        "accuracy_std": 0.014907119849998594,
+        "auc_roc": 0.9992000000000001,
+        "auc_roc_std": 0.0016000000000000012
+      }
+    },
+    "Pileated Woodpecker": {
+      "DINOv2_LogReg": {
+        "f1": 1.0,
+        "f1_std": 0.0,
+        "precision": 1.0,
+        "precision_std": 0.0,
+        "recall": 1.0,
+        "recall_std": 0.0,
+        "accuracy": 1.0,
+        "accuracy_std": 0.0,
+        "auc_roc": 1.0,
+        "auc_roc_std": 0.0
+      },
+      "DINOv2_MLP": {
+        "f1": 1.0,
+        "f1_std": 0.0,
+        "precision": 1.0,
+        "precision_std": 0.0,
+        "recall": 1.0,
+        "recall_std": 0.0,
+        "accuracy": 1.0,
+        "accuracy_std": 0.0,
+        "auc_roc": 1.0,
+        "auc_roc_std": 0.0
+      },
+      "BirdNET_LogReg": {
+        "f1": 0.5048952698488302,
+        "f1_std": 0.07555680844384526,
+        "precision": 0.3643460243460243,
+        "precision_std": 0.05744656712472251,
+        "recall": 0.8333333333333334,
+        "recall_std": 0.14907119849998596,
+        "accuracy": 0.7277777777777779,
+        "accuracy_std": 0.04697648479246601,
+        "auc_roc": 0.8247222222222221,
+        "auc_roc_std": 0.039600629749326065
+      },
+      "DINOv2+BirdNET_LogReg": {
+        "f1": 1.0,
+        "f1_std": 0.0,
+        "precision": 1.0,
+        "precision_std": 0.0,
+        "recall": 1.0,
+        "recall_std": 0.0,
+        "accuracy": 1.0,
+        "accuracy_std": 0.0,
+        "auc_roc": 1.0,
+        "auc_roc_std": 0.0
+      },
+      "DINOv2+BirdNET_MLP": {
+        "f1": 0.984,
+        "f1_std": 0.01959591794226544,
+        "precision": 0.9692307692307693,
+        "precision_std": 0.03768445758127964,
+        "recall": 1.0,
+        "recall_std": 0.0,
+        "accuracy": 0.9944444444444445,
+        "accuracy_std": 0.006804138174397694,
+        "auc_roc": 1.0,
+        "auc_roc_std": 0.0
+      }
+    }
+  },
+  "average": {
+    "BirdNET_LogReg": {
+      "mean_f1": 0.5268388846192005,
+      "std_f1": 0.08470295252225701
+    },
+    "DINOv2+BirdNET_LogReg": {
+      "mean_f1": 0.9615652657187891,
+      "std_f1": 0.03395773259340211
+    },
+    "DINOv2+BirdNET_MLP": {
+      "mean_f1": 0.9421618565342703,
+      "std_f1": 0.026969519423901373
+    },
+    "DINOv2_LogReg": {
+      "mean_f1": 0.9507364307856061,
+      "std_f1": 0.03410657700383122
+    },
+    "DINOv2_MLP": {
+      "mean_f1": 0.9428526753928311,
+      "std_f1": 0.033338021539191076
+    }
+  },
+  "improved_count": 2,
+  "improved_species": [
+    "California Gull",
+    "Common Tern"
+  ],
+  "total_species": 5
+}

@@ -1,0 +1,59 @@
+{
+  "majority_vote": {
+    "description": "多数決",
+    "accuracy": 1.0,
+    "macro_f1": 1.0,
+    "n_correct": 27,
+    "n_total": 27
+  },
+  "confidence_weighted": {
+    "description": "確信度加重投票",
+    "accuracy": 0.9629629629629629,
+    "macro_f1": 0.958974358974359,
+    "n_correct": 26,
+    "n_total": 27
+  },
+  "exponential_decay": {
+    "description": "指数減衰 (decay=0.8)",
+    "accuracy": 0.9259259259259259,
+    "macro_f1": 0.9205128205128206,
+    "n_correct": 25,
+    "n_total": 27
+  },
+  "sliding_window_3": {
+    "description": "スライディング窓 (size=3)",
+    "accuracy": 1.0,
+    "macro_f1": 1.0,
+    "n_correct": 27,
+    "n_total": 27
+  },
+  "sliding_window_5": {
+    "description": "スライディング窓 (size=5)",
+    "accuracy": 1.0,
+    "macro_f1": 1.0,
+    "n_correct": 27,
+    "n_total": 27
+  },
+  "temporal_gate": {
+    "description": "時間 Gate (CAGL 類似)",
+    "accuracy": 0.9259259259259259,
+    "macro_f1": 0.9205128205128206,
+    "n_correct": 25,
+    "n_total": 27
+  },
+  "yolo_weighted": {
+    "description": "YOLO 確信度加重",
+    "accuracy": 1.0,
+    "macro_f1": 1.0,
+    "n_correct": 27,
+    "n_total": 27
+  },
+  "phase4b_baseline": 0.9629629629629629,
+  "frame_stability": {
+    "mean": 0.933104201830407,
+    "median": 1.0,
+    "min": 0.5238095238095238,
+    "max": 1.0,
+    "low_agreement_count": 1
+  }
+}

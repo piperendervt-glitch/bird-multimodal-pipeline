@@ -1,0 +1,1388 @@
+{
+  "majority_vote": {
+    "description": "多数決",
+    "accuracy": 1.0,
+    "macro_f1": 1.0,
+    "n_correct": 27,
+    "n_total": 27,
+    "details": [
+      {
+        "video": "124-black_headed_gull.mp4",
+        "true": "black_headed_gull",
+        "pred": "black_headed_gull",
+        "correct": true,
+        "confidence": 0.8571428571428571
+      },
+      {
+        "video": "142-mallard.mp4",
+        "true": "mallard",
+        "pred": "mallard",
+        "correct": true,
+        "confidence": 0.5238095238095238
+      },
+      {
+        "video": "171-black_winged_stilt.mp4",
+        "true": "black_winged_stilt",
+        "pred": "black_winged_stilt",
+        "correct": true,
+        "confidence": 1.0
+      },
+      {
+        "video": "130-eurasian_magpie.mp4",
+        "true": "eurasian_magpie",
+        "pred": "eurasian_magpie",
+        "correct": true,
+        "confidence": 1.0
+      },
+      {
+        "video": "064-northern_shoveler.mp4",
+        "true": "northern_shoveler",
+        "pred": "northern_shoveler",
+        "correct": true,
+        "confidence": 1.0
+      },
+      {
+        "video": "024-black_headed_gull.mp4",
+        "true": "black_headed_gull",
+        "pred": "black_headed_gull",
+        "correct": true,
+        "confidence": 1.0
+      },
+      {
+        "video": "009-yellow_legged_gull.mp4",
+        "true": "yellow_legged_gull",
+        "pred": "yellow_legged_gull",
+        "correct": true,
+        "confidence": 0.9090909090909091
+      },
+      {
+        "video": "177-eurasian_magpie.mp4",
+        "true": "eurasian_magpie",
+        "pred": "eurasian_magpie",
+        "correct": true,
+        "confidence": 1.0
+      },
+      {
+        "video": "052-eurasian_moorhen.mp4",
+        "true": "eurasian_moorhen",
+        "pred": "eurasian_moorhen",
+        "correct": true,
+        "confidence": 0.9777777777777777
+      },
+      {
+        "video": "154-northern_shoveler.mp4",
+        "true": "northern_shoveler",
+        "pred": "northern_shoveler",
+        "correct": true,
+        "confidence": 1.0
+      },
+      {
+        "video": "150-squacco_heron.mp4",
+        "true": "squacco_heron",
+        "pred": "squacco_heron",
+        "correct": true,
+        "confidence": 1.0
+      },
+      {
+        "video": "165-glossy_ibis.mp4",
+        "true": "glossy_ibis",
+        "pred": "glossy_ibis",
+        "correct": true,
+        "confidence": 0.7142857142857143
+      },
+      {
+        "video": "019-eurasian_coot.mp4",
+        "true": "eurasian_coot",
+        "pred": "eurasian_coot",
+        "correct": true,
+        "confidence": 0.9230769230769231
+      },
+      {
+        "video": "003-squacco_heron.mp4",
+        "true": "squacco_heron",
+        "pred": "squacco_heron",
+        "correct": true,
+        "confidence": 0.7931034482758621
+      },
+      {
+        "video": "057-eurasian_moorhen.mp4",
+        "true": "eurasian_moorhen",
+        "pred": "eurasian_moorhen",
+        "correct": true,
+        "confidence": 0.984375
+      },
+      {
+        "video": "092-little_ringed_plover.mp4",
+        "true": "little_ringed_plover",
+        "pred": "little_ringed_plover",
+        "correct": true,
+        "confidence": 1.0
+      },
+      {
+        "video": "021-little_ringed_plover.mp4",
+        "true": "little_ringed_plover",
+        "pred": "little_ringed_plover",
+        "correct": true,
+        "confidence": 1.0
+      },
+      {
+        "video": "167-white_wagtail.mp4",
+        "true": "white_wagtail",
+        "pred": "white_wagtail",
+        "correct": true,
+        "confidence": 0.8333333333333334
+      },
+      {
+        "video": "178-white_wagtail.mp4",
+        "true": "white_wagtail",
+        "pred": "white_wagtail",
+        "correct": true,
+        "confidence": 0.7619047619047619
+      },
+      {
+        "video": "082-yellow_legged_gull.mp4",
+        "true": "yellow_legged_gull",
+        "pred": "yellow_legged_gull",
+        "correct": true,
+        "confidence": 0.9873417721518988
+      },
+      {
+        "video": "121-eurasian_moorhen.mp4",
+        "true": "eurasian_moorhen",
+        "pred": "eurasian_moorhen",
+        "correct": true,
+        "confidence": 1.0
+      },
+      {
+        "video": "108-eurasian_coot.mp4",
+        "true": "eurasian_coot",
+        "pred": "eurasian_coot",
+        "correct": true,
+        "confidence": 1.0
+      },
+      {
+        "video": "042-mallard.mp4",
+        "true": "mallard",
+        "pred": "mallard",
+        "correct": true,
+        "confidence": 1.0
+      },
+      {
+        "video": "073-black_winged_stilt.mp4",
+        "true": "black_winged_stilt",
+        "pred": "black_winged_stilt",
+        "correct": true,
+        "confidence": 1.0
+      },
+      {
+        "video": "174-eurasian_coot.mp4",
+        "true": "eurasian_coot",
+        "pred": "eurasian_coot",
+        "correct": true,
+        "confidence": 1.0
+      },
+      {
+        "video": "027-gadwall.mp4",
+        "true": "gadwall",
+        "pred": "gadwall",
+        "correct": true,
+        "confidence": 1.0
+      },
+      {
+        "video": "029-gadwall.mp4",
+        "true": "gadwall",
+        "pred": "gadwall",
+        "correct": true,
+        "confidence": 0.9285714285714286
+      }
+    ]
+  },
+  "confidence_weighted": {
+    "description": "確信度加重投票",
+    "accuracy": 0.9629629629629629,
+    "macro_f1": 0.958974358974359,
+    "n_correct": 26,
+    "n_total": 27,
+    "details": [
+      {
+        "video": "124-black_headed_gull.mp4",
+        "true": "black_headed_gull",
+        "pred": "black_headed_gull",
+        "correct": true,
+        "confidence": 0.8729127151396474
+      },
+      {
+        "video": "142-mallard.mp4",
+        "true": "mallard",
+        "pred": "squacco_heron",
+        "correct": false,
+        "confidence": 0.453697821646298
+      },
+      {
+        "video": "171-black_winged_stilt.mp4",
+        "true": "black_winged_stilt",
+        "pred": "black_winged_stilt",
+        "correct": true,
+        "confidence": 0.9946005728100852
+      },
+      {
+        "video": "130-eurasian_magpie.mp4",
+        "true": "eurasian_magpie",
+        "pred": "eurasian_magpie",
+        "correct": true,
+        "confidence": 0.9725900230824341
+      },
+      {
+        "video": "064-northern_shoveler.mp4",
+        "true": "northern_shoveler",
+        "pred": "northern_shoveler",
+        "correct": true,
+        "confidence": 0.9817083111915376
+      },
+      {
+        "video": "024-black_headed_gull.mp4",
+        "true": "black_headed_gull",
+        "pred": "black_headed_gull",
+        "correct": true,
+        "confidence": 0.9880708090378286
+      },
+      {
+        "video": "009-yellow_legged_gull.mp4",
+        "true": "yellow_legged_gull",
+        "pred": "yellow_legged_gull",
+        "correct": true,
+        "confidence": 0.9093058880749951
+      },
+      {
+        "video": "177-eurasian_magpie.mp4",
+        "true": "eurasian_magpie",
+        "pred": "eurasian_magpie",
+        "correct": true,
+        "confidence": 0.9998893672550279
+      },
+      {
+        "video": "052-eurasian_moorhen.mp4",
+        "true": "eurasian_moorhen",
+        "pred": "eurasian_moorhen",
+        "correct": true,
+        "confidence": 0.9669374661959869
+      },
+      {
+        "video": "154-northern_shoveler.mp4",
+        "true": "northern_shoveler",
+        "pred": "northern_shoveler",
+        "correct": true,
+        "confidence": 0.960507102488758
+      },
+      {
+        "video": "150-squacco_heron.mp4",
+        "true": "squacco_heron",
+        "pred": "squacco_heron",
+        "correct": true,
+        "confidence": 0.9997697365875
+      },
+      {
+        "video": "165-glossy_ibis.mp4",
+        "true": "glossy_ibis",
+        "pred": "glossy_ibis",
+        "correct": true,
+        "confidence": 0.7060705359630534
+      },
+      {
+        "video": "019-eurasian_coot.mp4",
+        "true": "eurasian_coot",
+        "pred": "eurasian_coot",
+        "correct": true,
+        "confidence": 0.8694419013876167
+      },
+      {
+        "video": "003-squacco_heron.mp4",
+        "true": "squacco_heron",
+        "pred": "squacco_heron",
+        "correct": true,
+        "confidence": 0.7912188309343933
+      },
+      {
+        "video": "057-eurasian_moorhen.mp4",
+        "true": "eurasian_moorhen",
+        "pred": "eurasian_moorhen",
+        "correct": true,
+        "confidence": 0.9858187739076257
+      },
+      {
+        "video": "092-little_ringed_plover.mp4",
+        "true": "little_ringed_plover",
+        "pred": "little_ringed_plover",
+        "correct": true,
+        "confidence": 0.9880943866569437
+      },
+      {
+        "video": "021-little_ringed_plover.mp4",
+        "true": "little_ringed_plover",
+        "pred": "little_ringed_plover",
+        "correct": true,
+        "confidence": 0.9996353237553445
+      },
+      {
+        "video": "167-white_wagtail.mp4",
+        "true": "white_wagtail",
+        "pred": "white_wagtail",
+        "correct": true,
+        "confidence": 0.808988752419786
+      },
+      {
+        "video": "178-white_wagtail.mp4",
+        "true": "white_wagtail",
+        "pred": "white_wagtail",
+        "correct": true,
+        "confidence": 0.7243626233551996
+      },
+      {
+        "video": "082-yellow_legged_gull.mp4",
+        "true": "yellow_legged_gull",
+        "pred": "yellow_legged_gull",
+        "correct": true,
+        "confidence": 0.9782399668039264
+      },
+      {
+        "video": "121-eurasian_moorhen.mp4",
+        "true": "eurasian_moorhen",
+        "pred": "eurasian_moorhen",
+        "correct": true,
+        "confidence": 0.9986297101495306
+      },
+      {
+        "video": "108-eurasian_coot.mp4",
+        "true": "eurasian_coot",
+        "pred": "eurasian_coot",
+        "correct": true,
+        "confidence": 0.8890424588282173
+      },
+      {
+        "video": "042-mallard.mp4",
+        "true": "mallard",
+        "pred": "mallard",
+        "correct": true,
+        "confidence": 0.994597076074693
+      },
+      {
+        "video": "073-black_winged_stilt.mp4",
+        "true": "black_winged_stilt",
+        "pred": "black_winged_stilt",
+        "correct": true,
+        "confidence": 0.9865332727376397
+      },
+      {
+        "video": "174-eurasian_coot.mp4",
+        "true": "eurasian_coot",
+        "pred": "eurasian_coot",
+        "correct": true,
+        "confidence": 0.9993823189687414
+      },
+      {
+        "video": "027-gadwall.mp4",
+        "true": "gadwall",
+        "pred": "gadwall",
+        "correct": true,
+        "confidence": 0.9999473781972291
+      },
+      {
+        "video": "029-gadwall.mp4",
+        "true": "gadwall",
+        "pred": "gadwall",
+        "correct": true,
+        "confidence": 0.9166507067393154
+      }
+    ]
+  },
+  "exponential_decay": {
+    "description": "指数減衰 (decay=0.8)",
+    "accuracy": 0.9259259259259259,
+    "macro_f1": 0.9205128205128206,
+    "n_correct": 25,
+    "n_total": 27,
+    "details": [
+      {
+        "video": "124-black_headed_gull.mp4",
+        "true": "black_headed_gull",
+        "pred": "black_headed_gull",
+        "correct": true,
+        "confidence": 0.9606370722785733
+      },
+      {
+        "video": "142-mallard.mp4",
+        "true": "mallard",
+        "pred": "squacco_heron",
+        "correct": false,
+        "confidence": 0.5982984459564861
+      },
+      {
+        "video": "171-black_winged_stilt.mp4",
+        "true": "black_winged_stilt",
+        "pred": "black_winged_stilt",
+        "correct": true,
+        "confidence": 0.9912793734958102
+      },
+      {
+        "video": "130-eurasian_magpie.mp4",
+        "true": "eurasian_magpie",
+        "pred": "eurasian_magpie",
+        "correct": true,
+        "confidence": 0.8941834028892656
+      },
+      {
+        "video": "064-northern_shoveler.mp4",
+        "true": "northern_shoveler",
+        "pred": "northern_shoveler",
+        "correct": true,
+        "confidence": 0.9924191314861146
+      },
+      {
+        "video": "024-black_headed_gull.mp4",
+        "true": "black_headed_gull",
+        "pred": "black_headed_gull",
+        "correct": true,
+        "confidence": 0.9983293838208576
+      },
+      {
+        "video": "009-yellow_legged_gull.mp4",
+        "true": "yellow_legged_gull",
+        "pred": "yellow_legged_gull",
+        "correct": true,
+        "confidence": 0.9758469118785787
+      },
+      {
+        "video": "177-eurasian_magpie.mp4",
+        "true": "eurasian_magpie",
+        "pred": "eurasian_magpie",
+        "correct": true,
+        "confidence": 0.9999301904688975
+      },
+      {
+        "video": "052-eurasian_moorhen.mp4",
+        "true": "eurasian_moorhen",
+        "pred": "eurasian_moorhen",
+        "correct": true,
+        "confidence": 0.9685757245047221
+      },
+      {
+        "video": "154-northern_shoveler.mp4",
+        "true": "northern_shoveler",
+        "pred": "northern_shoveler",
+        "correct": true,
+        "confidence": 0.9228633783482906
+      },
+      {
+        "video": "150-squacco_heron.mp4",
+        "true": "squacco_heron",
+        "pred": "squacco_heron",
+        "correct": true,
+        "confidence": 0.9997945368817132
+      },
+      {
+        "video": "165-glossy_ibis.mp4",
+        "true": "glossy_ibis",
+        "pred": "glossy_ibis",
+        "correct": true,
+        "confidence": 0.9397325011223717
+      },
+      {
+        "video": "019-eurasian_coot.mp4",
+        "true": "eurasian_coot",
+        "pred": "eurasian_coot",
+        "correct": true,
+        "confidence": 0.7618837152727298
+      },
+      {
+        "video": "003-squacco_heron.mp4",
+        "true": "squacco_heron",
+        "pred": "black_winged_stilt",
+        "correct": false,
+        "confidence": 0.6926113916965612
+      },
+      {
+        "video": "057-eurasian_moorhen.mp4",
+        "true": "eurasian_moorhen",
+        "pred": "eurasian_moorhen",
+        "correct": true,
+        "confidence": 0.9984353520453569
+      },
+      {
+        "video": "092-little_ringed_plover.mp4",
+        "true": "little_ringed_plover",
+        "pred": "little_ringed_plover",
+        "correct": true,
+        "confidence": 0.9870728238778687
+      },
+      {
+        "video": "021-little_ringed_plover.mp4",
+        "true": "little_ringed_plover",
+        "pred": "little_ringed_plover",
+        "correct": true,
+        "confidence": 0.9997435591792148
+      },
+      {
+        "video": "167-white_wagtail.mp4",
+        "true": "white_wagtail",
+        "pred": "white_wagtail",
+        "correct": true,
+        "confidence": 0.6734525352267539
+      },
+      {
+        "video": "178-white_wagtail.mp4",
+        "true": "white_wagtail",
+        "pred": "white_wagtail",
+        "correct": true,
+        "confidence": 0.7554449074212133
+      },
+      {
+        "video": "082-yellow_legged_gull.mp4",
+        "true": "yellow_legged_gull",
+        "pred": "yellow_legged_gull",
+        "correct": true,
+        "confidence": 0.9998341674795543
+      },
+      {
+        "video": "121-eurasian_moorhen.mp4",
+        "true": "eurasian_moorhen",
+        "pred": "eurasian_moorhen",
+        "correct": true,
+        "confidence": 0.9979399434110537
+      },
+      {
+        "video": "108-eurasian_coot.mp4",
+        "true": "eurasian_coot",
+        "pred": "eurasian_coot",
+        "correct": true,
+        "confidence": 0.8733156962443658
+      },
+      {
+        "video": "042-mallard.mp4",
+        "true": "mallard",
+        "pred": "mallard",
+        "correct": true,
+        "confidence": 0.9944919647104721
+      },
+      {
+        "video": "073-black_winged_stilt.mp4",
+        "true": "black_winged_stilt",
+        "pred": "black_winged_stilt",
+        "correct": true,
+        "confidence": 0.9831476937232135
+      },
+      {
+        "video": "174-eurasian_coot.mp4",
+        "true": "eurasian_coot",
+        "pred": "eurasian_coot",
+        "correct": true,
+        "confidence": 0.9996743806685532
+      },
+      {
+        "video": "027-gadwall.mp4",
+        "true": "gadwall",
+        "pred": "gadwall",
+        "correct": true,
+        "confidence": 0.9999279104716876
+      },
+      {
+        "video": "029-gadwall.mp4",
+        "true": "gadwall",
+        "pred": "gadwall",
+        "correct": true,
+        "confidence": 0.9384981907424224
+      }
+    ]
+  },
+  "sliding_window_3": {
+    "description": "スライディング窓 (size=3)",
+    "accuracy": 1.0,
+    "macro_f1": 1.0,
+    "n_correct": 27,
+    "n_total": 27,
+    "details": [
+      {
+        "video": "124-black_headed_gull.mp4",
+        "true": "black_headed_gull",
+        "pred": "black_headed_gull",
+        "correct": true,
+        "confidence": 0.8421052631578947
+      },
+      {
+        "video": "142-mallard.mp4",
+        "true": "mallard",
+        "pred": "mallard",
+        "correct": true,
+        "confidence": 0.5263157894736842
+      },
+      {
+        "video": "171-black_winged_stilt.mp4",
+        "true": "black_winged_stilt",
+        "pred": "black_winged_stilt",
+        "correct": true,
+        "confidence": 1.0
+      },
+      {
+        "video": "130-eurasian_magpie.mp4",
+        "true": "eurasian_magpie",
+        "pred": "eurasian_magpie",
+        "correct": true,
+        "confidence": 1.0
+      },
+      {
+        "video": "064-northern_shoveler.mp4",
+        "true": "northern_shoveler",
+        "pred": "northern_shoveler",
+        "correct": true,
+        "confidence": 1.0
+      },
+      {
+        "video": "024-black_headed_gull.mp4",
+        "true": "black_headed_gull",
+        "pred": "black_headed_gull",
+        "correct": true,
+        "confidence": 1.0
+      },
+      {
+        "video": "009-yellow_legged_gull.mp4",
+        "true": "yellow_legged_gull",
+        "pred": "yellow_legged_gull",
+        "correct": true,
+        "confidence": 1.0
+      },
+      {
+        "video": "177-eurasian_magpie.mp4",
+        "true": "eurasian_magpie",
+        "pred": "eurasian_magpie",
+        "correct": true,
+        "confidence": 1.0
+      },
+      {
+        "video": "052-eurasian_moorhen.mp4",
+        "true": "eurasian_moorhen",
+        "pred": "eurasian_moorhen",
+        "correct": true,
+        "confidence": 1.0
+      },
+      {
+        "video": "154-northern_shoveler.mp4",
+        "true": "northern_shoveler",
+        "pred": "northern_shoveler",
+        "correct": true,
+        "confidence": 1.0
+      },
+      {
+        "video": "150-squacco_heron.mp4",
+        "true": "squacco_heron",
+        "pred": "squacco_heron",
+        "correct": true,
+        "confidence": 1.0
+      },
+      {
+        "video": "165-glossy_ibis.mp4",
+        "true": "glossy_ibis",
+        "pred": "glossy_ibis",
+        "correct": true,
+        "confidence": 0.631578947368421
+      },
+      {
+        "video": "019-eurasian_coot.mp4",
+        "true": "eurasian_coot",
+        "pred": "eurasian_coot",
+        "correct": true,
+        "confidence": 1.0
+      },
+      {
+        "video": "003-squacco_heron.mp4",
+        "true": "squacco_heron",
+        "pred": "squacco_heron",
+        "correct": true,
+        "confidence": 0.8148148148148148
+      },
+      {
+        "video": "057-eurasian_moorhen.mp4",
+        "true": "eurasian_moorhen",
+        "pred": "eurasian_moorhen",
+        "correct": true,
+        "confidence": 1.0
+      },
+      {
+        "video": "092-little_ringed_plover.mp4",
+        "true": "little_ringed_plover",
+        "pred": "little_ringed_plover",
+        "correct": true,
+        "confidence": 1.0
+      },
+      {
+        "video": "021-little_ringed_plover.mp4",
+        "true": "little_ringed_plover",
+        "pred": "little_ringed_plover",
+        "correct": true,
+        "confidence": 1.0
+      },
+      {
+        "video": "167-white_wagtail.mp4",
+        "true": "white_wagtail",
+        "pred": "white_wagtail",
+        "correct": true,
+        "confidence": 1.0
+      },
+      {
+        "video": "178-white_wagtail.mp4",
+        "true": "white_wagtail",
+        "pred": "white_wagtail",
+        "correct": true,
+        "confidence": 0.7894736842105263
+      },
+      {
+        "video": "082-yellow_legged_gull.mp4",
+        "true": "yellow_legged_gull",
+        "pred": "yellow_legged_gull",
+        "correct": true,
+        "confidence": 1.0
+      },
+      {
+        "video": "121-eurasian_moorhen.mp4",
+        "true": "eurasian_moorhen",
+        "pred": "eurasian_moorhen",
+        "correct": true,
+        "confidence": 1.0
+      },
+      {
+        "video": "108-eurasian_coot.mp4",
+        "true": "eurasian_coot",
+        "pred": "eurasian_coot",
+        "correct": true,
+        "confidence": 1.0
+      },
+      {
+        "video": "042-mallard.mp4",
+        "true": "mallard",
+        "pred": "mallard",
+        "correct": true,
+        "confidence": 1.0
+      },
+      {
+        "video": "073-black_winged_stilt.mp4",
+        "true": "black_winged_stilt",
+        "pred": "black_winged_stilt",
+        "correct": true,
+        "confidence": 1.0
+      },
+      {
+        "video": "174-eurasian_coot.mp4",
+        "true": "eurasian_coot",
+        "pred": "eurasian_coot",
+        "correct": true,
+        "confidence": 1.0
+      },
+      {
+        "video": "027-gadwall.mp4",
+        "true": "gadwall",
+        "pred": "gadwall",
+        "correct": true,
+        "confidence": 1.0
+      },
+      {
+        "video": "029-gadwall.mp4",
+        "true": "gadwall",
+        "pred": "gadwall",
+        "correct": true,
+        "confidence": 1.0
+      }
+    ]
+  },
+  "sliding_window_5": {
+    "description": "スライディング窓 (size=5)",
+    "accuracy": 1.0,
+    "macro_f1": 1.0,
+    "n_correct": 27,
+    "n_total": 27,
+    "details": [
+      {
+        "video": "124-black_headed_gull.mp4",
+        "true": "black_headed_gull",
+        "pred": "black_headed_gull",
+        "correct": true,
+        "confidence": 0.8235294117647058
+      },
+      {
+        "video": "142-mallard.mp4",
+        "true": "mallard",
+        "pred": "mallard",
+        "correct": true,
+        "confidence": 0.5294117647058824
+      },
+      {
+        "video": "171-black_winged_stilt.mp4",
+        "true": "black_winged_stilt",
+        "pred": "black_winged_stilt",
+        "correct": true,
+        "confidence": 1.0
+      },
+      {
+        "video": "130-eurasian_magpie.mp4",
+        "true": "eurasian_magpie",
+        "pred": "eurasian_magpie",
+        "correct": true,
+        "confidence": 1.0
+      },
+      {
+        "video": "064-northern_shoveler.mp4",
+        "true": "northern_shoveler",
+        "pred": "northern_shoveler",
+        "correct": true,
+        "confidence": 1.0
+      },
+      {
+        "video": "024-black_headed_gull.mp4",
+        "true": "black_headed_gull",
+        "pred": "black_headed_gull",
+        "correct": true,
+        "confidence": 1.0
+      },
+      {
+        "video": "009-yellow_legged_gull.mp4",
+        "true": "yellow_legged_gull",
+        "pred": "yellow_legged_gull",
+        "correct": true,
+        "confidence": 1.0
+      },
+      {
+        "video": "177-eurasian_magpie.mp4",
+        "true": "eurasian_magpie",
+        "pred": "eurasian_magpie",
+        "correct": true,
+        "confidence": 1.0
+      },
+      {
+        "video": "052-eurasian_moorhen.mp4",
+        "true": "eurasian_moorhen",
+        "pred": "eurasian_moorhen",
+        "correct": true,
+        "confidence": 1.0
+      },
+      {
+        "video": "154-northern_shoveler.mp4",
+        "true": "northern_shoveler",
+        "pred": "northern_shoveler",
+        "correct": true,
+        "confidence": 1.0
+      },
+      {
+        "video": "150-squacco_heron.mp4",
+        "true": "squacco_heron",
+        "pred": "squacco_heron",
+        "correct": true,
+        "confidence": 1.0
+      },
+      {
+        "video": "165-glossy_ibis.mp4",
+        "true": "glossy_ibis",
+        "pred": "glossy_ibis",
+        "correct": true,
+        "confidence": 0.6470588235294118
+      },
+      {
+        "video": "019-eurasian_coot.mp4",
+        "true": "eurasian_coot",
+        "pred": "eurasian_coot",
+        "correct": true,
+        "confidence": 1.0
+      },
+      {
+        "video": "003-squacco_heron.mp4",
+        "true": "squacco_heron",
+        "pred": "squacco_heron",
+        "correct": true,
+        "confidence": 0.84
+      },
+      {
+        "video": "057-eurasian_moorhen.mp4",
+        "true": "eurasian_moorhen",
+        "pred": "eurasian_moorhen",
+        "correct": true,
+        "confidence": 1.0
+      },
+      {
+        "video": "092-little_ringed_plover.mp4",
+        "true": "little_ringed_plover",
+        "pred": "little_ringed_plover",
+        "correct": true,
+        "confidence": 1.0
+      },
+      {
+        "video": "021-little_ringed_plover.mp4",
+        "true": "little_ringed_plover",
+        "pred": "little_ringed_plover",
+        "correct": true,
+        "confidence": 1.0
+      },
+      {
+        "video": "167-white_wagtail.mp4",
+        "true": "white_wagtail",
+        "pred": "white_wagtail",
+        "correct": true,
+        "confidence": 1.0
+      },
+      {
+        "video": "178-white_wagtail.mp4",
+        "true": "white_wagtail",
+        "pred": "white_wagtail",
+        "correct": true,
+        "confidence": 0.7647058823529411
+      },
+      {
+        "video": "082-yellow_legged_gull.mp4",
+        "true": "yellow_legged_gull",
+        "pred": "yellow_legged_gull",
+        "correct": true,
+        "confidence": 1.0
+      },
+      {
+        "video": "121-eurasian_moorhen.mp4",
+        "true": "eurasian_moorhen",
+        "pred": "eurasian_moorhen",
+        "correct": true,
+        "confidence": 1.0
+      },
+      {
+        "video": "108-eurasian_coot.mp4",
+        "true": "eurasian_coot",
+        "pred": "eurasian_coot",
+        "correct": true,
+        "confidence": 1.0
+      },
+      {
+        "video": "042-mallard.mp4",
+        "true": "mallard",
+        "pred": "mallard",
+        "correct": true,
+        "confidence": 1.0
+      },
+      {
+        "video": "073-black_winged_stilt.mp4",
+        "true": "black_winged_stilt",
+        "pred": "black_winged_stilt",
+        "correct": true,
+        "confidence": 1.0
+      },
+      {
+        "video": "174-eurasian_coot.mp4",
+        "true": "eurasian_coot",
+        "pred": "eurasian_coot",
+        "correct": true,
+        "confidence": 1.0
+      },
+      {
+        "video": "027-gadwall.mp4",
+        "true": "gadwall",
+        "pred": "gadwall",
+        "correct": true,
+        "confidence": 1.0
+      },
+      {
+        "video": "029-gadwall.mp4",
+        "true": "gadwall",
+        "pred": "gadwall",
+        "correct": true,
+        "confidence": 1.0
+      }
+    ]
+  },
+  "temporal_gate": {
+    "description": "時間 Gate (CAGL 類似)",
+    "accuracy": 0.9259259259259259,
+    "macro_f1": 0.9205128205128206,
+    "n_correct": 25,
+    "n_total": 27,
+    "details": [
+      {
+        "video": "124-black_headed_gull.mp4",
+        "true": "black_headed_gull",
+        "pred": "black_headed_gull",
+        "correct": true,
+        "confidence": 0.7649728090013053
+      },
+      {
+        "video": "142-mallard.mp4",
+        "true": "mallard",
+        "pred": "squacco_heron",
+        "correct": false,
+        "confidence": 0.3252176988546439
+      },
+      {
+        "video": "171-black_winged_stilt.mp4",
+        "true": "black_winged_stilt",
+        "pred": "black_winged_stilt",
+        "correct": true,
+        "confidence": 0.8719129060981645
+      },
+      {
+        "video": "130-eurasian_magpie.mp4",
+        "true": "eurasian_magpie",
+        "pred": "eurasian_magpie",
+        "correct": true,
+        "confidence": 0.9417718664235797
+      },
+      {
+        "video": "064-northern_shoveler.mp4",
+        "true": "northern_shoveler",
+        "pred": "northern_shoveler",
+        "correct": true,
+        "confidence": 0.9298240493093984
+      },
+      {
+        "video": "024-black_headed_gull.mp4",
+        "true": "black_headed_gull",
+        "pred": "black_headed_gull",
+        "correct": true,
+        "confidence": 0.9999014999119538
+      },
+      {
+        "video": "009-yellow_legged_gull.mp4",
+        "true": "yellow_legged_gull",
+        "pred": "yellow_legged_gull",
+        "correct": true,
+        "confidence": 0.7731565300193345
+      },
+      {
+        "video": "177-eurasian_magpie.mp4",
+        "true": "eurasian_magpie",
+        "pred": "eurasian_magpie",
+        "correct": true,
+        "confidence": 0.9452763809122343
+      },
+      {
+        "video": "052-eurasian_moorhen.mp4",
+        "true": "eurasian_moorhen",
+        "pred": "eurasian_moorhen",
+        "correct": true,
+        "confidence": 0.9265519254986944
+      },
+      {
+        "video": "154-northern_shoveler.mp4",
+        "true": "northern_shoveler",
+        "pred": "northern_shoveler",
+        "correct": true,
+        "confidence": 0.9188902042149458
+      },
+      {
+        "video": "150-squacco_heron.mp4",
+        "true": "squacco_heron",
+        "pred": "squacco_heron",
+        "correct": true,
+        "confidence": 0.9452611042631861
+      },
+      {
+        "video": "165-glossy_ibis.mp4",
+        "true": "glossy_ibis",
+        "pred": "glossy_ibis",
+        "correct": true,
+        "confidence": 0.749665869371159
+      },
+      {
+        "video": "019-eurasian_coot.mp4",
+        "true": "eurasian_coot",
+        "pred": "eurasian_coot",
+        "correct": true,
+        "confidence": 0.6106135414638932
+      },
+      {
+        "video": "003-squacco_heron.mp4",
+        "true": "squacco_heron",
+        "pred": "black_winged_stilt",
+        "correct": false,
+        "confidence": 0.44656735930710095
+      },
+      {
+        "video": "057-eurasian_moorhen.mp4",
+        "true": "eurasian_moorhen",
+        "pred": "eurasian_moorhen",
+        "correct": true,
+        "confidence": 0.9950705000344197
+      },
+      {
+        "video": "092-little_ringed_plover.mp4",
+        "true": "little_ringed_plover",
+        "pred": "little_ringed_plover",
+        "correct": true,
+        "confidence": 0.7027999938660122
+      },
+      {
+        "video": "021-little_ringed_plover.mp4",
+        "true": "little_ringed_plover",
+        "pred": "little_ringed_plover",
+        "correct": true,
+        "confidence": 0.8728397466074405
+      },
+      {
+        "video": "167-white_wagtail.mp4",
+        "true": "white_wagtail",
+        "pred": "white_wagtail",
+        "correct": true,
+        "confidence": 0.4660437631765153
+      },
+      {
+        "video": "178-white_wagtail.mp4",
+        "true": "white_wagtail",
+        "pred": "white_wagtail",
+        "correct": true,
+        "confidence": 0.49723523703833283
+      },
+      {
+        "video": "082-yellow_legged_gull.mp4",
+        "true": "yellow_legged_gull",
+        "pred": "yellow_legged_gull",
+        "correct": true,
+        "confidence": 0.9995355128143238
+      },
+      {
+        "video": "121-eurasian_moorhen.mp4",
+        "true": "eurasian_moorhen",
+        "pred": "eurasian_moorhen",
+        "correct": true,
+        "confidence": 0.9451154792229813
+      },
+      {
+        "video": "108-eurasian_coot.mp4",
+        "true": "eurasian_coot",
+        "pred": "eurasian_coot",
+        "correct": true,
+        "confidence": 0.8205963668437287
+      },
+      {
+        "video": "042-mallard.mp4",
+        "true": "mallard",
+        "pred": "mallard",
+        "correct": true,
+        "confidence": 0.9316834914388235
+      },
+      {
+        "video": "073-black_winged_stilt.mp4",
+        "true": "black_winged_stilt",
+        "pred": "black_winged_stilt",
+        "correct": true,
+        "confidence": 0.8405052090573464
+      },
+      {
+        "video": "174-eurasian_coot.mp4",
+        "true": "eurasian_coot",
+        "pred": "eurasian_coot",
+        "correct": true,
+        "confidence": 0.8969484104677428
+      },
+      {
+        "video": "027-gadwall.mp4",
+        "true": "gadwall",
+        "pred": "gadwall",
+        "correct": true,
+        "confidence": 0.8587753235628162
+      },
+      {
+        "video": "029-gadwall.mp4",
+        "true": "gadwall",
+        "pred": "gadwall",
+        "correct": true,
+        "confidence": 0.7493221822129612
+      }
+    ]
+  },
+  "yolo_weighted": {
+    "description": "YOLO 確信度加重",
+    "accuracy": 1.0,
+    "macro_f1": 1.0,
+    "n_correct": 27,
+    "n_total": 27,
+    "details": [
+      {
+        "video": "124-black_headed_gull.mp4",
+        "true": "black_headed_gull",
+        "pred": "black_headed_gull",
+        "correct": true,
+        "confidence": 0.9223417308156552
+      },
+      {
+        "video": "142-mallard.mp4",
+        "true": "mallard",
+        "pred": "mallard",
+        "correct": true,
+        "confidence": 0.5762607555146552
+      },
+      {
+        "video": "171-black_winged_stilt.mp4",
+        "true": "black_winged_stilt",
+        "pred": "black_winged_stilt",
+        "correct": true,
+        "confidence": 0.9942751861312004
+      },
+      {
+        "video": "130-eurasian_magpie.mp4",
+        "true": "eurasian_magpie",
+        "pred": "eurasian_magpie",
+        "correct": true,
+        "confidence": 0.9927067480407247
+      },
+      {
+        "video": "064-northern_shoveler.mp4",
+        "true": "northern_shoveler",
+        "pred": "northern_shoveler",
+        "correct": true,
+        "confidence": 0.9908073380323875
+      },
+      {
+        "video": "024-black_headed_gull.mp4",
+        "true": "black_headed_gull",
+        "pred": "black_headed_gull",
+        "correct": true,
+        "confidence": 0.9912750434838106
+      },
+      {
+        "video": "009-yellow_legged_gull.mp4",
+        "true": "yellow_legged_gull",
+        "pred": "yellow_legged_gull",
+        "correct": true,
+        "confidence": 0.9885635884400731
+      },
+      {
+        "video": "177-eurasian_magpie.mp4",
+        "true": "eurasian_magpie",
+        "pred": "eurasian_magpie",
+        "correct": true,
+        "confidence": 0.9998915958817718
+      },
+      {
+        "video": "052-eurasian_moorhen.mp4",
+        "true": "eurasian_moorhen",
+        "pred": "eurasian_moorhen",
+        "correct": true,
+        "confidence": 0.9850438223077266
+      },
+      {
+        "video": "154-northern_shoveler.mp4",
+        "true": "northern_shoveler",
+        "pred": "northern_shoveler",
+        "correct": true,
+        "confidence": 0.9767531717124377
+      },
+      {
+        "video": "150-squacco_heron.mp4",
+        "true": "squacco_heron",
+        "pred": "squacco_heron",
+        "correct": true,
+        "confidence": 0.9997609098628167
+      },
+      {
+        "video": "165-glossy_ibis.mp4",
+        "true": "glossy_ibis",
+        "pred": "glossy_ibis",
+        "correct": true,
+        "confidence": 0.7781160898356495
+      },
+      {
+        "video": "019-eurasian_coot.mp4",
+        "true": "eurasian_coot",
+        "pred": "eurasian_coot",
+        "correct": true,
+        "confidence": 0.9132578838857305
+      },
+      {
+        "video": "003-squacco_heron.mp4",
+        "true": "squacco_heron",
+        "pred": "squacco_heron",
+        "correct": true,
+        "confidence": 0.9692209155800182
+      },
+      {
+        "video": "057-eurasian_moorhen.mp4",
+        "true": "eurasian_moorhen",
+        "pred": "eurasian_moorhen",
+        "correct": true,
+        "confidence": 0.9938161983352745
+      },
+      {
+        "video": "092-little_ringed_plover.mp4",
+        "true": "little_ringed_plover",
+        "pred": "little_ringed_plover",
+        "correct": true,
+        "confidence": 0.9826161085440145
+      },
+      {
+        "video": "021-little_ringed_plover.mp4",
+        "true": "little_ringed_plover",
+        "pred": "little_ringed_plover",
+        "correct": true,
+        "confidence": 0.9996432883745223
+      },
+      {
+        "video": "167-white_wagtail.mp4",
+        "true": "white_wagtail",
+        "pred": "white_wagtail",
+        "correct": true,
+        "confidence": 0.8845063280969593
+      },
+      {
+        "video": "178-white_wagtail.mp4",
+        "true": "white_wagtail",
+        "pred": "white_wagtail",
+        "correct": true,
+        "confidence": 0.8814689138071136
+      },
+      {
+        "video": "082-yellow_legged_gull.mp4",
+        "true": "yellow_legged_gull",
+        "pred": "yellow_legged_gull",
+        "correct": true,
+        "confidence": 0.9780841066390491
+      },
+      {
+        "video": "121-eurasian_moorhen.mp4",
+        "true": "eurasian_moorhen",
+        "pred": "eurasian_moorhen",
+        "correct": true,
+        "confidence": 0.99852159343935
+      },
+      {
+        "video": "108-eurasian_coot.mp4",
+        "true": "eurasian_coot",
+        "pred": "eurasian_coot",
+        "correct": true,
+        "confidence": 0.938241847775204
+      },
+      {
+        "video": "042-mallard.mp4",
+        "true": "mallard",
+        "pred": "mallard",
+        "correct": true,
+        "confidence": 0.9945667438940394
+      },
+      {
+        "video": "073-black_winged_stilt.mp4",
+        "true": "black_winged_stilt",
+        "pred": "black_winged_stilt",
+        "correct": true,
+        "confidence": 0.9854876806322562
+      },
+      {
+        "video": "174-eurasian_coot.mp4",
+        "true": "eurasian_coot",
+        "pred": "eurasian_coot",
+        "correct": true,
+        "confidence": 0.9993497663880893
+      },
+      {
+        "video": "027-gadwall.mp4",
+        "true": "gadwall",
+        "pred": "gadwall",
+        "correct": true,
+        "confidence": 0.9999607949661742
+      },
+      {
+        "video": "029-gadwall.mp4",
+        "true": "gadwall",
+        "pred": "gadwall",
+        "correct": true,
+        "confidence": 0.9532236255032887
+      }
+    ]
+  }
+}

@@ -1,0 +1,48 @@
+{
+  "feature_load_time_sec": 2.7454206943511963,
+  "songtype_classification": {
+    "n_classes": 725,
+    "n_samples": 87474,
+    "min_samples_per_class": 50,
+    "results": {
+      "LogReg": {
+        "accuracy": 0.9919977136324665,
+        "top5": 0.9995998856816233,
+        "macro_f1": 0.9923607257902407,
+        "time_sec": 35.08164024353027
+      },
+      "kNN": {
+        "accuracy": 0.9905115747356388,
+        "top5": 0.9974278365247213,
+        "macro_f1": 0.9909273969038571,
+        "time_sec": 23.216704845428467
+      }
+    }
+  },
+  "individual_identification": {
+    "n_classes": 360,
+    "n_samples": 107031,
+    "min_samples_per_class": 50,
+    "results": {
+      "LogReg": {
+        "accuracy": 0.9848180501705049,
+        "top5": 0.9985518755547251,
+        "macro_f1": 0.9791531978175176,
+        "time_sec": 19.034055948257446
+      },
+      "kNN": {
+        "accuracy": 0.9844443406362405,
+        "top5": 0.9962629046573551,
+        "macro_f1": 0.9787157904969299,
+        "time_sec": 32.988967180252075
+      }
+    }
+  },
+  "judgment": {
+    "songtype_f1_best": 0.9923607257902407,
+    "songtype_pass": true,
+    "individual_accuracy_best": 0.9848180501705049,
+    "individual_chance_rate": 0.002777777777777778,
+    "individual_pass": true
+  }
+}
