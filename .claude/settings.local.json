@@ -77,7 +77,10 @@
       "Bash(git remote *)",
       "Bash(git push *)",
       "Bash(PYTHONIOENCODING=utf-8 python phase6_router_features.py)",
-      "Bash(PYTHONIOENCODING=utf-8 python phase6_adaptive_router.py)"
+      "Bash(PYTHONIOENCODING=utf-8 python phase6_adaptive_router.py)",
+      "Bash(PYTHONIOENCODING=utf-8 python phase6_train_predict.py)",
+      "Bash(PYTHONIOENCODING=utf-8 python phase6_formal_eval.py)",
+      "Bash(git rm *)"
     ]
   }
 }

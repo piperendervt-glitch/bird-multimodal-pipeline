@@ -1,0 +1,20 @@
+{
+  "wetlandbirds": {
+    "n_train_videos": 151,
+    "n_test_videos": 27,
+    "n_train_predictions": 151,
+    "train_frame_count": 2973,
+    "frame_classifier_train_acc": 1.0,
+    "elapsed_feat_sec": 17.022794723510742,
+    "elapsed_pred_sec": 14.660526990890503
+  },
+  "vb100": {
+    "n_train_videos": 1133,
+    "n_test_videos": 283,
+    "n_train_predictions": 1133,
+    "train_frame_count": 37424,
+    "frame_classifier_train_acc": 0.9973011970927746,
+    "elapsed_feat_sec": 156.60657024383545,
+    "elapsed_pred_sec": 140.98074913024902
+  }
+}

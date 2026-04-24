@@ -1,0 +1,74 @@
+{
+  "wetlandbirds": {
+    "fixed_majority": {
+      "accuracy": 1.0,
+      "macro_f1": 1.0
+    },
+    "fixed_frame_avg": {
+      "accuracy": 0.9629629629629629,
+      "macro_f1": 0.958974358974359
+    },
+    "fixed_conf_weighted": {
+      "accuracy": 0.9629629629629629,
+      "macro_f1": 0.958974358974359
+    },
+    "fixed_yolo_weighted": {
+      "accuracy": 1.0,
+      "macro_f1": 1.0
+    },
+    "fixed_sliding_window": {
+      "accuracy": 1.0,
+      "macro_f1": 1.0
+    },
+    "adaptive_single_class": {
+      "accuracy": 1.0,
+      "macro_f1": 1.0,
+      "forced_method": "majority"
+    },
+    "heuristic_router": {
+      "accuracy": 0.9629629629629629,
+      "macro_f1": 0.958974358974359,
+      "chosen_distribution": {
+        "majority": 23,
+        "frame_avg": 1,
+        "yolo_weighted": 3
+      }
+    }
+  },
+  "vb100": {
+    "fixed_majority": {
+      "accuracy": 0.8692579505300353,
+      "macro_f1": 0.8432777777777778
+    },
+    "fixed_frame_avg": {
+      "accuracy": 0.8692579505300353,
+      "macro_f1": 0.8436904761904762
+    },
+    "fixed_conf_weighted": {
+      "accuracy": 0.8692579505300353,
+      "macro_f1": 0.845515873015873
+    },
+    "fixed_yolo_weighted": {
+      "accuracy": 0.8692579505300353,
+      "macro_f1": 0.8482857142857142
+    },
+    "fixed_sliding_window": {
+      "accuracy": 0.8692579505300353,
+      "macro_f1": 0.8438492063492065
+    },
+    "adaptive_single_class": {
+      "accuracy": 0.8692579505300353,
+      "macro_f1": 0.8432777777777778,
+      "forced_method": "majority"
+    },
+    "heuristic_router": {
+      "accuracy": 0.8692579505300353,
+      "macro_f1": 0.8436904761904762,
+      "chosen_distribution": {
+        "majority": 190,
+        "yolo_weighted": 45,
+        "frame_avg": 48
+      }
+    }
+  }
+}

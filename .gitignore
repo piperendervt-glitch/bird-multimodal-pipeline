@@ -7,6 +7,8 @@ results/bird_phase4b/audio/
 results/vb100_phase5e/crops/
 results/vb100_phase5e/frame_results.json
 results/vb100_phase5e/frame_predictions.json
+results/phase6_formal/train_predictions_vb100.json
+results/phase6_formal/train_predictions_wetlandbirds.json
 
 # zip ファイル
 *.zip
@@ -22,3 +24,6 @@ __pycache__/
 # OS
 .DS_Store
 Thumbs.db
+
+# Claude Code セッション固有ファイル
+.claude/scheduled_tasks.lock
