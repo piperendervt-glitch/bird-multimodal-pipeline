@@ -9,6 +9,8 @@ results/vb100_phase5e/frame_results.json
 results/vb100_phase5e/frame_predictions.json
 results/phase6_formal/train_predictions_vb100.json
 results/phase6_formal/train_predictions_wetlandbirds.json
+results/phase6_oof/oof_predictions_vb100.json
+results/phase6_oof/oof_predictions_wetlandbirds.json
 
 # zip ファイル
 *.zip

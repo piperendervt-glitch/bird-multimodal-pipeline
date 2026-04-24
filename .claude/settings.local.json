@@ -80,7 +80,9 @@
       "Bash(PYTHONIOENCODING=utf-8 python phase6_adaptive_router.py)",
       "Bash(PYTHONIOENCODING=utf-8 python phase6_train_predict.py)",
       "Bash(PYTHONIOENCODING=utf-8 python phase6_formal_eval.py)",
-      "Bash(git rm *)"
+      "Bash(git rm *)",
+      "Bash(PYTHONIOENCODING=utf-8 python phase6_oof_predict.py)",
+      "Bash(PYTHONIOENCODING=utf-8 python phase6_oof_eval.py)"
     ]
   }
 }

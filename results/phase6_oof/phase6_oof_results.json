@@ -1,0 +1,202 @@
+{
+  "wetlandbirds": {
+    "fixed_majority": {
+      "accuracy": 1.0,
+      "macro_f1": 1.0
+    },
+    "fixed_frame_avg": {
+      "accuracy": 0.9629629629629629,
+      "macro_f1": 0.958974358974359
+    },
+    "fixed_conf_weighted": {
+      "accuracy": 0.9629629629629629,
+      "macro_f1": 0.958974358974359
+    },
+    "fixed_yolo_weighted": {
+      "accuracy": 1.0,
+      "macro_f1": 1.0
+    },
+    "fixed_sliding_window": {
+      "accuracy": 1.0,
+      "macro_f1": 1.0
+    },
+    "adaptive_logistic": {
+      "accuracy": 1.0,
+      "macro_f1": 1.0,
+      "router_train_acc": 0.9867549668874173,
+      "chosen_distribution": {
+        "majority": 27
+      }
+    },
+    "adaptive_random_forest": {
+      "accuracy": 1.0,
+      "macro_f1": 1.0,
+      "router_train_acc": 1.0,
+      "chosen_distribution": {
+        "majority": 27
+      },
+      "top_feature_importances": [
+        {
+          "name": "conf_trend",
+          "importance": 0.11391431636106945
+        },
+        {
+          "name": "mean_prob_max",
+          "importance": 0.09298248396922379
+        },
+        {
+          "name": "pred_entropy",
+          "importance": 0.0920375142513568
+        },
+        {
+          "name": "agreement_rate",
+          "importance": 0.07390602017466337
+        },
+        {
+          "name": "conf_max",
+          "importance": 0.06763812443235226
+        },
+        {
+          "name": "prob_variance",
+          "importance": 0.0630135275981684
+        },
+        {
+          "name": "margin",
+          "importance": 0.06110124697791182
+        },
+        {
+          "name": "mean_prob_margin",
+          "importance": 0.055927300170827705
+        },
+        {
+          "name": "mean_prob_entropy",
+          "importance": 0.0508784576698532
+        },
+        {
+          "name": "yolo_mean",
+          "importance": 0.04833679027673388
+        }
+      ]
+    },
+    "hybrid_router": {
+      "accuracy": 0.9629629629629629,
+      "macro_f1": 0.958974358974359,
+      "chosen_distribution": {
+        "majority": 26,
+        "frame_avg": 1
+      },
+      "fallback_count": 1,
+      "threshold": 0.6
+    },
+    "heuristic_router": {
+      "accuracy": 0.9629629629629629,
+      "macro_f1": 0.958974358974359,
+      "chosen_distribution": {
+        "majority": 23,
+        "frame_avg": 1,
+        "yolo_weighted": 3
+      }
+    }
+  },
+  "vb100": {
+    "fixed_majority": {
+      "accuracy": 0.8692579505300353,
+      "macro_f1": 0.8432777777777778
+    },
+    "fixed_frame_avg": {
+      "accuracy": 0.8692579505300353,
+      "macro_f1": 0.8436904761904762
+    },
+    "fixed_conf_weighted": {
+      "accuracy": 0.8692579505300353,
+      "macro_f1": 0.845515873015873
+    },
+    "fixed_yolo_weighted": {
+      "accuracy": 0.8692579505300353,
+      "macro_f1": 0.8482857142857142
+    },
+    "fixed_sliding_window": {
+      "accuracy": 0.8692579505300353,
+      "macro_f1": 0.8438492063492065
+    },
+    "adaptive_logistic": {
+      "accuracy": 0.8692579505300353,
+      "macro_f1": 0.8436904761904762,
+      "router_train_acc": 0.8570167696381289,
+      "chosen_distribution": {
+        "majority": 265,
+        "frame_avg": 18
+      }
+    },
+    "adaptive_random_forest": {
+      "accuracy": 0.8692579505300353,
+      "macro_f1": 0.8436904761904762,
+      "router_train_acc": 0.9020300088261254,
+      "chosen_distribution": {
+        "majority": 259,
+        "frame_avg": 24
+      },
+      "top_feature_importances": [
+        {
+          "name": "conf_max",
+          "importance": 0.17072047838723317
+        },
+        {
+          "name": "conf_median",
+          "importance": 0.10505867210957204
+        },
+        {
+          "name": "mean_prob_margin",
+          "importance": 0.10113866839110701
+        },
+        {
+          "name": "conf_mean",
+          "importance": 0.1009337708252486
+        },
+        {
+          "name": "mean_prob_max",
+          "importance": 0.09774381146822392
+        },
+        {
+          "name": "margin",
+          "importance": 0.05465036472047365
+        },
+        {
+          "name": "conf_skewness",
+          "importance": 0.05387216709137013
+        },
+        {
+          "name": "agreement_rate",
+          "importance": 0.049493655086845535
+        },
+        {
+          "name": "mean_prob_entropy",
+          "importance": 0.035318741058533006
+        },
+        {
+          "name": "pred_entropy",
+          "importance": 0.034909568564866475
+        }
+      ]
+    },
+    "hybrid_router": {
+      "accuracy": 0.8692579505300353,
+      "macro_f1": 0.8436904761904762,
+      "chosen_distribution": {
+        "majority": 251,
+        "frame_avg": 32
+      },
+      "fallback_count": 32,
+      "threshold": 0.6
+    },
+    "heuristic_router": {
+      "accuracy": 0.8692579505300353,
+      "macro_f1": 0.8436904761904762,
+      "chosen_distribution": {
+        "majority": 190,
+        "yolo_weighted": 45,
+        "frame_avg": 48
+      }
+    }
+  }
+}

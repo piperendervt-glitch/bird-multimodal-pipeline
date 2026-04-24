@@ -1,0 +1,30 @@
+{
+  "wetlandbirds": {
+    "n_videos": 151,
+    "n_total_frames": 2973,
+    "fold_train_acc_mean": 1.0,
+    "fold_train_acc_min": 1.0,
+    "fold_train_acc_max": 1.0,
+    "majority_accuracy": 0.9668874172185431,
+    "mean_agreement": 0.9263309723896316,
+    "all_correct": 145,
+    "all_wrong": 2,
+    "method_divergent": 4,
+    "elapsed_feat_sec": 15.558857440948486,
+    "elapsed_oof_sec": 0.5005447864532471
+  },
+  "vb100": {
+    "n_videos": 1133,
+    "n_total_frames": 37424,
+    "fold_train_acc_mean": 0.9973285054226718,
+    "fold_train_acc_min": 0.9971534489606779,
+    "fold_train_acc_max": 0.9974878579802379,
+    "majority_accuracy": 0.8199470432480142,
+    "mean_agreement": 0.7873560476948158,
+    "all_correct": 838,
+    "all_wrong": 181,
+    "method_divergent": 114,
+    "elapsed_feat_sec": 140.36787009239197,
+    "elapsed_oof_sec": 17.44060516357422
+  }
+}
