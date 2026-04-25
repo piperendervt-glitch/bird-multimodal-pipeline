@@ -117,12 +117,59 @@ class SimpleTracker:
         return detections
 
 
+class CosineSimilarityOOD:
+    """コサイン類似度ベースの OOD 検出器。
+
+    CUB-200 の DINOv2 特徴量からクラスごとの L2 正規化プロトタイプを構築し
+    入力特徴量と最も近いプロトタイプとの「1 - 類似度」を OOD スコアとする。
+    高い = 既知の鳥分布から離れている = 誤検出（背景・枝・岩等）の可能性。
+    """
+
+    def __init__(self):
+        self.prototypes = None  # (n_classes, feat_dim)
+        self.enabled = False
+
+    def fit(self, X, y):
+        """各クラスの L2 正規化プロトタイプを計算する。"""
+        classes = np.unique(y)
+        protos = []
+        for cls in classes:
+            mask = y == cls
+            proto = X[mask].mean(axis=0)
+            proto = proto / (np.linalg.norm(proto) + 1e-9)
+            protos.append(proto)
+        self.prototypes = np.array(protos)
+        self.enabled = True
+        print(f"OOD フィルタ: {len(protos)} クラスのプロトタイプを構築")
+
+    def score(self, features):
+        """1 サンプルの OOD スコアを返す（高い = OOD）。"""
+        if not self.enabled or features is None:
+            return 0.0
+        feat_norm = features / (np.linalg.norm(features) + 1e-9)
+        sims = feat_norm @ self.prototypes.T
+        return float(1.0 - sims.max())
+
+    def score_batch(self, features_list):
+        """複数サンプルの OOD スコアをまとめて返す。
+
+        features_list の None 要素は OOD スコア 1.0（最大値）として扱う。
+        """
+        out = []
+        for f in features_list:
+            if f is None:
+                out.append(1.0)
+            else:
+                out.append(self.score(f))
+        return out
+
+
 class RealtimeBirdDetector:
     """リアルタイム鳥検出・分類パイプライン。"""
 
     def __init__(self, species_mapping_path=None, classifier_data_path=None,
                  tracker="bytetrack", use_sahi=False, slice_size=320,
-                 sahi_track=False):
+                 sahi_track=False, ood_filter=True, ood_threshold=0.71):
         print("=== リアルタイム鳥検出システム 初期化 ===")
         self.tracker = tracker  # "bytetrack" / "botsort" / "none"
         self.use_sahi = use_sahi
@@ -179,8 +226,45 @@ class RealtimeBirdDetector:
         self.yolo_time = deque(maxlen=30)
         self.dinov2_time = deque(maxlen=30)
 
+        # OOD フィルタ（CUB-200 プロトタイプによるコサイン類似度）
+        self.ood = CosineSimilarityOOD()
+        self.ood_threshold = ood_threshold
+        self.ood_filtered_count = 0  # OOD で除去された累計検出数
+        self.ood_total_count = 0     # OOD 評価対象の累計検出数
+        if ood_filter:
+            self._init_ood_filter()
+
         print(f"デバイス: {self.device}")
         print("初期化完了\n")
+
+    def _init_ood_filter(self):
+        """CUB-200 の特徴量を読み込んで OOD フィルタを初期化する。"""
+        candidates = [
+            "../results/bird_phase1/features_dinov2_vits14.npz",
+            "../results/bird_phase1/features.npz",
+        ]
+        for path in candidates:
+            if not os.path.exists(path):
+                continue
+            try:
+                data = np.load(path, allow_pickle=True)
+            except Exception:
+                continue
+            keys = list(data.keys())
+            if "X_train" in keys:
+                X = data["X_train"]
+                y = data["y_train"]
+            elif "X" in keys:
+                X = data["X"]
+                y = data["y"]
+            else:
+                X = data[keys[0]]
+                y = (data[keys[1]] if len(keys) > 1
+                     else np.zeros(len(X)))
+            self.ood.fit(X, y)
+            return
+
+        print("警告: CUB-200 特徴量が見つかりません。OOD フィルタは無効。")
 
     def _load_classifier(self, species_mapping_path, classifier_data_path):
         """学習済み分類器を試行的に読み込む。"""
@@ -348,8 +432,22 @@ class RealtimeBirdDetector:
         dinov2_elapsed = time.time() - dinov2_start
         self.dinov2_time.append(dinov2_elapsed)
 
+        # OOD スコアの計算（特徴量のリストに対してまとめて）
+        if self.ood.enabled and detections:
+            ood_scores = self.ood.score_batch(features_list)
+        else:
+            ood_scores = [0.0] * len(detections)
+
         results = []
-        for det, feat in zip(detections, features_list):
+        for det, feat, ood_score in zip(detections, features_list,
+                                          ood_scores):
+            # OOD フィルタ: 閾値超過の検出は破棄して描画対象外とする
+            if self.ood.enabled:
+                self.ood_total_count += 1
+                if ood_score > self.ood_threshold:
+                    self.ood_filtered_count += 1
+                    continue
+
             results.append({
                 "bbox": det["bbox"],
                 "yolo_confidence": det["confidence"],
@@ -357,6 +455,7 @@ class RealtimeBirdDetector:
                 "features": feat,
                 "species": "Unknown",
                 "species_confidence": 0.0,
+                "ood_score": ood_score,
             })
 
         frame_elapsed = time.time() - frame_start
@@ -422,18 +521,27 @@ class RealtimeBirdDetector:
             for r in results:
                 track_id = r.get("track_id", -1)
                 yolo_conf = r["yolo_confidence"]
+                ood_score = r.get("ood_score", 0.0)
                 species = r.get("species", "Unknown")
+
+                ood_str = (f" ood {ood_score:.2f}"
+                           if self.ood.enabled else "")
 
                 if track_id >= 0:
                     if species != "Unknown":
                         info_lines.append(
                             f"  #{track_id}: {species} "
-                            f"({yolo_conf:.2f})"
+                            f"({yolo_conf:.2f}){ood_str}"
                         )
                     else:
                         info_lines.append(
                             f"  #{track_id}: conf {yolo_conf:.2f}"
+                            f"{ood_str}"
                         )
+                else:
+                    info_lines.append(
+                        f"  Bird: conf {yolo_conf:.2f}{ood_str}"
+                    )
 
         if info_lines:
             line_height = 20
@@ -486,6 +594,10 @@ class RealtimeBirdDetector:
         all_detections = []
         process_interval = max(1, skip_frames + 1)
         last_results = []
+
+        # この動画分の OOD カウンタを記録するため、開始時の累計を保存
+        ood_filtered_start = self.ood_filtered_count
+        ood_total_start = self.ood_total_count
 
         # この動画のローカル平均を計算するため、開始位置のスナップショット
         local_yolo = []
@@ -585,6 +697,14 @@ class RealtimeBirdDetector:
             print(f"最長追跡フレーム数: {max_track_frames}")
             print(f"平均追跡フレーム数: {mean_track_frames:.1f}")
 
+        # この動画分の OOD 統計
+        ood_filtered = self.ood_filtered_count - ood_filtered_start
+        ood_total = self.ood_total_count - ood_total_start
+        if self.ood.enabled:
+            ood_rate = ood_filtered / max(ood_total, 1)
+            print(f"OOD 除去: {ood_filtered}/{ood_total} "
+                  f"({ood_rate*100:.1f}%)")
+
         return {
             "video_path": video_path,
             "total_frames": frame_count,
@@ -595,6 +715,8 @@ class RealtimeBirdDetector:
             "total_detections": int(total_detections),
             "frames_with_bird": int(frames_with_bird),
             "max_birds_per_frame": int(max_birds_per_frame),
+            "ood_filtered": int(ood_filtered),
+            "ood_total": int(ood_total),
             "tracking": {
                 "unique_ids": unique_ids,
                 "max_track_frames": int(max_track_frames),
@@ -636,6 +758,10 @@ def main():
                          help="SAHI + 簡易 IoU 追跡（小鳥検出 + ID 付与）")
     parser.add_argument("--slice-size", type=int, default=320,
                          help="SAHI のスライスサイズ（デフォルト: 320）")
+    parser.add_argument("--no-ood", action="store_true",
+                         help="OOD フィルタを無効化")
+    parser.add_argument("--ood-threshold", type=float, default=0.71,
+                         help="OOD 除去閾値（デフォルト: 0.71、90%%ile）")
     args = parser.parse_args()
 
     # --sahi-track は SAHI を有効化したうえで簡易トラッカーを使う
@@ -653,6 +779,8 @@ def main():
         use_sahi=args.sahi,
         slice_size=args.slice_size,
         sahi_track=args.sahi_track,
+        ood_filter=not args.no_ood,
+        ood_threshold=args.ood_threshold,
     )
 
     if args.benchmark:
@@ -693,6 +821,9 @@ def main():
         total_det_all = sum(r.get("total_detections", 0) for r in all_results)
         frames_with_bird_all = sum(r.get("frames_with_bird", 0)
                                      for r in all_results)
+        ood_filtered_all = sum(r.get("ood_filtered", 0)
+                                 for r in all_results)
+        ood_total_all = sum(r.get("ood_total", 0) for r in all_results)
 
         print(f"動画数: {len(all_results)}")
         print(f"総処理フレーム: {total_processed}")
@@ -701,8 +832,13 @@ def main():
         print(f"平均 FPS（動画別平均）: {avg_fps_all:.1f}")
         print(f"YOLO 平均: {avg_yolo_all:.0f} ms")
         print(f"DINOv2 平均: {avg_dinov2_all:.0f} ms")
-        print(f"総検出数（鳥の延べ数）: {total_det_all}")
+        print(f"総検出数（鳥の延べ数、OOD 除去後）: {total_det_all}")
         print(f"鳥が映ったフレーム合計: {frames_with_bird_all}")
+        if ood_total_all > 0:
+            ood_rate = ood_filtered_all / ood_total_all
+            print(f"OOD 除去合計: {ood_filtered_all}/{ood_total_all} "
+                  f"({ood_rate*100:.1f}%, 閾値 "
+                  f"{detector.ood_threshold:.2f})")
 
         print(f"\n動画別:")
         print(f"{'ファイル':<26} {'フレーム':>8} {'FPS':>6} "
@@ -758,6 +894,10 @@ def main():
             "avg_dinov2_ms": avg_dinov2_all,
             "total_detections": int(total_det_all),
             "frames_with_bird": int(frames_with_bird_all),
+            "ood_filtered": int(ood_filtered_all),
+            "ood_total": int(ood_total_all),
+            "ood_threshold": float(detector.ood_threshold),
+            "ood_enabled": bool(detector.ood.enabled),
             "skip_frames": args.skip,
             "tracker": args.tracker,
             "use_sahi": args.sahi,
@@ -773,6 +913,8 @@ def main():
                     "total_detections": r.get("total_detections", 0),
                     "frames_with_bird": r.get("frames_with_bird", 0),
                     "max_birds_per_frame": r.get("max_birds_per_frame", 0),
+                    "ood_filtered": r.get("ood_filtered", 0),
+                    "ood_total": r.get("ood_total", 0),
                     "unique_ids": r.get("tracking", {}).get("unique_ids", 0),
                     "max_track_frames":
                         r.get("tracking", {}).get("max_track_frames", 0),

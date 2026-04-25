@@ -98,7 +98,8 @@
       "Bash(echo \"BoT-SORT PID: $!\")",
       "Bash(echo \"SAHI PID: $!\")",
       "Bash(awk -F: '{sum+=$2} END {print sum}')",
-      "Bash(echo \"SAHI-track PID: $!\")"
+      "Bash(echo \"SAHI-track PID: $!\")",
+      "Bash(tee /tmp/ood.log)"
     ]
   }
 }
