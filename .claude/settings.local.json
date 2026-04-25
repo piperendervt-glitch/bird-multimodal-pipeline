@@ -90,7 +90,8 @@
       "Bash(PYTHONIOENCODING=utf-8 python download_youtube_greattit_additional.py)",
       "Bash(python phase5g_youtube_audio.py)",
       "Read(//tmp/**)",
-      "Bash(PYTHONIOENCODING=utf-8 python *)"
+      "Bash(PYTHONIOENCODING=utf-8 python *)",
+      "Bash(git commit *)"
     ]
   }
 }
