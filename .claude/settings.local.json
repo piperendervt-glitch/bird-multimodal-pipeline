@@ -91,7 +91,8 @@
       "Bash(python phase5g_youtube_audio.py)",
       "Read(//tmp/**)",
       "Bash(PYTHONIOENCODING=utf-8 python *)",
-      "Bash(git commit *)"
+      "Bash(git commit *)",
+      "Bash(tee /tmp/cross_eval.log)"
     ]
   }
 }

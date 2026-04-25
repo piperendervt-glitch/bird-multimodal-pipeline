@@ -1,0 +1,298 @@
+{
+  "cub200_internal": {
+    "accuracy": 0.9770354906054279,
+    "macro_f1": 0.9768026714932352,
+    "train_accuracy": 1.0,
+    "n_train": 480,
+    "n_test": 479,
+    "n_classes": 16,
+    "per_species": {
+      "Hooded_Merganser": {
+        "accuracy": 0.8333333333333334,
+        "n_test": 30
+      },
+      "Hooded_Oriole": {
+        "accuracy": 0.9,
+        "n_test": 30
+      },
+      "Orchard_Oriole": {
+        "accuracy": 0.9310344827586207,
+        "n_test": 29
+      },
+      "Red_breasted_Merganser": {
+        "accuracy": 0.9666666666666667,
+        "n_test": 30
+      },
+      "Brown_Pelican": {
+        "accuracy": 1.0,
+        "n_test": 30
+      },
+      "California_Gull": {
+        "accuracy": 1.0,
+        "n_test": 30
+      },
+      "Elegant_Tern": {
+        "accuracy": 1.0,
+        "n_test": 30
+      },
+      "Northern_Waterthrush": {
+        "accuracy": 1.0,
+        "n_test": 30
+      },
+      "Pied_billed_Grebe": {
+        "accuracy": 1.0,
+        "n_test": 30
+      },
+      "Rose_breasted_Grosbeak": {
+        "accuracy": 1.0,
+        "n_test": 30
+      },
+      "Rufous_Hummingbird": {
+        "accuracy": 1.0,
+        "n_test": 30
+      },
+      "Song_Sparrow": {
+        "accuracy": 1.0,
+        "n_test": 30
+      },
+      "Summer_Tanager": {
+        "accuracy": 1.0,
+        "n_test": 30
+      },
+      "Western_Grebe": {
+        "accuracy": 1.0,
+        "n_test": 30
+      },
+      "Western_Meadowlark": {
+        "accuracy": 1.0,
+        "n_test": 30
+      },
+      "White_crowned_Sparrow": {
+        "accuracy": 1.0,
+        "n_test": 30
+      }
+    }
+  },
+  "vb100_internal": {
+    "accuracy": 0.9772727272727273,
+    "macro_f1": 0.9785714285714285,
+    "train_accuracy": 1.0,
+    "n_train": 185,
+    "n_test": 44,
+    "n_classes": 16,
+    "per_species": {
+      "Hooded_Merganser": {
+        "accuracy": 0.6666666666666666,
+        "n_test": 3
+      },
+      "Brown_Pelican": {
+        "accuracy": 1.0,
+        "n_test": 3
+      },
+      "California_Gull": {
+        "accuracy": 1.0,
+        "n_test": 3
+      },
+      "Elegant_Tern": {
+        "accuracy": 1.0,
+        "n_test": 3
+      },
+      "Hooded_Oriole": {
+        "accuracy": 1.0,
+        "n_test": 2
+      },
+      "Northern_Waterthrush": {
+        "accuracy": 1.0,
+        "n_test": 3
+      },
+      "Orchard_Oriole": {
+        "accuracy": 1.0,
+        "n_test": 2
+      },
+      "Pied_billed_Grebe": {
+        "accuracy": 1.0,
+        "n_test": 2
+      },
+      "Red_breasted_Merganser": {
+        "accuracy": 1.0,
+        "n_test": 3
+      },
+      "Rose_breasted_Grosbeak": {
+        "accuracy": 1.0,
+        "n_test": 2
+      },
+      "Rufous_Hummingbird": {
+        "accuracy": 1.0,
+        "n_test": 4
+      },
+      "Song_Sparrow": {
+        "accuracy": 1.0,
+        "n_test": 3
+      },
+      "Summer_Tanager": {
+        "accuracy": 1.0,
+        "n_test": 2
+      },
+      "Western_Grebe": {
+        "accuracy": 1.0,
+        "n_test": 3
+      },
+      "Western_Meadowlark": {
+        "accuracy": 1.0,
+        "n_test": 3
+      },
+      "White_crowned_Sparrow": {
+        "accuracy": 1.0,
+        "n_test": 3
+      }
+    }
+  },
+  "cub200_to_vb100": {
+    "accuracy": 0.8636363636363636,
+    "macro_f1": 0.8469246031746032,
+    "train_accuracy": 1.0,
+    "n_train": 480,
+    "n_test": 44,
+    "n_classes": 16,
+    "per_species": {
+      "Hooded_Merganser": {
+        "accuracy": 0.3333333333333333,
+        "n_test": 3
+      },
+      "Orchard_Oriole": {
+        "accuracy": 0.5,
+        "n_test": 2
+      },
+      "Rose_breasted_Grosbeak": {
+        "accuracy": 0.5,
+        "n_test": 2
+      },
+      "Elegant_Tern": {
+        "accuracy": 0.6666666666666666,
+        "n_test": 3
+      },
+      "Western_Meadowlark": {
+        "accuracy": 0.6666666666666666,
+        "n_test": 3
+      },
+      "Brown_Pelican": {
+        "accuracy": 1.0,
+        "n_test": 3
+      },
+      "California_Gull": {
+        "accuracy": 1.0,
+        "n_test": 3
+      },
+      "Hooded_Oriole": {
+        "accuracy": 1.0,
+        "n_test": 2
+      },
+      "Northern_Waterthrush": {
+        "accuracy": 1.0,
+        "n_test": 3
+      },
+      "Pied_billed_Grebe": {
+        "accuracy": 1.0,
+        "n_test": 2
+      },
+      "Red_breasted_Merganser": {
+        "accuracy": 1.0,
+        "n_test": 3
+      },
+      "Rufous_Hummingbird": {
+        "accuracy": 1.0,
+        "n_test": 4
+      },
+      "Song_Sparrow": {
+        "accuracy": 1.0,
+        "n_test": 3
+      },
+      "Summer_Tanager": {
+        "accuracy": 1.0,
+        "n_test": 2
+      },
+      "Western_Grebe": {
+        "accuracy": 1.0,
+        "n_test": 3
+      },
+      "White_crowned_Sparrow": {
+        "accuracy": 1.0,
+        "n_test": 3
+      }
+    }
+  },
+  "vb100_to_cub200": {
+    "accuracy": 0.9686847599164927,
+    "macro_f1": 0.9682346942505768,
+    "train_accuracy": 1.0,
+    "n_train": 185,
+    "n_test": 479,
+    "n_classes": 16,
+    "per_species": {
+      "Orchard_Oriole": {
+        "accuracy": 0.7931034482758621,
+        "n_test": 29
+      },
+      "Red_breasted_Merganser": {
+        "accuracy": 0.8666666666666667,
+        "n_test": 30
+      },
+      "Hooded_Oriole": {
+        "accuracy": 0.9333333333333333,
+        "n_test": 30
+      },
+      "Elegant_Tern": {
+        "accuracy": 0.9666666666666667,
+        "n_test": 30
+      },
+      "Hooded_Merganser": {
+        "accuracy": 0.9666666666666667,
+        "n_test": 30
+      },
+      "Summer_Tanager": {
+        "accuracy": 0.9666666666666667,
+        "n_test": 30
+      },
+      "Brown_Pelican": {
+        "accuracy": 1.0,
+        "n_test": 30
+      },
+      "California_Gull": {
+        "accuracy": 1.0,
+        "n_test": 30
+      },
+      "Northern_Waterthrush": {
+        "accuracy": 1.0,
+        "n_test": 30
+      },
+      "Pied_billed_Grebe": {
+        "accuracy": 1.0,
+        "n_test": 30
+      },
+      "Rose_breasted_Grosbeak": {
+        "accuracy": 1.0,
+        "n_test": 30
+      },
+      "Rufous_Hummingbird": {
+        "accuracy": 1.0,
+        "n_test": 30
+      },
+      "Song_Sparrow": {
+        "accuracy": 1.0,
+        "n_test": 30
+      },
+      "Western_Grebe": {
+        "accuracy": 1.0,
+        "n_test": 30
+      },
+      "Western_Meadowlark": {
+        "accuracy": 1.0,
+        "n_test": 30
+      },
+      "White_crowned_Sparrow": {
+        "accuracy": 1.0,
+        "n_test": 30
+      }
+    }
+  }
+}
