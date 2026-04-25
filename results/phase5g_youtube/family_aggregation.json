@@ -1,0 +1,217 @@
+{
+  "species_level": {
+    "threshold": 0.3,
+    "precision": 0.8,
+    "recall": 0.5,
+    "tp": 4,
+    "fp": 1
+  },
+  "family_level": {
+    "threshold": 0.3,
+    "precision": 0.6666666666666666,
+    "recall": 0.75,
+    "tp": 6,
+    "fp": 3
+  },
+  "recovered_videos": [
+    "MjTTse261pU",
+    "kU2HCB0kNW4"
+  ],
+  "still_missed_videos": [
+    "3MqiAezCflQ",
+    "O-oG0X3QRVg"
+  ],
+  "per_video": {
+    "OunH7y_wmRw": {
+      "human_label": "yes",
+      "species_max": 0.999398946762085,
+      "family_max": 1.0009955000132322,
+      "paridae_species": [
+        "Coal Tit",
+        "Crested Tit",
+        "Eurasian Blue Tit",
+        "Great Tit"
+      ]
+    },
+    "kypF0KtidGw": {
+      "human_label": "yes",
+      "species_max": 0.9973174929618835,
+      "family_max": 0.9996520443819463,
+      "paridae_species": [
+        "Coal Tit",
+        "Crested Tit",
+        "Eurasian Blue Tit",
+        "Great Tit",
+        "Marsh Tit",
+        "Willow Tit"
+      ]
+    },
+    "w1adyz82pdI": {
+      "human_label": "yes",
+      "species_max": 0.9951862692832947,
+      "family_max": 0.998950517270714,
+      "paridae_species": [
+        "Eurasian Blue Tit",
+        "Great Tit",
+        "Marsh Tit"
+      ]
+    },
+    "hhy4u2dZXyw": {
+      "human_label": "yes",
+      "species_max": 0.6679179668426514,
+      "family_max": 0.860873045399785,
+      "paridae_species": [
+        "African Blue Tit",
+        "Coal Tit",
+        "Crested Tit",
+        "Eurasian Blue Tit",
+        "Great Tit",
+        "Japanese Tit",
+        "Marsh Tit",
+        "Varied Tit",
+        "Willow Tit"
+      ]
+    },
+    "kU2HCB0kNW4": {
+      "human_label": "yes",
+      "species_max": 0.08038663119077682,
+      "family_max": 0.9840428592870012,
+      "paridae_species": [
+        "African Blue Tit",
+        "Coal Tit",
+        "Great Tit",
+        "Japanese Tit"
+      ]
+    },
+    "MjTTse261pU": {
+      "human_label": "yes",
+      "species_max": 0.025299692526459694,
+      "family_max": 1.024092483567074,
+      "paridae_species": [
+        "African Blue Tit",
+        "Coal Tit",
+        "Eurasian Blue Tit",
+        "Great Tit",
+        "Japanese Tit",
+        "Varied Tit"
+      ]
+    },
+    "XNooQ3qvRTI": {
+      "human_label": "partial",
+      "species_max": 0.010544483549892902,
+      "family_max": 0.995693126693368,
+      "paridae_species": [
+        "Coal Tit",
+        "Eurasian Blue Tit",
+        "Gray-crested Tit",
+        "Japanese Tit",
+        "Marsh Tit",
+        "Varied Tit"
+      ]
+    },
+    "DDPqrGDnlMw": {
+      "human_label": "partial",
+      "species_max": 0.17352333664894104,
+      "family_max": 0.20326986722648144,
+      "paridae_species": [
+        "Great Tit",
+        "Japanese Tit"
+      ]
+    },
+    "3MqiAezCflQ": {
+      "human_label": "yes",
+      "species_max": 0.003394416067749262,
+      "family_max": 0.0,
+      "paridae_species": []
+    },
+    "O-oG0X3QRVg": {
+      "human_label": "yes",
+      "species_max": 0.0011738116154447198,
+      "family_max": 0.07239348441362381,
+      "paridae_species": [
+        "African Blue Tit",
+        "Eurasian Blue Tit"
+      ]
+    },
+    "nSwoFDJHgNI": {
+      "human_label": "partial",
+      "species_max": 0.019243149086833,
+      "family_max": 0.13802269101142883,
+      "paridae_species": [
+        "Black-crested Titmouse",
+        "Coal Tit",
+        "Crested Tit",
+        "Eurasian Blue Tit",
+        "Gray-crested Tit",
+        "Great Tit"
+      ]
+    },
+    "R9O27RteTpQ": {
+      "human_label": "partial",
+      "species_max": 0.9834533333778381,
+      "family_max": 1.8047952502965927,
+      "paridae_species": [
+        "African Blue Tit",
+        "Azure Tit",
+        "Coal Tit",
+        "Crested Tit",
+        "Eurasian Blue Tit",
+        "Great Tit",
+        "Marsh Tit",
+        "Sombre Tit",
+        "Willow Tit"
+      ]
+    },
+    "CQ6mA0Pm_dM": {
+      "human_label": "partial",
+      "species_max": 0.0,
+      "family_max": 0.0,
+      "paridae_species": []
+    },
+    "GUDH_fqB_-8": {
+      "human_label": "partial",
+      "species_max": 0.05871874466538429,
+      "family_max": 0.9809401230886579,
+      "paridae_species": [
+        "Eurasian Blue Tit",
+        "Great Tit",
+        "Marsh Tit"
+      ]
+    },
+    "tRuHOvUmuYk": {
+      "human_label": "partial",
+      "species_max": 0.0,
+      "family_max": 0.0,
+      "paridae_species": []
+    },
+    "BpaoT5t3fCU": {
+      "human_label": "other",
+      "species_max": 0.0,
+      "family_max": 0.0,
+      "paridae_species": []
+    },
+    "ty5Qz2xo3Qs": {
+      "human_label": "other",
+      "species_max": 0.014925602823495865,
+      "family_max": 0.05946478620171547,
+      "paridae_species": [
+        "Eurasian Blue Tit"
+      ]
+    },
+    "du1bdcnvXVU": {
+      "human_label": "partial",
+      "species_max": 0.0,
+      "family_max": 0.0,
+      "paridae_species": []
+    },
+    "ldIOzyRrl-w": {
+      "human_label": "no_sound",
+      "species_max": 0.0,
+      "family_max": 0.03173856809735298,
+      "paridae_species": [
+        "Eurasian Blue Tit",
+        "Marsh Tit"
+      ]
+    }
+  }
+}
