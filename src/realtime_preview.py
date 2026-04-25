@@ -305,10 +305,10 @@ class RealtimeBirdDetector:
 
         if use_tracker and self.tracker != "none":
             tracker_yaml = f"{self.tracker}.yaml"
-            results = self.yolo.track(frame, verbose=False, conf=0.25,
+            results = self.yolo.track(frame, verbose=False, conf=0.15,
                                        persist=True, tracker=tracker_yaml)
         else:
-            results = self.yolo(frame, verbose=False, conf=0.25)
+            results = self.yolo(frame, verbose=False, conf=0.15)
 
         detections = []
         for box in results[0].boxes:
@@ -727,6 +727,121 @@ class RealtimeBirdDetector:
             "detections": all_detections,
         }
 
+    def process_camera(self, camera_id=0, save_path=None):
+        """USB カメラからのリアルタイム推論プレビュー。
+
+        操作:
+          q: 終了
+          p: 一時停止 / 再開
+          s: スクリーンショットを保存
+          o: OOD フィルタ ON/OFF 切替
+        """
+        print(f"\nUSB カメラ起動: デバイス {camera_id}")
+
+        cap = cv2.VideoCapture(camera_id)
+        if not cap.isOpened():
+            print(f"エラー: カメラ {camera_id} を開けません")
+            print("利用可能なカメラを確認してください")
+            return
+
+        # 720p を試みる
+        cap.set(cv2.CAP_PROP_FRAME_WIDTH, 1280)
+        cap.set(cv2.CAP_PROP_FRAME_HEIGHT, 720)
+
+        width = int(cap.get(cv2.CAP_PROP_FRAME_WIDTH))
+        height = int(cap.get(cv2.CAP_PROP_FRAME_HEIGHT))
+        fps = cap.get(cv2.CAP_PROP_FPS)
+
+        print(f"  解像度: {width}x{height}")
+        print(f"  カメラ FPS: {fps}")
+        print(f"  OOD フィルタ: "
+              f"{'有効' if self.ood.enabled else '無効'}")
+        print(f"  トラッカー: {self.tracker}")
+        print(f"\n操作:")
+        print(f"  q: 終了")
+        print(f"  p: 一時停止/再開")
+        print(f"  s: スクリーンショット保存")
+        print(f"  o: OOD フィルタ ON/OFF 切替")
+
+        writer = None
+        if save_path:
+            os.makedirs(os.path.dirname(save_path) or ".", exist_ok=True)
+            fourcc = cv2.VideoWriter_fourcc(*"mp4v")
+            writer = cv2.VideoWriter(save_path, fourcc, 30,
+                                       (width, height))
+            print(f"  録画先: {save_path}")
+
+        frame_count = 0
+        screenshot_count = 0
+        paused = False
+
+        while True:
+            if not paused:
+                ret, frame = cap.read()
+                if not ret:
+                    print("カメラからフレームを取得できません")
+                    break
+
+                frame_count += 1
+
+                # 推論
+                results = self.process_frame(frame)
+
+                # 描画
+                display = self.draw_results(frame, results)
+
+                # 左下にカメラモード情報を上書き表示
+                mode_text = (f"CAMERA {camera_id} | "
+                             f"Frame {frame_count}")
+                cv2.putText(display, mode_text, (10, height - 15),
+                              cv2.FONT_HERSHEY_SIMPLEX, 0.5,
+                              (0, 255, 255), 1)
+
+                cv2.imshow("Bird Detection - Camera", display)
+
+                if writer:
+                    writer.write(display)
+
+            key = cv2.waitKey(1) & 0xFF
+
+            if key == ord("q"):
+                print(f"\n終了（{frame_count} フレーム処理）")
+                break
+            elif key == ord("p"):
+                paused = not paused
+                print(f"{'一時停止' if paused else '再開'}")
+            elif key == ord("s"):
+                screenshot_count += 1
+                ss_path = (
+                    f"../results/realtime/"
+                    f"screenshot_{screenshot_count:04d}.jpg"
+                )
+                os.makedirs("../results/realtime", exist_ok=True)
+                cv2.imwrite(ss_path, display)
+                print(f"スクリーンショット保存: {ss_path}")
+            elif key == ord("o"):
+                self.ood.enabled = not self.ood.enabled
+                print(f"OOD フィルタ: "
+                      f"{'ON' if self.ood.enabled else 'OFF'}")
+
+        cap.release()
+        if writer:
+            writer.release()
+        cv2.destroyAllWindows()
+
+        # サマリー
+        if self.fps_history:
+            avg_fps = float(np.mean(list(self.fps_history)))
+            print(f"\n=== カメラセッション サマリー ===")
+            print(f"総フレーム: {frame_count}")
+            print(f"平均 FPS: {avg_fps:.1f}")
+            if self.ood_total_count > 0:
+                rate = (self.ood_filtered_count
+                        / max(self.ood_total_count, 1))
+                print(f"OOD 除去: "
+                      f"{self.ood_filtered_count}/"
+                      f"{self.ood_total_count} ({rate*100:.1f}%)")
+
 
 def main():
     try:
@@ -762,6 +877,8 @@ def main():
                          help="OOD フィルタを無効化")
     parser.add_argument("--ood-threshold", type=float, default=0.71,
                          help="OOD 除去閾値（デフォルト: 0.71、90%%ile）")
+    parser.add_argument("--camera", type=int, default=None,
+                         help="USB カメラのデバイス番号（例: 0）")
     args = parser.parse_args()
 
     # --sahi-track は SAHI を有効化したうえで簡易トラッカーを使う
@@ -782,6 +899,14 @@ def main():
         ood_filter=not args.no_ood,
         ood_threshold=args.ood_threshold,
     )
+
+    # カメラモード（最優先）: --camera が指定されていれば benchmark/単一動画より優先
+    if args.camera is not None:
+        detector.process_camera(
+            camera_id=args.camera,
+            save_path=args.save,
+        )
+        return
 
     if args.benchmark:
         video_dir = "../data/youtube_greattit/videos"
