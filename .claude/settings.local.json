@@ -92,7 +92,8 @@
       "Read(//tmp/**)",
       "Bash(PYTHONIOENCODING=utf-8 python *)",
       "Bash(git commit *)",
-      "Bash(tee /tmp/cross_eval.log)"
+      "Bash(tee /tmp/cross_eval.log)",
+      "Bash(taskkill //F //IM python.exe)"
     ]
   }
 }
