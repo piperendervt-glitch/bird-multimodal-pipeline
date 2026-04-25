@@ -1,0 +1,204 @@
+{
+  "total_videos": 19,
+  "total_frames": 46780,
+  "total_time_sec": 690.7337031364441,
+  "overall_fps": 67.72508679912976,
+  "avg_fps": 87.57181071384356,
+  "avg_yolo_ms": 8.439588160664059,
+  "avg_dinov2_ms": 5.135146002995908,
+  "skip_frames": 0,
+  "tracker": "bytetrack",
+  "device": "cuda",
+  "per_video": [
+    {
+      "video": "3MqiAezCflQ.mp4",
+      "frames": 861,
+      "fps": 71.63094729148219,
+      "yolo_ms": 10.863821957861783,
+      "dinov2_ms": 6.427024991947046,
+      "unique_ids": 5,
+      "max_track_frames": 478,
+      "mean_track_frames": 154.0
+    },
+    {
+      "video": "BpaoT5t3fCU.mp4",
+      "frames": 1320,
+      "fps": 100.33377705428782,
+      "yolo_ms": 10.110786828127775,
+      "dinov2_ms": 1.3070095669139516,
+      "unique_ids": 5,
+      "max_track_frames": 158,
+      "mean_track_frames": 43.2
+    },
+    {
+      "video": "CQ6mA0Pm_dM.mp4",
+      "frames": 216,
+      "fps": 132.8233089615638,
+      "yolo_ms": 7.5749589337242975,
+      "dinov2_ms": 0.0,
+      "unique_ids": 0,
+      "max_track_frames": 0,
+      "mean_track_frames": 0.0
+    },
+    {
+      "video": "DDPqrGDnlMw.mp4",
+      "frames": 413,
+      "fps": 93.9563214673287,
+      "yolo_ms": 8.199202812324137,
+      "dinov2_ms": 4.020945500519316,
+      "unique_ids": 13,
+      "max_track_frames": 115,
+      "mean_track_frames": 16.0
+    },
+    {
+      "video": "GUDH_fqB_-8.mp4",
+      "frames": 943,
+      "fps": 111.97014603982367,
+      "yolo_ms": 7.719062418851721,
+      "dinov2_ms": 2.564306855833796,
+      "unique_ids": 15,
+      "max_track_frames": 152,
+      "mean_track_frames": 20.2
+    },
+    {
+      "video": "MjTTse261pU.mp4",
+      "frames": 1217,
+      "fps": 67.3753601116223,
+      "yolo_ms": 8.56956949759039,
+      "dinov2_ms": 7.0418631726831515,
+      "unique_ids": 12,
+      "max_track_frames": 529,
+      "mean_track_frames": 96.41666666666667
+    },
+    {
+      "video": "O-oG0X3QRVg.mp4",
+      "frames": 5048,
+      "fps": 126.98213542229063,
+      "yolo_ms": 7.541118729889109,
+      "dinov2_ms": 1.1662876738232402,
+      "unique_ids": 32,
+      "max_track_frames": 114,
+      "mean_track_frames": 22.0
+    },
+    {
+      "video": "OunH7y_wmRw.mp4",
+      "frames": 1189,
+      "fps": 56.87300202578299,
+      "yolo_ms": 8.785673306708178,
+      "dinov2_ms": 9.176795677140142,
+      "unique_ids": 6,
+      "max_track_frames": 1023,
+      "mean_track_frames": 243.16666666666666
+    },
+    {
+      "video": "R9O27RteTpQ.mp4",
+      "frames": 1621,
+      "fps": 80.29472971165389,
+      "yolo_ms": 8.422614761813787,
+      "dinov2_ms": 6.119901202917834,
+      "unique_ids": 21,
+      "max_track_frames": 586,
+      "mean_track_frames": 56.38095238095238
+    },
+    {
+      "video": "XNooQ3qvRTI.mp4",
+      "frames": 2097,
+      "fps": 69.97703482050636,
+      "yolo_ms": 8.602482054878202,
+      "dinov2_ms": 6.910613223263691,
+      "unique_ids": 60,
+      "max_track_frames": 275,
+      "mean_track_frames": 37.733333333333334
+    },
+    {
+      "video": "du1bdcnvXVU.mp4",
+      "frames": 720,
+      "fps": 83.45403299822243,
+      "yolo_ms": 8.304075400034586,
+      "dinov2_ms": 6.037784616152445,
+      "unique_ids": 12,
+      "max_track_frames": 156,
+      "mean_track_frames": 44.166666666666664
+    },
+    {
+      "video": "hhy4u2dZXyw.mp4",
+      "frames": 6459,
+      "fps": 98.14457877567506,
+      "yolo_ms": 7.890875779875552,
+      "dinov2_ms": 4.517689709472183,
+      "unique_ids": 11,
+      "max_track_frames": 3328,
+      "mean_track_frames": 423.8181818181818
+    },
+    {
+      "video": "kU2HCB0kNW4.mp4",
+      "frames": 9210,
+      "fps": 77.84308590301508,
+      "yolo_ms": 8.357937354088865,
+      "dinov2_ms": 5.58016367507421,
+      "unique_ids": 98,
+      "max_track_frames": 983,
+      "mean_track_frames": 77.81632653061224
+    },
+    {
+      "video": "kypF0KtidGw.mp4",
+      "frames": 3246,
+      "fps": 73.39420527705188,
+      "yolo_ms": 8.57193207050354,
+      "dinov2_ms": 6.48441126665361,
+      "unique_ids": 59,
+      "max_track_frames": 646,
+      "mean_track_frames": 54.016949152542374
+    },
+    {
+      "video": "ldIOzyRrl-w.mp4",
+      "frames": 1050,
+      "fps": 77.79532498117908,
+      "yolo_ms": 7.865899630955287,
+      "dinov2_ms": 6.03828543708438,
+      "unique_ids": 35,
+      "max_track_frames": 337,
+      "mean_track_frames": 28.17142857142857
+    },
+    {
+      "video": "nSwoFDJHgNI.mp4",
+      "frames": 6541,
+      "fps": 77.50306059446397,
+      "yolo_ms": 8.538273893133834,
+      "dinov2_ms": 6.535656717169487,
+      "unique_ids": 154,
+      "max_track_frames": 450,
+      "mean_track_frames": 38.675324675324674
+    },
+    {
+      "video": "tRuHOvUmuYk.mp4",
+      "frames": 1380,
+      "fps": 145.5517889689694,
+      "yolo_ms": 6.834522364796072,
+      "dinov2_ms": 0.3743672716444817,
+      "unique_ids": 6,
+      "max_track_frames": 43,
+      "mean_track_frames": 10.0
+    },
+    {
+      "video": "ty5Qz2xo3Qs.mp4",
+      "frames": 2880,
+      "fps": 58.324552645306476,
+      "yolo_ms": 8.799936456812752,
+      "dinov2_ms": 9.160135106907951,
+      "unique_ids": 40,
+      "max_track_frames": 806,
+      "mean_track_frames": 82.875
+    },
+    {
+      "video": "w1adyz82pdI.mp4",
+      "frames": 369,
+      "fps": 59.637010512802036,
+      "yolo_ms": 8.79943080064727,
+      "dinov2_ms": 8.104532391721317,
+      "unique_ids": 5,
+      "max_track_frames": 367,
+      "mean_track_frames": 77.2
+    }
+  ]
+}

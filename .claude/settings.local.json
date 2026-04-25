@@ -93,7 +93,11 @@
       "Bash(PYTHONIOENCODING=utf-8 python *)",
       "Bash(git commit *)",
       "Bash(tee /tmp/cross_eval.log)",
-      "Bash(taskkill //F //IM python.exe)"
+      "Bash(taskkill //F //IM python.exe)",
+      "Bash(echo \"PID: $!\")",
+      "Bash(echo \"BoT-SORT PID: $!\")",
+      "Bash(echo \"SAHI PID: $!\")",
+      "Bash(awk -F: '{sum+=$2} END {print sum}')"
     ]
   }
 }

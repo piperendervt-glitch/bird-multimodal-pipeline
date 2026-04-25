@@ -25,8 +25,14 @@ import numpy as np
 class RealtimeBirdDetector:
     """リアルタイム鳥検出・分類パイプライン。"""
 
-    def __init__(self, species_mapping_path=None, classifier_data_path=None):
+    def __init__(self, species_mapping_path=None, classifier_data_path=None,
+                 tracker="bytetrack", use_sahi=False, slice_size=320):
         print("=== リアルタイム鳥検出システム 初期化 ===")
+        self.tracker = tracker  # "bytetrack" / "botsort" / "none"
+        self.use_sahi = use_sahi
+        self.slice_size = slice_size
+        if use_sahi:
+            print(f"SAHI モード: 有効 (slice_size={slice_size})")
 
         # 遅延 import（モデルロードの前に echo して初期化進捗を見えやすく）
         import torch
@@ -103,18 +109,78 @@ class RealtimeBirdDetector:
         if not self.species_names:
             print("種名マッピングが見つかりません。検出のみモードで動作します。")
 
-    def detect_birds(self, frame):
-        """1 フレームで鳥クラスのみ抽出して返す。"""
-        results = self.yolo(frame, verbose=False, conf=0.25)
+    def detect_birds(self, frame, use_tracker=True):
+        """1 フレームで鳥クラスを検出（必要なら追跡 ID も付与）する。"""
+        # SAHI モードはタイル分割推論。Ultralytics の tracker と同時併用不可。
+        if self.use_sahi:
+            return self._detect_birds_sahi(frame)
+
+        if use_tracker and self.tracker != "none":
+            tracker_yaml = f"{self.tracker}.yaml"
+            results = self.yolo.track(frame, verbose=False, conf=0.25,
+                                       persist=True, tracker=tracker_yaml)
+        else:
+            results = self.yolo(frame, verbose=False, conf=0.25)
 
         detections = []
         for box in results[0].boxes:
             if int(box.cls[0]) == self.BIRD_CLASS_ID:
                 x1, y1, x2, y2 = box.xyxy[0].tolist()
                 conf = float(box.conf[0])
+
+                # トラッカー ID（未確定の場合 -1）
+                track_id = -1
+                if box.id is not None:
+                    track_id = int(box.id[0])
+
                 detections.append({
                     "bbox": [int(x1), int(y1), int(x2), int(y2)],
                     "confidence": conf,
+                    "track_id": track_id,
+                })
+        return detections
+
+    def _detect_birds_sahi(self, frame):
+        """SAHI によるタイル分割推論。小鳥の検出精度を上げる。
+
+        - slice_size × slice_size のタイルに分割し各タイルで YOLO 推論
+        - タイル間で重なり率 0.2 を確保し境界の鳥も検出
+        - 結果はタイル境界をまたぐ重複を NMS で統合
+        """
+        from sahi.predict import get_sliced_prediction
+        from sahi import AutoDetectionModel
+
+        if not hasattr(self, "_sahi_model"):
+            self._sahi_model = AutoDetectionModel.from_pretrained(
+                model_type="ultralytics",
+                model_path="yolov8n.pt",
+                confidence_threshold=0.25,
+                device=self.device,
+            )
+
+        result = get_sliced_prediction(
+            frame,
+            self._sahi_model,
+            slice_height=self.slice_size,
+            slice_width=self.slice_size,
+            overlap_height_ratio=0.2,
+            overlap_width_ratio=0.2,
+            verbose=0,
+        )
+
+        detections = []
+        for pred in result.object_prediction_list:
+            if pred.category.id == self.BIRD_CLASS_ID:
+                bbox = pred.bbox
+                x1 = int(bbox.minx)
+                y1 = int(bbox.miny)
+                x2 = int(bbox.maxx)
+                y2 = int(bbox.maxy)
+                conf = float(pred.score.value)
+                detections.append({
+                    "bbox": [x1, y1, x2, y2],
+                    "confidence": conf,
+                    "track_id": -1,  # SAHI は追跡 ID なし
                 })
         return detections
 
@@ -178,6 +244,7 @@ class RealtimeBirdDetector:
             results.append({
                 "bbox": det["bbox"],
                 "yolo_confidence": det["confidence"],
+                "track_id": det.get("track_id", -1),
                 "features": feat,
                 "species": "Unknown",
                 "species_confidence": 0.0,
@@ -187,46 +254,97 @@ class RealtimeBirdDetector:
         self.fps_history.append(1.0 / max(frame_elapsed, 1e-9))
         return results
 
+    # ID 別の色パレット（draw_results 用）
+    COLORS = [
+        (0, 255, 0), (255, 0, 0), (0, 0, 255), (255, 255, 0),
+        (0, 255, 255), (255, 0, 255), (128, 255, 0), (0, 128, 255),
+        (255, 128, 0), (128, 0, 255), (0, 255, 128), (255, 0, 128),
+    ]
+
     def draw_results(self, frame, results):
-        """検出結果と FPS をフレームに描画する。"""
+        """検出結果を描画する。
+
+        - ボックス上のラベルは ID のみ（短く）
+        - 左上に半透明パネルで FPS と鳥の詳細情報を集約表示
+        - ID ごとに色分け
+        """
         display = frame.copy()
 
+        # バウンディングボックス + 短いラベルのみ
         for r in results:
             x1, y1, x2, y2 = r["bbox"]
-            yolo_conf = r["yolo_confidence"]
-            species = r["species"]
+            track_id = r.get("track_id", -1)
 
-            color = (0, 255, 0)
+            color = (self.COLORS[track_id % len(self.COLORS)]
+                     if track_id >= 0 else (0, 255, 0))
+
             cv2.rectangle(display, (x1, y1), (x2, y2), color, 2)
 
-            label = f"Bird {yolo_conf:.2f}"
-            if species != "Unknown":
-                label = f"{species} {r['species_confidence']:.2f}"
+            label = f"#{track_id}" if track_id >= 0 else "?"
 
-            (tw, th), _ = cv2.getTextSize(label,
-                                            cv2.FONT_HERSHEY_SIMPLEX,
-                                            0.6, 1)
-            cv2.rectangle(display, (x1, y1 - th - 8),
+            (tw, th), _ = cv2.getTextSize(
+                label, cv2.FONT_HERSHEY_SIMPLEX, 0.5, 1
+            )
+            cv2.rectangle(display, (x1, y1 - th - 6),
                            (x1 + tw + 4, y1), color, -1)
-            cv2.putText(display, label, (x1 + 2, y1 - 4),
-                         cv2.FONT_HERSHEY_SIMPLEX, 0.6, (0, 0, 0), 1)
+            cv2.putText(display, label, (x1 + 2, y1 - 3),
+                         cv2.FONT_HERSHEY_SIMPLEX, 0.5, (0, 0, 0), 1)
+
+        # 左上の情報パネル
+        info_lines = []
 
         if self.fps_history:
             avg_fps = np.mean(list(self.fps_history))
             avg_yolo = np.mean(list(self.yolo_time)) * 1000
             avg_dinov2 = np.mean(list(self.dinov2_time)) * 1000
+            active_ids = {r.get("track_id", -1) for r in results
+                          if r.get("track_id", -1) >= 0}
 
-            info_lines = [
-                f"FPS: {avg_fps:.1f}",
-                f"YOLO: {avg_yolo:.0f}ms",
-                f"DINOv2: {avg_dinov2:.0f}ms",
-                f"Birds: {len(results)}",
-            ]
+            info_lines.append(
+                f"FPS: {avg_fps:.1f}  YOLO: {avg_yolo:.0f}ms  "
+                f"DINOv2: {avg_dinov2:.0f}ms"
+            )
+            info_lines.append(
+                f"Birds: {len(results)}  Active IDs: {len(active_ids)}"
+            )
+
+        if results:
+            info_lines.append("---")
+            for r in results:
+                track_id = r.get("track_id", -1)
+                yolo_conf = r["yolo_confidence"]
+                species = r.get("species", "Unknown")
+
+                if track_id >= 0:
+                    if species != "Unknown":
+                        info_lines.append(
+                            f"  #{track_id}: {species} "
+                            f"({yolo_conf:.2f})"
+                        )
+                    else:
+                        info_lines.append(
+                            f"  #{track_id}: conf {yolo_conf:.2f}"
+                        )
+
+        if info_lines:
+            line_height = 20
+            panel_height = len(info_lines) * line_height + 16
+            panel_width = 380
+
+            # 半透明黒背景
+            overlay = display.copy()
+            cv2.rectangle(overlay, (5, 5),
+                           (5 + panel_width, 5 + panel_height),
+                           (0, 0, 0), -1)
+            cv2.addWeighted(overlay, 0.6, display, 0.4, 0, display)
+
+            # 白文字でテキスト描画
             for i, line in enumerate(info_lines):
-                y = 25 + i * 22
-                cv2.putText(display, line, (10, y),
-                             cv2.FONT_HERSHEY_SIMPLEX, 0.6,
-                             (0, 255, 255), 1)
+                y = 22 + i * line_height
+                cv2.putText(display, line, (12, y),
+                             cv2.FONT_HERSHEY_SIMPLEX, 0.5,
+                             (255, 255, 255), 1)
+
         return display
 
     def process_video(self, video_path, display=True, save_path=None,
@@ -292,7 +410,8 @@ class RealtimeBirdDetector:
                     "n_birds": len(results),
                     "detections": [
                         {"bbox": r["bbox"],
-                         "confidence": r["yolo_confidence"]}
+                         "confidence": r["yolo_confidence"],
+                         "track_id": r.get("track_id", -1)}
                         for r in results
                     ],
                 })
@@ -324,13 +443,38 @@ class RealtimeBirdDetector:
         avg_dinov2 = (float(np.mean(local_dinov2)) * 1000
                       if local_dinov2 else 0.0)
 
+        # 検出統計（SAHI 比較用）
+        total_detections = sum(d["n_birds"] for d in all_detections)
+        frames_with_bird = sum(d["n_birds"] > 0 for d in all_detections)
+        max_birds_per_frame = (max(d["n_birds"] for d in all_detections)
+                                if all_detections else 0)
+
         print(f"\n=== 処理サマリー ===")
         print(f"処理フレーム: {processed_count} / {frame_count}")
         print(f"平均 FPS: {avg_fps:.1f}")
         print(f"YOLO 平均: {avg_yolo:.0f} ms")
         print(f"DINOv2 平均: {avg_dinov2:.0f} ms")
-        print(f"検出イベント: "
-              f"{sum(d['n_birds'] > 0 for d in all_detections)}")
+        print(f"検出イベント（鳥が映ったフレーム数）: {frames_with_bird}")
+        print(f"総検出数（全フレームでの鳥の延べ数）: {total_detections}")
+        print(f"1 フレーム最大検出数: {max_birds_per_frame}")
+
+        # 追跡統計（ID 別の出現フレーム数）
+        track_frames = {}
+        for d in all_detections:
+            for det in d["detections"]:
+                tid = det.get("track_id", -1)
+                if tid >= 0:
+                    track_frames[tid] = track_frames.get(tid, 0) + 1
+
+        unique_ids = len(track_frames)
+        max_track_frames = max(track_frames.values()) if track_frames else 0
+        mean_track_frames = (float(np.mean(list(track_frames.values())))
+                              if track_frames else 0.0)
+
+        if self.tracker != "none":
+            print(f"ユニーク ID 数: {unique_ids}")
+            print(f"最長追跡フレーム数: {max_track_frames}")
+            print(f"平均追跡フレーム数: {mean_track_frames:.1f}")
 
         return {
             "video_path": video_path,
@@ -339,6 +483,16 @@ class RealtimeBirdDetector:
             "avg_fps": avg_fps,
             "avg_yolo_ms": avg_yolo,
             "avg_dinov2_ms": avg_dinov2,
+            "total_detections": int(total_detections),
+            "frames_with_bird": int(frames_with_bird),
+            "max_birds_per_frame": int(max_birds_per_frame),
+            "tracking": {
+                "unique_ids": unique_ids,
+                "max_track_frames": int(max_track_frames),
+                "mean_track_frames": mean_track_frames,
+                "id_frame_counts": {str(k): int(v)
+                                     for k, v in track_frames.items()},
+            },
             "detections": all_detections,
         }
 
@@ -364,9 +518,26 @@ def main():
                          help="最大処理フレーム数（0=全フレーム）")
     parser.add_argument("--benchmark", action="store_true",
                          help="ベンチマークモード（19本の動画を処理）")
+    parser.add_argument("--tracker", type=str, default="bytetrack",
+                         choices=["bytetrack", "botsort", "none"],
+                         help="トラッカー（bytetrack/botsort/none）")
+    parser.add_argument("--sahi", action="store_true",
+                         help="SAHI タイル分割推論を有効化（小鳥検出改善）")
+    parser.add_argument("--slice-size", type=int, default=320,
+                         help="SAHI のスライスサイズ（デフォルト: 320）")
     args = parser.parse_args()
 
-    detector = RealtimeBirdDetector()
+    # SAHI モード時は追跡を無効化（同時併用不可）
+    if args.sahi and args.tracker != "none":
+        print(f"注意: SAHI モードでは追跡が使えません。"
+              f"tracker={args.tracker} → none に変更します。")
+        args.tracker = "none"
+
+    detector = RealtimeBirdDetector(
+        tracker=args.tracker,
+        use_sahi=args.sahi,
+        slice_size=args.slice_size,
+    )
 
     if args.benchmark:
         video_dir = "../data/youtube_greattit/videos"
@@ -403,6 +574,10 @@ def main():
         avg_dinov2_all = float(np.mean([r["avg_dinov2_ms"]
                                           for r in all_results]))
 
+        total_det_all = sum(r.get("total_detections", 0) for r in all_results)
+        frames_with_bird_all = sum(r.get("frames_with_bird", 0)
+                                     for r in all_results)
+
         print(f"動画数: {len(all_results)}")
         print(f"総処理フレーム: {total_processed}")
         print(f"総処理時間: {total_elapsed:.1f} 秒")
@@ -410,17 +585,40 @@ def main():
         print(f"平均 FPS（動画別平均）: {avg_fps_all:.1f}")
         print(f"YOLO 平均: {avg_yolo_all:.0f} ms")
         print(f"DINOv2 平均: {avg_dinov2_all:.0f} ms")
+        print(f"総検出数（鳥の延べ数）: {total_det_all}")
+        print(f"鳥が映ったフレーム合計: {frames_with_bird_all}")
 
         print(f"\n動画別:")
         print(f"{'ファイル':<26} {'フレーム':>8} {'FPS':>6} "
-              f"{'YOLO':>10} {'DINOv2':>10}")
-        print("-" * 65)
+              f"{'YOLO':>10} {'DINOv2':>10} {'検出':>6} "
+              f"{'IDs':>5} {'最長':>5} {'平均':>7}")
+        print("-" * 100)
         for r in all_results:
             name = os.path.basename(r["video_path"])[:25]
+            tr = r.get("tracking", {})
             print(f"{name:<26} {r['processed_frames']:>8} "
                   f"{r['avg_fps']:>5.1f} "
                   f"{r['avg_yolo_ms']:>7.0f} ms "
-                  f"{r['avg_dinov2_ms']:>7.0f} ms")
+                  f"{r['avg_dinov2_ms']:>7.0f} ms "
+                  f"{r.get('total_detections', 0):>6} "
+                  f"{tr.get('unique_ids', 0):>5} "
+                  f"{tr.get('max_track_frames', 0):>5} "
+                  f"{tr.get('mean_track_frames', 0):>7.1f}")
+
+        # 追跡サマリー
+        if args.tracker != "none":
+            total_unique = sum(r.get("tracking", {}).get("unique_ids", 0)
+                                for r in all_results)
+            total_max = (max(r.get("tracking", {}).get("max_track_frames", 0)
+                              for r in all_results)
+                         if all_results else 0)
+            avg_unique = (total_unique / len(all_results)
+                          if all_results else 0)
+            print(f"\n--- 追跡サマリー ---")
+            print(f"トラッカー: {args.tracker}")
+            print(f"全動画でのユニーク ID 合計: {total_unique}")
+            print(f"動画別 平均ユニーク ID 数: {avg_unique:.1f}")
+            print(f"全動画での最長追跡フレーム数: {total_max}")
 
         print(f"\n--- フレームスキップ別の実効 FPS 推定 ---")
         print(f"現在のスキップ: {args.skip}（{args.skip + 1} フレームに 1 回処理）")
@@ -439,7 +637,12 @@ def main():
             "avg_fps": avg_fps_all,
             "avg_yolo_ms": avg_yolo_all,
             "avg_dinov2_ms": avg_dinov2_all,
+            "total_detections": int(total_det_all),
+            "frames_with_bird": int(frames_with_bird_all),
             "skip_frames": args.skip,
+            "tracker": args.tracker,
+            "use_sahi": args.sahi,
+            "slice_size": args.slice_size if args.sahi else None,
             "device": detector.device,
             "per_video": [
                 {
@@ -448,11 +651,25 @@ def main():
                     "fps": r["avg_fps"],
                     "yolo_ms": r["avg_yolo_ms"],
                     "dinov2_ms": r["avg_dinov2_ms"],
+                    "total_detections": r.get("total_detections", 0),
+                    "frames_with_bird": r.get("frames_with_bird", 0),
+                    "max_birds_per_frame": r.get("max_birds_per_frame", 0),
+                    "unique_ids": r.get("tracking", {}).get("unique_ids", 0),
+                    "max_track_frames":
+                        r.get("tracking", {}).get("max_track_frames", 0),
+                    "mean_track_frames":
+                        r.get("tracking", {}).get("mean_track_frames", 0.0),
                 }
                 for r in all_results
             ],
         }
-        out_path = "../results/realtime/benchmark.json"
+
+        # ファイル名を手法別に分けて上書き衝突を防ぐ
+        if args.sahi:
+            suffix = f"sahi_{args.slice_size}"
+        else:
+            suffix = args.tracker  # bytetrack / botsort / none
+        out_path = f"../results/realtime/benchmark_{suffix}.json"
         with open(out_path, "w", encoding="utf-8") as f:
             json.dump(benchmark_result, f, indent=2, ensure_ascii=False)
         print(f"\n保存: {out_path}")
