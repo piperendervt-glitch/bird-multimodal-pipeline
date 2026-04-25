@@ -326,6 +326,12 @@ PS3 Eye（640x480）でディスプレイ上の鳥動画を撮影し、リアル
 - OOD スコアが適切に機能（鳥: 0.51〜0.65 で保持、背景: 0.71以上で除去）
 - カメラ入力のパイプライン（キャプチャ → YOLO → DINOv2 → OOD → ByteTrack → 表示）が問題なく動作
 - キー操作（q/p/s/o）による対話的制御も正常動作
+- PS3 Eye のドライバ: PS3EyeDirectShow (https://github.com/jkevin/PS3EyeDirectShow/releases) で Windows 11 に対応
+- DegradationDetector を実装: ぼけ（ラプラシアン分散）、露出（平均輝度）、コントラスト（標準偏差）をリアルタイム監視
+- 2台カメラ同時表示（--dual-camera）: PS3 Eye + Webカメラで検出の補完関係を確認
+  - PS3 Eye は高確信度（conf 0.79〜0.85）、Webカメラは低確信度（conf 0.36〜0.76）
+  - 片方が見逃してももう片方が補完（画像3: CAM A 検出0、CAM B 検出3）
+  - 劣化スコアの比較バーで品質の良いカメラを自動判定
 
 ### Phase 6: 動的適応（AdaptiveFeatureRouter）
 

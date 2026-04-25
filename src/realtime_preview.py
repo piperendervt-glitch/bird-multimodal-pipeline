@@ -21,6 +21,8 @@ from collections import deque
 import cv2
 import numpy as np
 
+from degradation_detector import DegradationDetector
+
 
 class SimpleTracker:
     """SAHI 検出結果に対する簡易 IoU ベーストラッカー。
@@ -233,6 +235,10 @@ class RealtimeBirdDetector:
         self.ood_total_count = 0     # OOD 評価対象の累計検出数
         if ood_filter:
             self._init_ood_filter()
+
+        # カメラ映像の劣化検知（カメラモードでのみ更新される）
+        self.degradation = DegradationDetector(window_size=30)
+        self.last_degradation = None
 
         print(f"デバイス: {self.device}")
         print("初期化完了\n")
@@ -458,6 +464,17 @@ class RealtimeBirdDetector:
                 "ood_score": ood_score,
             })
 
+        # 劣化検知（OOD スコア + 検出情報を渡す）
+        ood_scores_list = [r.get("ood_score", 0.0) for r in results]
+        deg_features, deg_alerts, deg_score = self.degradation.compute(
+            frame, detections, ood_scores_list
+        )
+        self.last_degradation = {
+            "features": deg_features,
+            "alerts": deg_alerts,
+            "score": deg_score,
+        }
+
         frame_elapsed = time.time() - frame_start
         self.fps_history.append(1.0 / max(frame_elapsed, 1e-9))
         return results
@@ -543,16 +560,30 @@ class RealtimeBirdDetector:
                         f"  Bird: conf {yolo_conf:.2f}{ood_str}"
                     )
 
+        # 劣化検知情報（process_frame で last_degradation がセットされていれば）
+        panel_color = (0, 0, 0)  # 既定は黒
+        if self.last_degradation is not None:
+            deg = self.last_degradation
+            info_lines.append("---")
+            info_lines.extend(self.degradation.get_status_text(
+                deg["features"], deg["alerts"], deg["score"]
+            ))
+            # 劣化レベルに応じて背景色を変える
+            if deg["score"] > 0.5:
+                panel_color = (0, 0, 100)   # 暗い赤（DEGRADED）
+            elif deg["score"] > 0.2:
+                panel_color = (0, 50, 100)  # 暗いオレンジ（WARNING）
+
         if info_lines:
             line_height = 20
             panel_height = len(info_lines) * line_height + 16
             panel_width = 380
 
-            # 半透明黒背景
+            # 半透明背景（劣化レベルで色を変える）
             overlay = display.copy()
             cv2.rectangle(overlay, (5, 5),
                            (5 + panel_width, 5 + panel_height),
-                           (0, 0, 0), -1)
+                           panel_color, -1)
             cv2.addWeighted(overlay, 0.6, display, 0.4, 0, display)
 
             # 白文字でテキスト描画
@@ -842,6 +873,168 @@ class RealtimeBirdDetector:
                       f"{self.ood_filtered_count}/"
                       f"{self.ood_total_count} ({rate*100:.1f}%)")
 
+    def process_dual_camera(self, cam_a_id=0, cam_b_id=1):
+        """2 台カメラの同時表示・劣化比較。
+
+        - 両カメラを 640x480 で同時キャプチャ
+        - 各フレームで YOLO + DINOv2 + OOD + 追跡を実行
+        - カメラごとに独立した DegradationDetector で劣化スコアを算出
+        - 横並び合成 + 下部に劣化比較バーを描画
+        操作: q=終了, p=一時停止, s=スクリーンショット
+        """
+        print(f"\nデュアルカメラ起動: A={cam_a_id}, B={cam_b_id}")
+
+        cap_a = cv2.VideoCapture(cam_a_id)
+        cap_b = cv2.VideoCapture(cam_b_id)
+
+        if not cap_a.isOpened():
+            print(f"エラー: カメラ A ({cam_a_id}) を開けません")
+            return
+        if not cap_b.isOpened():
+            print(f"エラー: カメラ B ({cam_b_id}) を開けません")
+            cap_a.release()
+            return
+
+        for cap in (cap_a, cap_b):
+            cap.set(cv2.CAP_PROP_FRAME_WIDTH, 640)
+            cap.set(cv2.CAP_PROP_FRAME_HEIGHT, 480)
+
+        w_a = int(cap_a.get(cv2.CAP_PROP_FRAME_WIDTH))
+        h_a = int(cap_a.get(cv2.CAP_PROP_FRAME_HEIGHT))
+        w_b = int(cap_b.get(cv2.CAP_PROP_FRAME_WIDTH))
+        h_b = int(cap_b.get(cv2.CAP_PROP_FRAME_HEIGHT))
+
+        print(f"  カメラ A: {w_a}x{h_a}")
+        print(f"  カメラ B: {w_b}x{h_b}")
+        print(f"\n操作: q=終了, p=一時停止, s=スクリーンショット")
+
+        # カメラ B 用の独立した劣化検知器
+        degradation_b = DegradationDetector(window_size=30)
+        # カメラ A 用には self.degradation を流用するが、カメラ B 用は手動で動かす
+
+        frame_count = 0
+        paused = False
+
+        while True:
+            if not paused:
+                ret_a, frame_a = cap_a.read()
+                ret_b, frame_b = cap_b.read()
+                if not ret_a or not ret_b:
+                    print("カメラからフレームを取得できません")
+                    break
+
+                frame_count += 1
+
+                # カメラ A: process_frame で内部の self.degradation が更新される
+                results_a = self.process_frame(frame_a)
+                deg_a = self.last_degradation
+                display_a = self.draw_results(frame_a, results_a)
+                cv2.putText(display_a,
+                              f"CAM A ({cam_a_id}) Frame {frame_count}",
+                              (10, h_a - 15),
+                              cv2.FONT_HERSHEY_SIMPLEX, 0.5,
+                              (0, 255, 255), 1)
+
+                # カメラ B: 検出は process_frame で行うが、劣化は別検知器で計算
+                results_b = self.process_frame(frame_b)
+                ood_scores_b = [r.get("ood_score", 0.0) for r in results_b]
+                detections_b = [{"confidence": r["yolo_confidence"]}
+                                for r in results_b]
+                deg_features_b, deg_alerts_b, deg_score_b = (
+                    degradation_b.compute(
+                        frame_b, detections_b, ood_scores_b
+                    )
+                )
+
+                # draw_results が参照する last_degradation を一時的に B に切替
+                saved = self.last_degradation
+                saved_engine = self.degradation
+                self.last_degradation = {
+                    "features": deg_features_b,
+                    "alerts": deg_alerts_b,
+                    "score": deg_score_b,
+                }
+                self.degradation = degradation_b
+                display_b = self.draw_results(frame_b, results_b)
+                self.last_degradation = saved
+                self.degradation = saved_engine
+
+                cv2.putText(display_b,
+                              f"CAM B ({cam_b_id}) Frame {frame_count}",
+                              (10, h_b - 15),
+                              cv2.FONT_HERSHEY_SIMPLEX, 0.5,
+                              (0, 255, 255), 1)
+
+                # 高さを揃えて横並び結合
+                target_h = max(h_a, h_b)
+                if h_a != target_h:
+                    new_w_a = int(w_a * target_h / h_a)
+                    display_a = cv2.resize(display_a, (new_w_a, target_h))
+                if h_b != target_h:
+                    new_w_b = int(w_b * target_h / h_b)
+                    display_b = cv2.resize(display_b, (new_w_b, target_h))
+                combined = np.hstack([display_a, display_b])
+
+                # 下部に劣化比較バー
+                bar_h = 30
+                bar = np.zeros((bar_h, combined.shape[1], 3),
+                                dtype=np.uint8)
+
+                deg_a_score = deg_a["score"] if deg_a else 0.0
+                deg_b_score = deg_score_b
+
+                def _color(s):
+                    if s < 0.2:
+                        return (0, 255, 0)     # 緑
+                    if s < 0.5:
+                        return (0, 200, 255)   # オレンジ
+                    return (0, 0, 255)         # 赤
+
+                a_color = _color(deg_a_score)
+                b_color = _color(deg_b_score)
+
+                mid = combined.shape[1] // 2
+                cv2.putText(bar, f"A: deg={deg_a_score:.2f}", (10, 22),
+                              cv2.FONT_HERSHEY_SIMPLEX, 0.6, a_color, 1)
+                cv2.putText(bar, f"B: deg={deg_b_score:.2f}",
+                              (mid + 10, 22),
+                              cv2.FONT_HERSHEY_SIMPLEX, 0.6, b_color, 1)
+
+                if deg_a_score < deg_b_score:
+                    label = "A > B"
+                elif deg_b_score < deg_a_score:
+                    label = "B > A"
+                else:
+                    label = "A = B"
+                cv2.putText(bar, label, (mid - 40, 22),
+                              cv2.FONT_HERSHEY_SIMPLEX, 0.6,
+                              (255, 255, 255), 1)
+
+                combined = np.vstack([combined, bar])
+                cv2.imshow("Dual Camera - Degradation Detection",
+                            combined)
+
+            key = cv2.waitKey(1) & 0xFF
+            if key == ord("q"):
+                break
+            elif key == ord("p"):
+                paused = not paused
+                print(f"{'一時停止' if paused else '再開'}")
+            elif key == ord("s") and not paused:
+                ss_path = (
+                    f"../results/realtime/"
+                    f"dual_screenshot_{frame_count:06d}.jpg"
+                )
+                os.makedirs("../results/realtime", exist_ok=True)
+                cv2.imwrite(ss_path, combined)
+                print(f"スクリーンショット: {ss_path}")
+
+        cap_a.release()
+        cap_b.release()
+        cv2.destroyAllWindows()
+        print(f"\n=== デュアルカメラ サマリー ===")
+        print(f"総フレーム: {frame_count}")
+
 
 def main():
     try:
@@ -879,6 +1072,9 @@ def main():
                          help="OOD 除去閾値（デフォルト: 0.71、90%%ile）")
     parser.add_argument("--camera", type=int, default=None,
                          help="USB カメラのデバイス番号（例: 0）")
+    parser.add_argument("--dual-camera", nargs=2, type=int, default=None,
+                         metavar=("CAM_A", "CAM_B"),
+                         help="2 台カメラ同時表示（例: --dual-camera 0 1）")
     args = parser.parse_args()
 
     # --sahi-track は SAHI を有効化したうえで簡易トラッカーを使う
@@ -900,7 +1096,15 @@ def main():
         ood_threshold=args.ood_threshold,
     )
 
-    # カメラモード（最優先）: --camera が指定されていれば benchmark/単一動画より優先
+    # デュアルカメラモード（最優先）
+    if args.dual_camera is not None:
+        detector.process_dual_camera(
+            cam_a_id=args.dual_camera[0],
+            cam_b_id=args.dual_camera[1],
+        )
+        return
+
+    # 単一カメラモード（次に優先）
     if args.camera is not None:
         detector.process_camera(
             camera_id=args.camera,
