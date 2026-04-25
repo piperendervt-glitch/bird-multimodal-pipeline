@@ -1075,7 +1075,29 @@ def main():
     parser.add_argument("--dual-camera", nargs=2, type=int, default=None,
                          metavar=("CAM_A", "CAM_B"),
                          help="2 台カメラ同時表示（例: --dual-camera 0 1）")
+    parser.add_argument("--url", type=str, default=None,
+                         help="ネットワークカメラの URL（省略時は --rpi で .env の "
+                              "RPI4_STREAM_URL を使用）")
+    parser.add_argument("--rpi", action="store_true",
+                         help=".env の RPI4_STREAM_URL で RPi4 カメラに接続")
     args = parser.parse_args()
+
+    # .env から環境変数を読み込み（RPI4_STREAM_URL 等）
+    sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+    try:
+        from env_loader import load_env
+        load_env(os.path.join(os.path.dirname(os.path.abspath(__file__)),
+                              "..", ".env"))
+    except Exception:
+        pass
+
+    # --rpi の場合は .env から URL を取得
+    if args.rpi and args.url is None:
+        url = os.environ.get("RPI4_STREAM_URL")
+        if not url:
+            print("エラー: .env に RPI4_STREAM_URL が設定されていません")
+            return
+        args.url = url
 
     # --sahi-track は SAHI を有効化したうえで簡易トラッカーを使う
     if args.sahi_track:
@@ -1104,7 +1126,16 @@ def main():
         )
         return
 
-    # 単一カメラモード（次に優先）
+    # ネットワークカメラ（URL）モード
+    if args.url is not None:
+        print(f"ネットワークカメラ: {args.url}")
+        detector.process_camera(
+            camera_id=args.url,
+            save_path=args.save,
+        )
+        return
+
+    # 単一 USB カメラモード
     if args.camera is not None:
         detector.process_camera(
             camera_id=args.camera,

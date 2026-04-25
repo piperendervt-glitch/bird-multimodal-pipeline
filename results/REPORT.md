@@ -332,6 +332,10 @@ PS3 Eye（640x480）でディスプレイ上の鳥動画を撮影し、リアル
   - PS3 Eye は高確信度（conf 0.79〜0.85）、Webカメラは低確信度（conf 0.36〜0.76）
   - 片方が見逃してももう片方が補完（画像3: CAM A 検出0、CAM B 検出3）
   - 劣化スコアの比較バーで品質の良いカメラを自動判定
+- RPi4 HQ Camera（1280x720）からの WiFi ストリーミングで鳥検出に成功
+  - RPi4 で MJPEG 配信 → Windows PC（RTX 5060 Ti）で YOLO + DINOv2 推論
+  - ネットワーク遅延込みで 40.1fps（リアルタイム再生 30fps を超過）
+  - .env に RPI4_STREAM_URL を格納し、--rpi オプションで接続（IP アドレス非公開）
 
 ### Phase 6: 動的適応（AdaptiveFeatureRouter）
 
