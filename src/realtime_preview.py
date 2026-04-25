@@ -22,17 +22,121 @@ import cv2
 import numpy as np
 
 
+class SimpleTracker:
+    """SAHI 検出結果に対する簡易 IoU ベーストラッカー。
+
+    Ultralytics の model.track() は内部で検出と追跡を一体化しているため
+    SAHI の検出結果を直接渡せない。代わりに本クラスで IoU 関連付けを行う。
+
+    - 既存トラックと新検出の IoU を貪欲法でマッチング
+    - 一致しない検出は新 ID を割り当て
+    - 一致しないトラックは lost カウントを増やし max_lost で破棄
+    """
+
+    def __init__(self, iou_threshold=0.3, max_lost=30):
+        self.tracks = {}     # {track_id: {"bbox": [...], "lost": 0}}
+        self.next_id = 1
+        self.iou_threshold = iou_threshold
+        self.max_lost = max_lost
+
+    @staticmethod
+    def _compute_iou(box1, box2):
+        x1 = max(box1[0], box2[0])
+        y1 = max(box1[1], box2[1])
+        x2 = min(box1[2], box2[2])
+        y2 = min(box1[3], box2[3])
+
+        inter = max(0, x2 - x1) * max(0, y2 - y1)
+        area1 = (box1[2] - box1[0]) * (box1[3] - box1[1])
+        area2 = (box2[2] - box2[0]) * (box2[3] - box2[1])
+        union = area1 + area2 - inter
+        return inter / max(union, 1e-9)
+
+    def update(self, detections):
+        """検出リストに track_id を付与して返す。
+
+        detections: [{"bbox": [x1,y1,x2,y2], "confidence": float, ...}, ...]
+        """
+        # 検出ゼロのフレーム: 全トラックの lost を増やして古いものを破棄
+        if not detections:
+            for tid in list(self.tracks.keys()):
+                self.tracks[tid]["lost"] += 1
+                if self.tracks[tid]["lost"] > self.max_lost:
+                    del self.tracks[tid]
+            return []
+
+        track_ids = list(self.tracks.keys())
+
+        # 既存トラックなし → 全検出に新 ID
+        if not track_ids:
+            for det in detections:
+                det["track_id"] = self.next_id
+                self.tracks[self.next_id] = {
+                    "bbox": det["bbox"], "lost": 0,
+                }
+                self.next_id += 1
+            return detections
+
+        # 全ペアの IoU を計算
+        scores = []
+        for di, det in enumerate(detections):
+            for tid in track_ids:
+                iou = self._compute_iou(det["bbox"],
+                                          self.tracks[tid]["bbox"])
+                if iou >= self.iou_threshold:
+                    scores.append((iou, di, tid))
+
+        # 高 IoU 順に貪欲マッチング
+        scores.sort(reverse=True)
+        matched_dets = set()
+        matched_tracks = set()
+        for iou, di, tid in scores:
+            if di in matched_dets or tid in matched_tracks:
+                continue
+            detections[di]["track_id"] = tid
+            self.tracks[tid] = {"bbox": detections[di]["bbox"], "lost": 0}
+            matched_dets.add(di)
+            matched_tracks.add(tid)
+
+        # マッチしなかった検出 → 新 ID
+        for di, det in enumerate(detections):
+            if di not in matched_dets:
+                det["track_id"] = self.next_id
+                self.tracks[self.next_id] = {
+                    "bbox": det["bbox"], "lost": 0,
+                }
+                self.next_id += 1
+
+        # マッチしなかったトラック → lost カウント増加 / 古いものは破棄
+        for tid in track_ids:
+            if tid not in matched_tracks:
+                self.tracks[tid]["lost"] += 1
+                if self.tracks[tid]["lost"] > self.max_lost:
+                    del self.tracks[tid]
+
+        return detections
+
+
 class RealtimeBirdDetector:
     """リアルタイム鳥検出・分類パイプライン。"""
 
     def __init__(self, species_mapping_path=None, classifier_data_path=None,
-                 tracker="bytetrack", use_sahi=False, slice_size=320):
+                 tracker="bytetrack", use_sahi=False, slice_size=320,
+                 sahi_track=False):
         print("=== リアルタイム鳥検出システム 初期化 ===")
         self.tracker = tracker  # "bytetrack" / "botsort" / "none"
         self.use_sahi = use_sahi
         self.slice_size = slice_size
+        self.sahi_track = sahi_track  # SAHI + 簡易追跡モード
         if use_sahi:
-            print(f"SAHI モード: 有効 (slice_size={slice_size})")
+            mode = "SAHI + 簡易追跡" if sahi_track else "SAHI のみ"
+            print(f"SAHI モード: 有効 ({mode}, slice_size={slice_size})")
+
+        # SAHI 用の簡易トラッカー（--sahi-track 時のみ使用）
+        self.simple_tracker = (
+            SimpleTracker(iou_threshold=0.3, max_lost=30)
+            if sahi_track else None
+        )
 
         # 遅延 import（モデルロードの前に echo して初期化進捗を見えやすく）
         import torch
@@ -180,8 +284,13 @@ class RealtimeBirdDetector:
                 detections.append({
                     "bbox": [x1, y1, x2, y2],
                     "confidence": conf,
-                    "track_id": -1,  # SAHI は追跡 ID なし
+                    "track_id": -1,  # 既定は追跡なし
                 })
+
+        # SAHI + 簡易追跡モード時は IoU で ID を付与
+        if self.simple_tracker is not None:
+            detections = self.simple_tracker.update(detections)
+
         return detections
 
     def extract_features_batch(self, frame, detections, padding_ratio=0.3):
@@ -471,7 +580,7 @@ class RealtimeBirdDetector:
         mean_track_frames = (float(np.mean(list(track_frames.values())))
                               if track_frames else 0.0)
 
-        if self.tracker != "none":
+        if self.tracker != "none" or self.simple_tracker is not None:
             print(f"ユニーク ID 数: {unique_ids}")
             print(f"最長追跡フレーム数: {max_track_frames}")
             print(f"平均追跡フレーム数: {mean_track_frames:.1f}")
@@ -523,13 +632,19 @@ def main():
                          help="トラッカー（bytetrack/botsort/none）")
     parser.add_argument("--sahi", action="store_true",
                          help="SAHI タイル分割推論を有効化（小鳥検出改善）")
+    parser.add_argument("--sahi-track", action="store_true",
+                         help="SAHI + 簡易 IoU 追跡（小鳥検出 + ID 付与）")
     parser.add_argument("--slice-size", type=int, default=320,
                          help="SAHI のスライスサイズ（デフォルト: 320）")
     args = parser.parse_args()
 
-    # SAHI モード時は追跡を無効化（同時併用不可）
+    # --sahi-track は SAHI を有効化したうえで簡易トラッカーを使う
+    if args.sahi_track:
+        args.sahi = True
+
+    # SAHI モード時は Ultralytics 内蔵トラッカーは併用不可
     if args.sahi and args.tracker != "none":
-        print(f"注意: SAHI モードでは追跡が使えません。"
+        print(f"注意: SAHI モードでは Ultralytics 追跡が使えません。"
               f"tracker={args.tracker} → none に変更します。")
         args.tracker = "none"
 
@@ -537,6 +652,7 @@ def main():
         tracker=args.tracker,
         use_sahi=args.sahi,
         slice_size=args.slice_size,
+        sahi_track=args.sahi_track,
     )
 
     if args.benchmark:
@@ -605,8 +721,9 @@ def main():
                   f"{tr.get('max_track_frames', 0):>5} "
                   f"{tr.get('mean_track_frames', 0):>7.1f}")
 
-        # 追跡サマリー
-        if args.tracker != "none":
+        # 追跡サマリー（Ultralytics トラッカー or SAHI 簡易追跡が有効な時）
+        has_tracking = (args.tracker != "none") or args.sahi_track
+        if has_tracking:
             total_unique = sum(r.get("tracking", {}).get("unique_ids", 0)
                                 for r in all_results)
             total_max = (max(r.get("tracking", {}).get("max_track_frames", 0)
@@ -614,8 +731,10 @@ def main():
                          if all_results else 0)
             avg_unique = (total_unique / len(all_results)
                           if all_results else 0)
+            tracker_name = ("simple_tracker (SAHI)"
+                            if args.sahi_track else args.tracker)
             print(f"\n--- 追跡サマリー ---")
-            print(f"トラッカー: {args.tracker}")
+            print(f"トラッカー: {tracker_name}")
             print(f"全動画でのユニーク ID 合計: {total_unique}")
             print(f"動画別 平均ユニーク ID 数: {avg_unique:.1f}")
             print(f"全動画での最長追跡フレーム数: {total_max}")
@@ -665,7 +784,9 @@ def main():
         }
 
         # ファイル名を手法別に分けて上書き衝突を防ぐ
-        if args.sahi:
+        if args.sahi_track:
+            suffix = f"sahi_track_{args.slice_size}"
+        elif args.sahi:
             suffix = f"sahi_{args.slice_size}"
         else:
             suffix = args.tracker  # bytetrack / botsort / none

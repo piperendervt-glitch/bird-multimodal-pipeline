@@ -97,7 +97,8 @@
       "Bash(echo \"PID: $!\")",
       "Bash(echo \"BoT-SORT PID: $!\")",
       "Bash(echo \"SAHI PID: $!\")",
-      "Bash(awk -F: '{sum+=$2} END {print sum}')"
+      "Bash(awk -F: '{sum+=$2} END {print sum}')",
+      "Bash(echo \"SAHI-track PID: $!\")"
     ]
   }
 }

@@ -23,10 +23,11 @@ import time
 
 
 METHODS = [
-    {"name": "none",      "args": ["--tracker", "none"]},
-    {"name": "bytetrack", "args": ["--tracker", "bytetrack"]},
-    {"name": "botsort",   "args": ["--tracker", "botsort"]},
-    {"name": "sahi",      "args": ["--sahi"]},
+    {"name": "none",       "args": ["--tracker", "none"]},
+    {"name": "bytetrack",  "args": ["--tracker", "bytetrack"]},
+    {"name": "botsort",    "args": ["--tracker", "botsort"]},
+    {"name": "sahi",       "args": ["--sahi"]},
+    {"name": "sahi-track", "args": ["--sahi-track"]},
 ]
 
 
@@ -34,6 +35,8 @@ def benchmark_filename(method_name, slice_size=320):
     """手法ごとの保存ファイル名を返す（realtime_preview.py の規約と一致）。"""
     if method_name == "sahi":
         return f"benchmark_sahi_{slice_size}.json"
+    if method_name == "sahi-track":
+        return f"benchmark_sahi_track_{slice_size}.json"
     return f"benchmark_{method_name}.json"
 
 
@@ -45,7 +48,7 @@ def run_benchmark(method, video_dir, max_frames=0, skip=0,
         "--benchmark", "--no-display",
     ] + method["args"]
 
-    if method["name"] == "sahi":
+    if method["name"] in ("sahi", "sahi-track"):
         cmd += ["--slice-size", str(slice_size)]
     if max_frames > 0:
         cmd += ["--max-frames", str(max_frames)]
@@ -120,8 +123,12 @@ def main():
     parser.add_argument("--slice-size", type=int, default=320,
                          help="SAHI のスライスサイズ")
     parser.add_argument("--methods", nargs="+",
-                         default=["none", "bytetrack", "botsort", "sahi"],
-                         help="実行する手法（none bytetrack botsort sahi）")
+                         default=["none", "bytetrack", "botsort",
+                                  "sahi", "sahi-track"],
+                         help="実行する手法（none bytetrack botsort "
+                              "sahi sahi-track）")
+    parser.add_argument("--resume", action="store_true",
+                         help="前回の中断から再開（完了済みをスキップ）")
     args = parser.parse_args()
 
     methods_to_run = [m for m in METHODS if m["name"] in args.methods]
@@ -135,13 +142,32 @@ def main():
     print(f"動画: {args.video_dir}")
     if args.max_frames > 0:
         print(f"最大フレーム: {args.max_frames}")
-    if "sahi" in args.methods:
+    if any(m in args.methods for m in ("sahi", "sahi-track")):
         print(f"SAHI スライスサイズ: {args.slice_size}")
 
+    # 既存結果の読み込み（--resume 時）
+    results_path = "../results/realtime/benchmark_all.json"
+    existing_results = {}
+    if args.resume and os.path.exists(results_path):
+        try:
+            with open(results_path, encoding="utf-8") as f:
+                prev = json.load(f)
+            existing_results = prev.get("results", {})
+            if existing_results:
+                print(f"\n--resume: 既存結果を読み込み: "
+                      f"{list(existing_results.keys())}")
+        except Exception as e:
+            print(f"既存 JSON の読込失敗: {e}（新規実行）")
+
     total_start = time.time()
-    all_results = {}
+    all_results = dict(existing_results)
 
     for method in methods_to_run:
+        # 完了済みの手法はスキップ
+        if args.resume and method["name"] in all_results:
+            print(f"\nスキップ（完了済み）: {method['name']}")
+            continue
+
         result = run_benchmark(
             method, args.video_dir,
             max_frames=args.max_frames,
@@ -150,6 +176,18 @@ def main():
         )
         if result:
             all_results[method["name"]] = result
+
+        # 各手法完了後に中間保存（中断に備える）
+        os.makedirs("../results/realtime", exist_ok=True)
+        intermediate = {
+            "methods_completed": list(all_results.keys()),
+            "methods_planned": [m["name"] for m in methods_to_run],
+            "elapsed_sec": time.time() - total_start,
+            "results": all_results,
+        }
+        with open(results_path, "w", encoding="utf-8") as f:
+            json.dump(intermediate, f, indent=2, ensure_ascii=False)
+        print(f"  中間保存: {results_path}")
 
     total_elapsed = time.time() - total_start
 
@@ -208,11 +246,12 @@ def main():
           f"({total_elapsed/60:.1f} 分)")
 
     # ========================================
-    # 保存
+    # 最終保存
     # ========================================
     os.makedirs("../results/realtime", exist_ok=True)
     output = {
-        "methods": list(all_results.keys()),
+        "methods_completed": list(all_results.keys()),
+        "methods_planned": [m["name"] for m in methods_to_run],
         "total_time_sec": total_elapsed,
         "max_frames": args.max_frames,
         "skip_frames": args.skip,
