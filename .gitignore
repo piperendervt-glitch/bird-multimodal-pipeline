@@ -4,6 +4,8 @@ data/
 # 大きな中間ファイル
 results/bird_phase4b/crops/
 results/bird_phase4b/audio/
+results/phase5g_youtube/crops/
+results/phase5g_youtube/audio/
 results/vb100_phase5e/crops/
 results/vb100_phase5e/frame_results.json
 results/vb100_phase5e/frame_predictions.json

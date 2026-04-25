@@ -1,0 +1,174 @@
+{
+  "yolo_stats": {
+    "yes": {
+      "videos": 8,
+      "total_frames": 616,
+      "detected_frames": 449
+    },
+    "partial": {
+      "videos": 8,
+      "total_frames": 427,
+      "detected_frames": 367
+    },
+    "other": {
+      "videos": 2,
+      "total_frames": 51,
+      "detected_frames": 50
+    },
+    "no_sound": {
+      "videos": 1,
+      "total_frames": 35,
+      "detected_frames": 33
+    }
+  },
+  "birdnet_by_label": {
+    "yes": [
+      {
+        "video_id": "OunH7y_wmRw",
+        "gt_mean": 0.8762174490274806,
+        "gt_max": 0.999398946762085,
+        "overall_max": 0.8786752620203928,
+        "top_species": "Parus major_Great Tit"
+      },
+      {
+        "video_id": "kypF0KtidGw",
+        "gt_mean": 0.1529013463981854,
+        "gt_max": 0.9973174929618835,
+        "overall_max": 0.3839740853994911,
+        "top_species": "Glaucidium passerinum_Eurasian Pygmy-Owl"
+      },
+      {
+        "video_id": "w1adyz82pdI",
+        "gt_mean": 0.8347687274217606,
+        "gt_max": 0.9951862692832947,
+        "overall_max": 0.8487621609653745,
+        "top_species": "Parus major_Great Tit"
+      },
+      {
+        "video_id": "hhy4u2dZXyw",
+        "gt_mean": 0.2357891337790837,
+        "gt_max": 0.6679179668426514,
+        "overall_max": 0.26537809355391395,
+        "top_species": "Parus major_Great Tit"
+      },
+      {
+        "video_id": "kU2HCB0kNW4",
+        "gt_mean": 0.005916682883467087,
+        "gt_max": 0.08038663119077682,
+        "overall_max": 0.5447940966418756,
+        "top_species": "Parus minor_Japanese Tit"
+      },
+      {
+        "video_id": "MjTTse261pU",
+        "gt_mean": 0.005435404097661376,
+        "gt_max": 0.025299692526459694,
+        "overall_max": 0.8094976239837706,
+        "top_species": "Parus minor_Japanese Tit"
+      },
+      {
+        "video_id": "3MqiAezCflQ",
+        "gt_mean": 0.00010607550211716443,
+        "gt_max": 0.003394416067749262,
+        "overall_max": 0.19144991652137833,
+        "top_species": "Engine_Engine"
+      },
+      {
+        "video_id": "O-oG0X3QRVg",
+        "gt_mean": 7.114009790574059e-06,
+        "gt_max": 0.0011738116154447198,
+        "overall_max": 0.133616223536206,
+        "top_species": "Pica pica_Eurasian Magpie"
+      }
+    ],
+    "partial": [
+      {
+        "video_id": "XNooQ3qvRTI",
+        "gt_mean": 0.00038259678562595087,
+        "gt_max": 0.010544483549892902,
+        "overall_max": 0.22118504309434106,
+        "top_species": "Parus minor_Japanese Tit"
+      },
+      {
+        "video_id": "DDPqrGDnlMw",
+        "gt_mean": 0.015223778927555451,
+        "gt_max": 0.17352333664894104,
+        "overall_max": 0.06777712545142724,
+        "top_species": "Passer montanus_Eurasian Tree Sparrow"
+      },
+      {
+        "video_id": "nSwoFDJHgNI",
+        "gt_mean": 0.0001388822691332476,
+        "gt_max": 0.019243149086833,
+        "overall_max": 0.22611524660697244,
+        "top_species": "Pica pica_Eurasian Magpie"
+      },
+      {
+        "video_id": "R9O27RteTpQ",
+        "gt_mean": 0.22020706506555143,
+        "gt_max": 0.9834533333778381,
+        "overall_max": 0.473978586262092,
+        "top_species": "Parus major_Great Tit"
+      },
+      {
+        "video_id": "CQ6mA0Pm_dM",
+        "gt_mean": 0.0,
+        "gt_max": 0.0,
+        "overall_max": 0.05708198994398117,
+        "top_species": "Quiscalus mexicanus_Great-tailed Grackle"
+      },
+      {
+        "video_id": "GUDH_fqB_-8",
+        "gt_mean": 0.014292866146812836,
+        "gt_max": 0.05871874466538429,
+        "overall_max": 0.5033747692568562,
+        "top_species": "Cyanistes caeruleus_Eurasian Blue Tit"
+      },
+      {
+        "video_id": "tRuHOvUmuYk",
+        "gt_mean": 0.0,
+        "gt_max": 0.0,
+        "overall_max": 0.31318583711981773,
+        "top_species": "Corvus cornix_Hooded Crow"
+      },
+      {
+        "video_id": "du1bdcnvXVU",
+        "gt_mean": 0.0,
+        "gt_max": 0.0,
+        "overall_max": 0.2211802409340938,
+        "top_species": "Chloris chloris_European Greenfinch"
+      }
+    ],
+    "other": [
+      {
+        "video_id": "BpaoT5t3fCU",
+        "gt_mean": 0.0,
+        "gt_max": 0.0,
+        "overall_max": 0.024706652698417503,
+        "top_species": "Corvus cornix_Hooded Crow"
+      },
+      {
+        "video_id": "ty5Qz2xo3Qs",
+        "gt_mean": 0.0003109500588228305,
+        "gt_max": 0.014925602823495865,
+        "overall_max": 0.23804105567978695,
+        "top_species": "Turdus merula_Eurasian Blackbird"
+      }
+    ],
+    "no_sound": [
+      {
+        "video_id": "ldIOzyRrl-w",
+        "gt_mean": 0.0,
+        "gt_max": 0.0,
+        "overall_max": 0.03506432130400624,
+        "top_species": "Gallinula chloropus_Eurasian Moorhen"
+      }
+    ]
+  },
+  "threshold": 0.3,
+  "birdnet_detected_count": 5,
+  "birdnet_missed_count": 14,
+  "human_yes_detected": 4,
+  "human_yes_total": 8,
+  "human_other_missed": 2,
+  "human_other_total": 2
+}

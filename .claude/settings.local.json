@@ -82,7 +82,15 @@
       "Bash(PYTHONIOENCODING=utf-8 python phase6_formal_eval.py)",
       "Bash(git rm *)",
       "Bash(PYTHONIOENCODING=utf-8 python phase6_oof_predict.py)",
-      "Bash(PYTHONIOENCODING=utf-8 python phase6_oof_eval.py)"
+      "Bash(PYTHONIOENCODING=utf-8 python phase6_oof_eval.py)",
+      "Bash(yt-dlp --version)",
+      "Bash(PYTHONIOENCODING=utf-8 python download_youtube_greattit.py)",
+      "Bash(PYTHONIOENCODING=utf-8 python inspect_youtube_greattit.py)",
+      "Bash(PYTHONIOENCODING=utf-8 python make_labels_template.py)",
+      "Bash(PYTHONIOENCODING=utf-8 python download_youtube_greattit_additional.py)",
+      "Bash(python phase5g_youtube_audio.py)",
+      "Read(//tmp/**)",
+      "Bash(PYTHONIOENCODING=utf-8 python *)"
     ]
   }
 }
